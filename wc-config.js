@@ -102,31 +102,35 @@
   [
     {
       selector: 'a-',
-      url: 'atoms/'
+      url: 'web-components-cms-template/src/es/components/atoms/'
     },
     {
       selector: 'c-',
-      url: 'controllers/'
+      url: 'web-components-cms-template/src/es/components/controllers/'
     },
     {
       selector: 'm-',
-      url: 'molecules/'
+      url: 'web-components-cms-template/src/es/components/molecules/'
     },
     {
       selector: 'msrc-',
-      url: 'msrc/'
+      url: 'web-components-cms-template/src/es/components/msrc/'
     },
     {
       selector: 'o-',
-      url: 'organisms/'
+      url: 'web-components-cms-template/src/es/components/organisms/'
     },
     {
       selector: 'p-',
-      url: 'pages/'
+      url: 'web-components-cms-template/src/es/components/pages/'
     },
     {
       selector: 'third-party-',
-      url: 'thirdParty/'
+      url: 'web-components-cms-template/src/es/components/thirdParty/'
+    },
+    {
+      selector: 'sparx-a-',
+      url: 'atoms/'
     }
   ] // directories
   // ↑↑↑ adjustable ↑↑↑
