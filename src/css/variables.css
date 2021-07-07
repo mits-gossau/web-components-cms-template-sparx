@@ -5,18 +5,24 @@
  * - if a component holds other components you should share the attribute namespace with its children
  */
 html {
-  --color-hover:#ffffff;
-  --color-secondary:#d9adff;
-  --color:#d9adff;
-  --background-color:#272727;
-  --html-background-color: var(--background-color);
+  --background-color: #FEDF73;
+  --color-hover: var(--color);
+  --color-secondary: var(--color);
+  --color: #282828;
+  --content-spacing-mobile: var(--content-spacing);
+  --content-spacing: 20px;
+  --content-width-mobile: var(--content-width);
+  --content-width-not-web-component-mobile: var(--content-width-not-web-component);
+  --content-width-not-web-component: 90%;
+  --content-width: 100%;
   --font-family:'Wendy One',sans-serif;
   --font-size:1.3rem;
-  --header-background-color:var(--background-color);
-  --navigation-a-link-color-nav-open:var(--color);
   --footer-background-color:var(--background-color);
   --footer-color:var(--color);
   --footer-engagement-logo-text-color:#fff;
+  --header-background-color-open:var(--background-color);
+  --header-background-color:var(--background-color);
+  --html-background-color: var(--background-color);
+  --navigation-a-link-color-nav-open:var(--color);
   --navigation-background-color:var(--background-color);
-  --header-background-color-open:var(--background-color)
 }

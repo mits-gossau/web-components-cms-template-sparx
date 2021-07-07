@@ -170,6 +170,10 @@
     {
       selector: 'sparx-a-',
       url: 'atoms/'
+    },
+    {
+      selector: 'sparx-o-',
+      url: 'organisms/'
     }
   ] // directories
   // ↑↑↑ adjustable ↑↑↑
