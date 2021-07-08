@@ -36,18 +36,7 @@ export default class Style extends Body {
       :host {
         display: block;
         padding: var(--content-spacing, unset) 0;
-        ${this.hasAttribute('color')
-          ? `
-          --color: ${this.getAttribute('color')};
-          color: ${this.getAttribute('color')};
-          `
-          : ''}
-        ${this.hasAttribute('background-color')
-          ? `
-            --background-color: ${this.getAttribute('background-color')};
-            background-color: ${this.getAttribute('background-color')};
-          `
-          : ''}
+        ${Array.from(this.attributes).reduce((acc, attribute) => `${acc}${attribute.name}: ${attribute.value};--${attribute.name}: ${attribute.value};`, '')}
       }
     `
   }
