@@ -8,7 +8,7 @@ html {
   --background-color: #272727;
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
-  --color: #d9adff;
+  --color: #D2BB61;
   --content-spacing-mobile: var(--content-spacing);
   --content-spacing: 0;
   --content-width-mobile: var(--content-width);
@@ -105,5 +105,9 @@ html {
   --footer-ul-margin-mobile: 0 auto 15px auto;
   --footer-ul-margin: 0 10px;
   --footer-ul-padding: 0;
+  --picture-img-width: 90%;
+
+
+  
 
 }
