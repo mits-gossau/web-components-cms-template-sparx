@@ -13,8 +13,8 @@ html {
   --content-spacing: 0;
   --content-width-mobile: var(--content-width);
   --content-width-not-web-component-mobile: var(--content-width-not-web-component);
-  --content-width-not-web-component: 100vw;
-  --content-width: 100vw;
+  --content-width-not-web-component: 90%;
+  --content-width: 100%;
   --font-family: 'Wendy One', sans-serif;
   --font-size:1.3rem;
   --footer-background-color: #272727;
@@ -25,7 +25,7 @@ html {
   --header-background-color:var(--background-color);
   --header-justify-content: flex-end;
   --html-background-color: var(--background-color);
-  --navigation-color: #D2BB61;
+  --navigation-color:var(--color);
   --navigation-background-color: var(--background-color);
   --navigation-a-link-color-nav-open: var(--color);
   --navigation-background-color:var(--background-color);
@@ -36,7 +36,8 @@ html {
   --h4-margin: 0;
   --h5-margin: 0;
   --h6-margin: 0;
-  --main-padding: 0;
+  --main-padding-mobile: calc(var(--spacer-height-mobile)/2) 0 var(--spacer-height-mobile) 0;
+  --main-margin: 2em;
 
   --header-content-spacing: 1em;
   --header-content-width-mobile: var(--content-width-mobile);
