@@ -15,7 +15,14 @@ html {
   --content-width-not-web-component-mobile: var(--content-width-not-web-component);
   --content-width-not-web-component: 90%;
   --content-width: 100%;
-  --font-family: 'Wendy One', sans-serif;
+
+  --font-family: "GT-Haptik-Medium", Arial, sans-serif;
+  --font-family-secondary: "GT-Haptik-Medium-2", Arial, sans-serif;
+  --font-family-tertiary: "GT-Haptik-Medium-Oblique", Arial, sans-serif;
+  --font-family-quaternary: "GT-Haptik-Medium-Oblique-2", Arial, sans-serif;
+  --font-family-quinary: "GT-Haptik-Medium-Rotalic", Arial, sans-serif;
+  --font-family-senary: "GT-Haptik-Medium-Rotalic-2", Arial, sans-serif;
+
   --font-size:1.3rem;
   --footer-background-color: #272727;
   --footer-color: #ffffff;
