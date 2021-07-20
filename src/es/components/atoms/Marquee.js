@@ -37,9 +37,13 @@ export default class Marquee extends Shadow() {
    */
   renderCSS () {
     this.css = /* css */`
+
       :host > * {
-        animation:marquee 10s linear infinite;
+        animation:marquee ${this.getAttribute('animation-duration') || 20}s linear infinite;
       }
+
+
+
       @keyframes marquee{
         from{
           transform:translateX(101%);

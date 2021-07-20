@@ -1,4 +1,67 @@
 /**
  * NOTE: consider the following <link rel="preload" href="[url_to_font]"> to prefetch initially displayed fonts
  */
-@import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+
+/* GT-Haptik-Medium */
+@font-face {
+  font-family: 'GT-Haptik-Medium';
+  src: url('../fonts/GT-Haptik-Medium.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'GT-Haptik-Medium-2';
+  src: url('../fonts/GT-Haptik-Medium-2.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium-2.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium-2.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium-2.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+/* GT-Haptik-Medium-Oblique */
+@font-face {
+  font-family: 'GT-Haptik-Medium-Oblique';
+  src: url('../fonts/GT-Haptik-Medium-Oblique.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium-Oblique.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium-Oblique.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium-Oblique.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'GT-Haptik-Medium-Oblique-2';
+  src: url('../fonts/GT-Haptik-Medium-Oblique-2.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium-Oblique-2.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium-Oblique-2.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium-Oblique-2.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+/* GT-Haptik-Medium-Oblique */
+@font-face {
+  font-family: 'GT-Haptik-Medium-Rotalic';
+  src: url('../fonts/GT-Haptik-Medium-Rotalic.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium-Rotalic.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium-Rotalic.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium-Rotalic.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'GT-Haptik-Medium-Rotalic-2';
+  src: url('../fonts/GT-Haptik-Medium-Rotalic-2.otf') format('opentype'),
+       url('../fonts/GT-Haptik-Medium-Rotalic-2.ttf') format('truetype'),
+       url('../fonts/GT-Haptik-Medium-Rotalic-2.woff') format('woff'),
+       url('../fonts/GT-Haptik-Medium-Rotalic-2.woff2') format('woff2');
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
