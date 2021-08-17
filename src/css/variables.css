@@ -71,8 +71,8 @@
   --footer-logo-margin: 0 0 -1vw 0;
   --footer-logo-max-height: max(120px, 5vw);
   --footer-logo-padding: 0;
-  --footer-min-height-mobile: 50px;
-  --footer-min-height: 50px;
+  --footer-min-height-mobile: 0;
+  --footer-min-height: 0;
   --footer-p-line-height: normal;
   --footer-p-margin: -3px 0px;
   --footer-padding-mobile: 3vh 2vw;
