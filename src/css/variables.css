@@ -5,16 +5,24 @@
  * - if a component holds other components you should share the attribute namespace with its children
  */
  html {
+  --a-display: block;
+  --a-margin: 0;
+  --a-text-align: center;
+  --a-text-decoration-hover: none;
+  --a-text-decoration: underline;
+  --animation: none;
+  --any-a-display: inline;
   --background-color: #272727;
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;
-  --content-spacing-mobile: var(--content-spacing);
-  --content-spacing: 0;
-  --content-width-mobile: var(--content-width);
-  --content-width-not-web-component-mobile: var(--content-width-not-web-component);
-  --content-width-not-web-component: 90%;
-  --content-width: 100%;
+  --content-spacing-mobile: 50px;
+  --content-spacing: 60px;
+  --content-width-mobile: 92%;
+  --content-width-not-web-component-mobile: 92%;
+  --content-width-not-web-component: 50%;
+  --content-width: 85%;
+  --flex-grow: 1;
   --font-family-quaternary: "GT-Haptik-Medium-Oblique-2", Arial, sans-serif;
   --font-family-quinary: "GT-Haptik-Medium-Rotalic", Arial, sans-serif;
   --font-family-secondary: "GT-Haptik-Medium-2", Arial, sans-serif;
@@ -116,5 +124,7 @@
   --search-field-input-border: 1px solid var(--color);
   --search-field-input-outline: none;
   --search-field-width: 500px;
+  --spacer-height-mobile: 50px;
+  --spacer-height: 60px;
   --video-margin: 0 auto;
 }
