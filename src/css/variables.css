@@ -109,6 +109,9 @@
   --html-background-color: var(--background-color);
   --main-margin: 2em;
   --main-padding-mobile: calc(var(--spacer-height-mobile)/2) 0 var(--spacer-height-mobile) 0;
+  --marquee-a-margin: 0;
+  --marquee-a-text-decoration-hover: none;
+  --marquee-a-text-decoration: underline;
   --marquee-background-color: var(--color);
   --marquee-color: var(--background-color);
   --marquee-font-size: 1.591rem;

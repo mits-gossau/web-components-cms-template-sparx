@@ -5,6 +5,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 
 /**
  * Sample is an icon
+ * https://jira.migros.net/browse/SPARX-55
  * Example at: /src/es/components/pages/Home.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
@@ -13,25 +14,41 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @type {CustomElementConstructor}
  * @attribute {
  *  {number} [animation-duration=20] example 20 seconds for an 800px text to cross the screen
+ *  {string} [background-color: vars]
+ *  {string} [color: vars]
  * }
  * @css {
- *  var(--background-color, red);
-    var(--color, white);
+ *  var(--background-color, red)'};
+    var(--bottom, 0);
+    var(--color, white)'};
     var(--font-size, 45px);
     var(--grid-area, footer);
-    var(--padding, 0.672em);
+    var(--padding, 0.672em 0);
+    var(--position, fixed);
+    var(--a-color, var(--color-secondary, var(--color, pink)));
+    var(--a-font-weight, var(--font-weight, normal));
+    var(--a-text-align, unset);
+    var(--a-text-decoration, var(--text-decoration, none));
+    var(--a-text-underline-offset, unset);
+    var(--a-display, inline);
+    var(--a-margin, var(--content-spacing, unset)) auto;
+    var(--a-color-hover, var(--color-hover-secondary, var(--color-hover, var(--color, green))));
+    var(--a-text-decoration-hover, var(--text-decoration-hover, var(--a-text-decoration, var(--text-decoration, none))));
     var(--font-size-mobile, var(--font-size, 1rem));
+    var(--a-margin-mobile, var(--a-margin, var(--content-spacing-mobile, var(--content-spacing, unset)))) auto;
  * }
  */
 export default class Marquee extends Shadow() {
   constructor (...args) {
     super(...args)
 
+    // resize listeners
     let timeout = null
     this.resizeListener = event => {
       clearTimeout(timeout)
       timeout = setTimeout(() => this.renderCSSByChildrenOffsetWidth(), 200)
     }
+    // touch listeners
     const css = document.createElement('style')
     css.setAttribute('protected', 'true')
     this.html = css
@@ -100,11 +117,15 @@ export default class Marquee extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host {
+        ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
+        ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         background-color: var(--background-color, red);
+        bottom: var(--bottom, 0);
         color: var(--color, white);
         font-size: var(--font-size, 45px);
         grid-area: var(--grid-area, footer);
         padding: var(--padding, 0.672em 0);
+        position: var(--position, fixed);
         visibility: hidden;
         white-space: nowrap;
       }:host > section {
@@ -113,9 +134,25 @@ export default class Marquee extends Shadow() {
       :host > section > * {
         animation: marquee ${this._animationDuration = this.getAttribute('animation-duration') || 20}s linear infinite;
       }
+      :host > section > * a {
+        color: var(--a-color, var(--color-secondary, var(--color, pink)));
+        font-weight: var(--a-font-weight, var(--font-weight, normal));
+        text-align: var(--a-text-align, unset);
+        text-decoration: var(--a-text-decoration, var(--text-decoration, none));
+        text-underline-offset: var(--a-text-underline-offset, unset);
+        display: var(--a-display, inline);
+        margin: var(--a-margin, var(--content-spacing, unset)) auto;
+      }
+      :host > section > * a:hover, :host > section > * a:active, :host > section > * a:focus {
+        color: var(--a-color-hover, var(--color-hover-secondary, var(--color-hover, var(--color, green))));
+        text-decoration: var(--a-text-decoration-hover, var(--text-decoration-hover, var(--a-text-decoration, var(--text-decoration, none))));
+      }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           font-size: var(--font-size-mobile, var(--font-size, 1rem));
+        }
+        :host > section > * a {
+          margin: var(--a-margin-mobile, var(--a-margin, var(--content-spacing-mobile, var(--content-spacing, unset)))) auto;
         }
       }
     `
@@ -148,7 +185,7 @@ export default class Marquee extends Shadow() {
           visibility: visible;
         }
         ${this.generateAnimationDuration((Number(this.getAttribute('animation-duration')) || 20) * (offsetWidth / 800))}
-        ${this.generateKeyframesMarquee('100%', `-${offsetWidth}px`)}
+        ${this.generateKeyframesMarquee('100vw', `-${offsetWidth}px`)}
       `
     })
   }
@@ -174,11 +211,11 @@ export default class Marquee extends Shadow() {
   /**
    * generates the keyframes css
    *
-   * @param {string} [from = '100%']
-   * @param {string} [to = '-100%']
+   * @param {string} [from = '100vw']
+   * @param {string} [to = '-100vw']
    * @return {string}
    */
-  generateKeyframesMarquee (from = '100%', to = '-100%') {
+  generateKeyframesMarquee (from = '100vw', to = '-100vw') {
     return `@keyframes marquee{
       from{
         transform: translateX(${from});
@@ -195,10 +232,10 @@ export default class Marquee extends Shadow() {
    * @return {void}
    */
   renderHTML () {
-    const section = this.root.appendChild(document.createElement('section'))
+    this.section = this.root.appendChild(document.createElement('section'))
     Array.from(this.root.children).forEach(node => {
-      if (node === section || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
-      section.appendChild(node)
+      if (node === this.section || node.getAttribute('slot') || node.nodeName === 'STYLE') return false
+      this.section.appendChild(node)
     })
   }
 }
