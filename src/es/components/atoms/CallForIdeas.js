@@ -199,7 +199,7 @@ export default class CallForIdeas extends Intersection() {
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           ${this.hasAttribute('position-mobile') ? `--position-mobile: ${this.getAttribute('position-mobile')};` : ''}
-          position: var(--position-mobile, absolute);
+          position: var(--position-mobile, var(--position, absolute));
           ${this.hasAttribute('top-mobile') ? `--top-mobile: ${this.getAttribute('top-mobile')};` : ''}
           top: var(--top-mobile, var(--top, unset));
           ${this.hasAttribute('right-mobile') ? `--right-mobile: ${this.getAttribute('right-mobile')};` : ''}
