@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href=../../../css/variables.css rel=stylesheet>
   <link href=../../../css/misc.css rel=stylesheet>
   <link href=../../../css/fonts.css rel=stylesheet>
@@ -15,10 +15,16 @@
   <meta property="og:description" content="">
   <meta name="keywords" content="">
 </head>
+
 <body>
   <p-general>
     <o-header no-scroll="nav-open" menu-icon="true" namespace="header-">
-      <style>:host header{margin:0;width:100%}</style>
+      <style>
+        :host header {
+          margin: 0;
+          width: 100%
+        }
+      </style>
       <m-navigation hover="false" namespace="navigation-" no-scroll="nav-open">
         <ul>
           <li>
@@ -61,16 +67,29 @@
       </m-navigation>
     </o-header>
     <o-body>
-      <div>
-        <a-picture namespace="picture-" defaultsource="https://testadmin.sparx-space.ch/media/ixqn5dfc/sparx-test.png?anchor=center&mode=crop&format=png&quality=80&rnd=132677060059730000" alt="Sparx Test">
-          <style>:host{--picture-height:;--picture-height-mobile:;--picture-width:min(,var(--content-width,100%));--picture-width-mobile:min(,var(--content-width-mobile,100%))}</style>
-        </a-picture>
-      </div>
+      <sparx-o-style color="#FEDF73" background-color="#282828">
+        <div>
+          <a-picture namespace="picture-"
+            defaultsource="https://testadmin.sparx-space.ch/media/ixqn5dfc/sparx-test.png?anchor=center&mode=crop&format=png&quality=80&rnd=132677060059730000"
+            alt="Sparx Test">
+            <style>
+              :host {
+                --picture-height: ;
+                --picture-height-mobile: ;
+                --picture-width: min(, var(--content-width, 100%));
+                --picture-width-mobile: min(, var(--content-width-mobile, 100%))
+              }
+            </style>
+          </a-picture>
+        </div>
+      </sparx-o-style>
+      <sparx-a-call-for-ideas star namespace="call-for-ideas-" href="xxx/forderung/#cta" text="!!!!Jetzt deine Idee<br>einreichen !!!Jetzt deine Idee<br>einreichen !!!Jetzt deine Idee<br>einreichen" title="Call<br>for ideas" top=15vh left=15vw left-mobile=5vw></sparx-a-call-for-ideas>
     </o-body>
-    <sparx-a-call-for-ideas>
-      <a href="/forderung/#cta" title="Förderung">Call for Ideas</a>
-    </sparx-a-call-for-ideas>
-    <sparx-a-marquee namespace="marquee-"><div>Lorem <a href="#">ipsum dolor sit</a>, amet consectetur adipisicing elit. Velit eveniet adipisci aliquam, fuga nulla distinctio iste consectetur, architecto blanditiis fugiat necessitatibus ipsam illum quam facere eligendi unde, quo dolore dolorum!</div></sparx-a-marquee>
+    <sparx-a-marquee namespace="marquee-">
+      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit eveniet adipisci aliquam, fuga nulla
+        distinctio iste consectetur, architecto blanditiis fugiat necessitatibus ipsam illum quam facere eligendi unde,
+        quo dolore dolorum!</div>
+    </sparx-a-marquee>
   </p-general>
   <!--<msrc-cookie-banner props="{'env': 'test', 'language': 'de', 'theme': 'mgb', 'webAPIKey': 'YZ2PxeiToHsMMnjPdpeEZU9Tp4N9adVVAwYLQKjJg89KQ6MCFcYKQL9Cdcq2HjgE'}" mobile-breakpoint="1000px"></msrc-cookie-banner>-->
 </body>
