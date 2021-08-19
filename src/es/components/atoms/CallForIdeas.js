@@ -154,7 +154,7 @@ export default class CallForIdeas extends Intersection() {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transform: var(--text-transform, rotate(30deg));
+        transform: var(--text-transform, rotate(0deg));
         z-index: 1;
       }
       .text > h4 {
