@@ -120,13 +120,18 @@ export default class Marquee extends Shadow() {
         ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
         ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         background-color: var(--background-color, red);
+        top: var(--top, unset);
+        right: var(--right, unset);
         bottom: var(--bottom, 0);
+        left: var(--left, unset);
         color: var(--color, white);
         font-size: var(--font-size, 45px);
         grid-area: var(--grid-area, footer);
         padding: var(--padding, 0.672em 0);
         position: var(--position, fixed);
         visibility: hidden;
+        margin: 0 !important;
+        width: var(--width, 100vw) !important;
         white-space: nowrap;
       }:host > section {
         transition: transform .3s ease;
