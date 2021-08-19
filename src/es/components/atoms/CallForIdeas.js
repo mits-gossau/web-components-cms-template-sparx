@@ -19,6 +19,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
     {string} title
     {string} text
     {n.a.} star
+    {number} spacing / set the percentage to add spacing to text (eg. 10 === +10%)
     'background-color' css props as attribute
     'color' css props as attribute
     'position' css props as attribute
@@ -156,10 +157,25 @@ export default class CallForIdeas extends Intersection() {
         transform: var(--text-transform, rotate(30deg));
         z-index: 1;
       }
-      .text > * {
-        color: var(--color, white);
-        margin: var(--text-margin, 0);
-        text-align: var(--text-text-align, center);
+      .text > h4 {
+        color: var(--h4-color, var(--color, black));
+        font-size: var(--h4-font-size, min(2rem, 10vw));
+        font-family: var(--h4-font-family);
+        font-weight: var(--h4-font-weight, var(--font-weight, normal));
+        line-height: var(--h4-line-height, normal);
+        text-align: var(--h4-text-align, center);
+        word-break: var(--h4-word-break, normal);
+        text-transform: var(--h4-text-transform, none);
+        margin: var(--h4-margin, var(--content-spacing, 0)) auto;
+        padding: var(--h4-padding, unset);
+      }
+      .text > p {
+        color: var(--p-color, var(--color, white));
+        font-family: var(--p-font-family, var(--font-family-secondary));
+        font-weight: var(--p-font-weight, var(--font-weight, normal));
+        text-align: var(--p-text-align, center);
+        text-transform: var(--p-text-transform, none);
+        margin: var(--p-margin, var(--content-spacing, 0)) auto;
       }
       .background {
         display: var(--background-display, grid);
@@ -167,17 +183,16 @@ export default class CallForIdeas extends Intersection() {
       }
       .background > * {
         background-color: var(--background-color, red);
+        width: 1${this.getAttribute('spacing') || '20'}%;
+        height: 1${this.getAttribute('spacing') || '20'}%;
+        left: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '10'}%;
+        top: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '10'}%;
+        position: relative;
       }
       .background > .one {
         ${this.hasAttribute('star')
           ? 'transform: rotate(22.5deg);'
           : `
-            width: 120%;
-            height: 120%;
-            left: -10%;
-            top: -10%;
-            position: relative;
-            transform: var(--text-transform, rotate(30deg));
             border-radius: 50%;
           `}
       }
@@ -239,7 +254,7 @@ export default class CallForIdeas extends Intersection() {
           : ''}
       </section>
       <section class=text>
-        <h2>${this.getAttribute('title') || 'No title attribute set!'}</h2>
+        <h4>${this.getAttribute('title') || 'No title attribute set!'}</h4>
         <p>${this.getAttribute('text') || 'No text attribute set!'}</p>
       </section>
     `
@@ -247,7 +262,7 @@ export default class CallForIdeas extends Intersection() {
 
   makeItSquare () {
     self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
-      :host > *, .background > * {
+      :host > * {
         height: ${this.offsetWidth}px;
       }
     `))

@@ -5,7 +5,6 @@
  * - if a component holds other components you should share the attribute namespace with its children
  */
  html {
-
   --a-display: block;
   --a-margin: 0;
   --a-text-align: center;
@@ -14,6 +13,8 @@
   --animation: none;
   --any-a-display: inline;
   --background-color: #272727;
+  --call-for-ideas-h4-font-family: var(--font-family-quinary);
+  --call-for-ideas-h4-font-size: min(1.82rem, 10vw);
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;

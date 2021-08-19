@@ -22,7 +22,6 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
     var(--bottom, 0);
     var(--color, white)'};
     var(--font-size, 45px);
-    var(--grid-area, footer);
     var(--padding, 0.672em 0);
     var(--position, fixed);
     var(--a-color, var(--color-secondary, var(--color, pink)));
@@ -126,7 +125,6 @@ export default class Marquee extends Shadow() {
         left: var(--left, unset);
         color: var(--color, white);
         font-size: var(--font-size, 45px);
-        grid-area: var(--grid-area, footer);
         padding: var(--padding, 0.672em 0);
         position: var(--position, fixed);
         visibility: hidden;
