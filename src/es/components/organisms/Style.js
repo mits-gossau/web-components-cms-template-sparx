@@ -34,9 +34,12 @@ export default class Style extends Body {
     this.css = /* css */`
       ${bodyCss}
       :host {
-        display: block;
-        padding: var(--content-spacing, unset) 0;
+        display: flow-root;
         ${Array.from(this.attributes).reduce((acc, attribute) => `${acc}${attribute.name}: ${attribute.value};--${attribute.name}: ${attribute.value};`, '')}
+        /* the below are taken care of within body's css */
+        padding: 0;
+        margin: 0 !important;
+        width: 100% !important;
       }
     `
   }

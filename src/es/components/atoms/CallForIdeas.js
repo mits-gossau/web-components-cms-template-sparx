@@ -157,6 +157,7 @@ export default class CallForIdeas extends Intersection() {
         z-index: 1;
       }
       .text > * {
+        color: var(--color, white);
         margin: var(--text-margin, 0);
         text-align: var(--text-text-align, center);
       }
