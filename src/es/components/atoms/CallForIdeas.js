@@ -273,10 +273,11 @@ export default class CallForIdeas extends Intersection() {
     `))
   }
 
-  get h4() {
+  get h4 () {
     return this.root.querySelector('h4')
   }
-  get p() {
+
+  get p () {
     return this.root.querySelector('p')
   }
 }

@@ -1,6 +1,8 @@
 // @ts-check
 import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
 
+/* global self */
+
 /**
  * Heading is an Page Title
  * Example at: /src/es/components/pages/Page1.html
@@ -10,14 +12,14 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @class Heading
  * @type {CustomElementConstructor}
  * @attribute {
- *  
+ *
  * }
  * @css {
- *  
+ *
  * }
  */
 export default class Heading extends Shadow() {
-  connectedCallback() {
+  connectedCallback () {
     if (this.shouldComponentRenderHTML()) {
       this.renderHTML(this.hasAttribute('sparkle'))
       if (this.hasAttribute('sparkle')) {
@@ -33,7 +35,7 @@ export default class Heading extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderHTML() {
+  shouldComponentRenderHTML () {
     return !this.root.querySelector('div.left')
   }
 
@@ -42,7 +44,7 @@ export default class Heading extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderCSS() {
+  shouldComponentRenderCSS () {
     return !this.root.querySelector('style[_css]')
   }
 
@@ -51,7 +53,7 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderCSS() {
+  renderCSS () {
     this.css = /* css */`
     :host {
       --sparkle1-margin: 0 0 20px 5px;
@@ -114,9 +116,9 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderHTML(hasSparkle = true) {
+  renderHTML (hasSparkle = true) {
     const any = this.html
-    this.html = ""
+    this.html = ''
     this.html = /* html */ `
     ${hasSparkle ? '<div class="stripes left"></div>' : ''}
       ${any}
@@ -126,16 +128,15 @@ export default class Heading extends Shadow() {
 
   /**
    * Make sparkels
-   * 
-   * @param {*} className 
+   *
+   * @param {*} className
    */
-  makeSparkls(className) {
-
+  makeSparkls (className) {
     const parentClassName = `.${className}`
 
     const rotationDirection = {
-      left: "+",
-      right: "-"
+      left: '+',
+      right: '-'
     }
 
     const rotationDegrees = {
@@ -146,8 +147,8 @@ export default class Heading extends Shadow() {
     }
 
     for (let i = 0; i < 4; i++) {
-      let direction = rotationDirection[className];
-      if (i >= 2) direction = rotationDirection[Object.keys(rotationDirection).find(key => rotationDirection[key] !== direction)];
+      let direction = rotationDirection[className]
+      if (i >= 2) direction = rotationDirection[Object.keys(rotationDirection).find(key => rotationDirection[key] !== direction)]
       const sparkleDiv = document.createElement('div')
       sparkleDiv.style.transform = `rotate(${direction}${rotationDegrees[i]}deg)`
       sparkleDiv.classList.add(`${className}-${i}`)
@@ -155,5 +156,3 @@ export default class Heading extends Shadow() {
     }
   }
 }
-
-
