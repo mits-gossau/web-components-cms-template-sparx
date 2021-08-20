@@ -149,7 +149,7 @@ export default class CallForIdeas extends Intersection() {
         grid-row: 1;
         width: auto;
       }
-      .text {
+      :host .text {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -157,7 +157,10 @@ export default class CallForIdeas extends Intersection() {
         transform: var(--text-transform, rotate(0deg));
         z-index: 1;
       }
-      .text > h4 {
+      :host .text > * {
+        margin: 0;
+      }
+      :host .text h4 {
         color: var(--h4-color, var(--color, black));
         font-size: var(--h4-font-size, min(2rem, 10vw));
         font-family: var(--h4-font-family);
@@ -167,9 +170,9 @@ export default class CallForIdeas extends Intersection() {
         word-break: var(--h4-word-break, normal);
         text-transform: var(--h4-text-transform, none);
         margin: var(--h4-margin, var(--content-spacing, 0)) auto;
-        padding: var(--h4-padding, unset);
+        padding: var(--h4-padding, 0 0 0.2em);
       }
-      .text > p {
+      :host .text > p {
         color: var(--p-color, var(--color, white));
         font-family: var(--p-font-family, var(--font-family-secondary));
         font-weight: var(--p-font-weight, var(--font-weight, normal));
@@ -183,10 +186,10 @@ export default class CallForIdeas extends Intersection() {
       }
       .background > * {
         background-color: var(--background-color, red);
-        width: 1${this.getAttribute('spacing') || '20'}%;
-        height: 1${this.getAttribute('spacing') || '20'}%;
-        left: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '10'}%;
-        top: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '10'}%;
+        width: 1${this.getAttribute('spacing') || '16'}%;
+        height: 1${this.getAttribute('spacing') || '16'}%;
+        left: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '8'}%;
+        top: -${this.getAttribute('spacing') ? this.getAttribute('spacing') / 2 : '8'}%;
         position: relative;
       }
       .background > .one {
@@ -258,6 +261,8 @@ export default class CallForIdeas extends Intersection() {
         <p>${this.getAttribute('text') || 'No text attribute set!'}</p>
       </section>
     `
+    if (this.h4) this.root.querySelector('.text h4').replaceWith(this.h4.parentNode !== this.root ? this.h4.parentNode : this.h4)
+    if (this.p) this.root.querySelector('.text p').replaceWith(this.p)
   }
 
   makeItSquare () {
@@ -266,5 +271,12 @@ export default class CallForIdeas extends Intersection() {
         height: ${this.offsetWidth}px;
       }
     `))
+  }
+
+  get h4() {
+    return this.root.querySelector('h4')
+  }
+  get p() {
+    return this.root.querySelector('p')
   }
 }

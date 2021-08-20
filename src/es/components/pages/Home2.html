@@ -83,7 +83,11 @@
           </a-picture>
         </div>
       </sparx-o-style>
-      <sparx-a-call-for-ideas color=green background-color=blue star namespace="call-for-ideas-" href="xxx/forderung/#cta" text="Jetzt deine Idee<br>einreichen" title="Call<br>for ideas" top=15vh left=15vw left-mobile=5vw></sparx-a-call-for-ideas>
+      <sparx-a-call-for-ideas color=green background-color=blue star namespace="call-for-ideas-" href="xxx/forderung/#cta" text="Jetzt deine Idee<br>einreichen" title="Call<br>for ideas" top=15vh left=15vw left-mobile=5vw>
+        <sparx-a-heading mode=false title-rotation="-6">
+          <h4>Call<br>for ideas</h4>
+        </sparx-a-heading>
+      </sparx-a-call-for-ideas>
     </o-body>
     <sparx-a-marquee namespace="marquee-">
       <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit eveniet adipisci aliquam, fuga nulla
@@ -92,5 +96,10 @@
     </sparx-a-marquee>
   </p-general>
   <!--<msrc-cookie-banner props="{'env': 'test', 'language': 'de', 'theme': 'mgb', 'webAPIKey': 'YZ2PxeiToHsMMnjPdpeEZU9Tp4N9adVVAwYLQKjJg89KQ6MCFcYKQL9Cdcq2HjgE'}" mobile-breakpoint="1000px"></msrc-cookie-banner>-->
+  <script rel=preload type=module>
+    self.Environment = {
+      mobileBreakpoint: '600px'
+    }
+  </script>
 </body>
 </html>
