@@ -18,8 +18,13 @@ import Body from '../web-components-cms-template/src/es/components/organisms/Bod
  * }
  */
 export default class Style extends Body {
-  connectedCallback () {
-    if (this.shouldComponentRenderCSS()) this.renderCSS()
+  /**
+   * evaluates if a render is necessary
+   *
+   * @return {boolean}
+   */
+  shouldComponentRenderHTML () {
+    return false
   }
 
   /**
