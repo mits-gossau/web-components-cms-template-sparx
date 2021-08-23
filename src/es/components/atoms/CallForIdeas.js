@@ -172,6 +172,9 @@ export default class CallForIdeas extends Intersection() {
         margin: var(--h4-margin, var(--content-spacing, 0)) auto;
         padding: var(--h4-padding, 0 0 0.2em);
       }
+      :host .text br {
+        line-height: 0;
+      }
       :host .text > p {
         color: var(--p-color, var(--color, white));
         font-family: var(--p-font-family, var(--font-family-secondary));

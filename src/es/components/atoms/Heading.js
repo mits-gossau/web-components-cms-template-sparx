@@ -82,7 +82,7 @@ export default class Heading extends Shadow() {
       flex-direction: row;
       justify-content: center;
     }
-    :host *:not(.stripes) {
+    :host *:not(.stripes):not(style) {
       color: var(--any-color, var(--color, black));
       font-size: var(--any-font-size, min(5rem, 10vw));
       font-family: var(--any-font-family, var(--font-family-bold));
