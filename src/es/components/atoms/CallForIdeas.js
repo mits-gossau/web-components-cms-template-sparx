@@ -6,7 +6,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
 /* global self */
 
 /**
- * CallForIdeas Button
+ * CallForIdeas Button.
  * Example at: /src/es/components/pages/Home2.html & http://localhost:4200/src/es/components/pages/Idee.html
  * https://jira.migros.net/browse/SPARX-72
  * As an atom, this component can not hold further children (those would be quantum)
@@ -56,7 +56,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
  * }
  */
 export default class CallForIdeas extends Intersection() {
-  constructor (...args) {
+  constructor(...args) {
     super({ intersectionObserverInit: { rootMargin: '-300px 0px -300px 0px' } }, ...args)
 
     this.clickListener = () => {
@@ -83,7 +83,7 @@ export default class CallForIdeas extends Intersection() {
     }
   }
 
-  connectedCallback () {
+  connectedCallback() {
     super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
@@ -92,13 +92,13 @@ export default class CallForIdeas extends Intersection() {
     self.addEventListener('resize', this.resizeListener)
   }
 
-  disconnectedCallback () {
+  disconnectedCallback() {
     super.disconnectedCallback()
     this.removeEventListener('click', this.clickListener)
     self.removeEventListener('resize', this.resizeListener)
   }
 
-  intersectionCallback (entries, observer) {
+  intersectionCallback(entries, observer) {
     if (entries && entries[0]) this.classList[entries[0].isIntersecting ? 'add' : 'remove']('hover')
   }
 
@@ -107,7 +107,7 @@ export default class CallForIdeas extends Intersection() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderCSS () {
+  shouldComponentRenderCSS() {
     return !this.root.querySelector('style[_css]')
   }
 
@@ -116,7 +116,7 @@ export default class CallForIdeas extends Intersection() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderHTML () {
+  shouldComponentRenderHTML() {
     return !this.root.querySelector('div.one')
   }
 
@@ -125,7 +125,7 @@ export default class CallForIdeas extends Intersection() {
    *
    * @return {void}
    */
-  renderCSS () {
+  renderCSS() {
     this.css = /* css */ `
       :host {
         ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
@@ -194,8 +194,8 @@ export default class CallForIdeas extends Intersection() {
       }
       .background > .one {
         ${this.hasAttribute('star')
-          ? 'transform: rotate(22.5deg);'
-          : `
+        ? 'transform: rotate(22.5deg);'
+        : `
             border-radius: 50%;
           `}
       }
@@ -229,12 +229,12 @@ export default class CallForIdeas extends Intersection() {
           left: var(--left-mobile, var(--left, unset));
         }
         ${this.hasAttribute('star')
-          ? `
+        ? `
             :host(.hover) .background {
               transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5))));
             }
           `
-          : ''}
+        : ''}
       }
     `
   }
@@ -244,17 +244,17 @@ export default class CallForIdeas extends Intersection() {
    *
    * @return {void}
    */
-  renderHTML () {
+  renderHTML() {
     this.html = /* html */`
       <section class=background>
         <div class=one></div>
         ${this.hasAttribute('star')
-          ? /* html */`
+        ? /* html */`
             <div class=two></div>
             <div class=three></div>
             <div class=four></div>
           `
-          : ''}
+        : ''}
       </section>
       <section class=text>
         <h4>${this.getAttribute('title') || 'No title attribute set!'}</h4>
@@ -265,7 +265,7 @@ export default class CallForIdeas extends Intersection() {
     if (this.p) this.root.querySelector('.text p').replaceWith(this.p)
   }
 
-  makeItSquare () {
+  makeItSquare() {
     self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
       :host > * {
         height: ${this.offsetWidth}px;
@@ -273,11 +273,11 @@ export default class CallForIdeas extends Intersection() {
     `))
   }
 
-  get h4 () {
+  get h4() {
     return this.root.querySelector('h4')
   }
 
-  get p () {
+  get p() {
     return this.root.querySelector('p')
   }
 }
