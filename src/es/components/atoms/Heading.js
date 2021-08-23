@@ -4,7 +4,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 /* global self */
 
 /**
- * Heading is an general purpose Title element
+ * Heading is a general purpose Title element
  * Example at: /src/es/components/pages/Idee.html & /src/es/components/pages/Home2.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
@@ -32,12 +32,12 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * }
  */
 export default class Heading extends Shadow() {
-  connectedCallback() {
+  connectedCallback () {
     if (this.shouldComponentRenderHTML()) {
       this.renderHTML(this.hasAttribute('sparkle'))
       if (this.hasAttribute('sparkle')) {
-        this.makeSparkls('left')
-        this.makeSparkls('right')
+        this.makeSparkels('left')
+        this.makeSparkels('right')
       }
     }
     if (this.shouldComponentRenderCSS()) this.renderCSS()
@@ -48,7 +48,7 @@ export default class Heading extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderHTML() {
+  shouldComponentRenderHTML () {
     return !this.root.querySelector('div.left')
   }
 
@@ -57,7 +57,7 @@ export default class Heading extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderCSS() {
+  shouldComponentRenderCSS () {
     return !this.root.querySelector('style[_css]')
   }
 
@@ -66,7 +66,7 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderCSS() {
+  renderCSS () {
     this.css = /* css */`
     :host {
       --sparkle1-margin: 0 0 20px 5px;
@@ -129,7 +129,7 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderHTML(hasSparkle = true) {
+  renderHTML (hasSparkle = true) {
     const any = this.html
     this.html = ''
     this.html = /* html */ `
@@ -144,7 +144,7 @@ export default class Heading extends Shadow() {
    *
    * @param {*} className
    */
-  makeSparkls(className) {
+  makeSparkels (className) {
     const parentClassName = `.${className}`
 
     const rotationDirection = {
