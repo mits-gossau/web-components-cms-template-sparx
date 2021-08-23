@@ -6,56 +6,21 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
 /* global self */
 
 /**
- * CallForIdeas Button.
- * Example at: /src/es/components/pages/Home2.html & http://localhost:4200/src/es/components/pages/Idee.html
- * https://jira.migros.net/browse/SPARX-72
+ * Animated Logo
+ * Example at: /src/es/components/pages/Home2.html & http://localhost:4200/src/es/components/pages/home2.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
  * @export
- * @class CallForIdeas
+ * @class Logo
  * @type {CustomElementConstructor}
  * @attribute {
     {string} href
-    {string} title
-    {string} text
-    {n.a.} star
-    {number} spacing / set the percentage to add spacing to text (eg. 10 === +10%)
-    'background-color' css props as attribute
-    'color' css props as attribute
-    'position' css props as attribute
-    'top' css props as attribute
-    'right' css props as attribute
-    'bottom' css props as attribute
-    'left' css props as attribute
-    'position-mobile' css props as attribute
-    'top-mobile' css props as attribute
-    'right-mobile' css props as attribute
-    'bottom-mobile' css props as attribute
-    'left-mobile' css props as attribute
  * }
  * @css {
- * --star-transition / used for star rotation
- * {number} --star-rotate / used to define the number of 360deg rotations
-    var(--position, absolute);
-    var(--top, unset);
-    var(--right, unset);
-    var(--bottom, unset);
-    var(--left, unset);
-    var(--display, grid);
-    var(--text-transform, rotate(30deg));
-    var(--text-margin, 0);
-    var(--text-text-align, center);
-    var(--background-display, grid);
-    var(--background-transform, rotate(35deg));
-    var(--background-color, red);
-    var(--position-mobile, absolute);
-    var(--top-mobile, var(--top, unset));
-    var(--right-mobile, var(--right, unset));
-    var(--bottom-mobile, var(--bottom, unset));
-    var(--left-mobile, var(--left, unset));
+ *  
  * }
  */
-export default class CallForIdeas extends Intersection() {
+export default class Logo extends Intersection() {
   constructor (...args) {
     super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
 
@@ -75,12 +40,6 @@ export default class CallForIdeas extends Intersection() {
         }
       }
     }
-    // resize listeners
-    let timeout = null
-    this.resizeListener = event => {
-      clearTimeout(timeout)
-      timeout = setTimeout(() => this.makeItSquare(), 200)
-    }
   }
 
   connectedCallback () {
@@ -89,13 +48,11 @@ export default class CallForIdeas extends Intersection() {
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.makeItSquare()
     this.addEventListener('click', this.clickListener)
-    self.addEventListener('resize', this.resizeListener)
   }
 
   disconnectedCallback () {
     super.disconnectedCallback()
     this.removeEventListener('click', this.clickListener)
-    self.removeEventListener('resize', this.resizeListener)
   }
 
   intersectionCallback (entries, observer) {
@@ -239,9 +196,6 @@ export default class CallForIdeas extends Intersection() {
             }
           `
         : ''}
-        :host .text h4 {
-          font-size: var(--h4-font-size-mobile, var(--h4-font-size, min(2rem, 10vw)));
-        }
       }
     `
   }
