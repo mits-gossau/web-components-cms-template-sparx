@@ -32,6 +32,20 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * }
  */
 export default class Heading extends Shadow() {
+  constructor (...args) {
+    super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
+
+    // resize listeners
+    let timeout = null
+    this.resizeListener = event => {
+      clearTimeout(timeout)
+      timeout = setTimeout(() => {
+        this.makeSparkels('left')
+        this.makeSparkels('right')
+      }, 200)
+    }
+  }
+
   connectedCallback () {
     const htmlWithoutStyleTag = this.html
     if (this.shouldComponentRenderCSS()) this.renderCSS()
@@ -40,8 +54,13 @@ export default class Heading extends Shadow() {
       if (this.hasAttribute('sparkle')) {
         this.makeSparkels('left')
         this.makeSparkels('right')
+        self.addEventListener('resize', this.resizeListener)
       }
     }
+  }
+
+  disconnectedCallback () {
+    if (this.hasAttribute('sparkle')) self.removeEventListener('resize', this.resizeListener)
   }
 
   /**
@@ -178,10 +197,13 @@ export default class Heading extends Shadow() {
 
   /**
    * Make sparkels
+   * TODO: clear divs on each call
+   * TODO: calculate position and size according to font-size aka. offsetHeight
    *
    * @param {*} className
    */
   makeSparkels (className) {
+    console.log('offsetHeight', this.root.querySelector('*:not(.stripes):not(style)').offsetHeight);
     const parentClassName = `.${className}`
 
     const rotationDirection = {
@@ -202,6 +224,7 @@ export default class Heading extends Shadow() {
       const sparkleDiv = document.createElement('div')
       sparkleDiv.style.transform = `rotate(${direction}${rotationDegrees[i]}deg)`
       sparkleDiv.classList.add(`${className}-${i}`)
+      sparkleDiv.classList.add('stripes')
       this.root.querySelector(parentClassName).appendChild(sparkleDiv)
     }
   }
