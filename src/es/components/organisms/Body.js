@@ -49,6 +49,9 @@ export default class Body extends BaseBody {
       :host > main p {
         margin: var(--p-margin);
       }
+      :host > main a:hover, :host > main a:active, :host > main a:focus {
+        font-family: var(--a-font-family-hover);
+      }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host > main > q {
           width: var(--content-width-not-web-component-mobile, var(--content-width-not-web-component, var(--content-width-mobile, var(--content-width, 90%))));

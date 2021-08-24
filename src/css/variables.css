@@ -5,10 +5,13 @@
  * - if a component holds other components you should share the attribute namespace with its children
  */
  html {
+  --a-color-hover: var(--color);
+  --a-color: var(--color);
   --a-display: block;
+  --a-font-family-hover: var(--font-family-quinary);
   --a-margin: 0;
   --a-text-align: center;
-  --a-text-decoration-hover: none;
+  --a-text-decoration-hover: underline;
   --a-text-decoration: underline;
   --animation: none;
   --any-a-display: inline;
