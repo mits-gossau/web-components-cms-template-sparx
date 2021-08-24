@@ -34,7 +34,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
  */
 export default class Heading extends Intersection() {
   constructor (...args) {
-    super({ intersectionObserverInit: { rootMargin: '-100px 0px -100px 0px' } }, ...args)
+    super({ intersectionObserverInit: { rootMargin: '-50px 0px -50px 0px', threshold: 1 } }, ...args)
 
     this.initialHTML = this.html
     // resize listeners
@@ -168,6 +168,21 @@ export default class Heading extends Intersection() {
         opacity: 1;
         width:25px;
       }
+      ${!this.hasAttribute('no-animation')
+        ? /* css */`
+          :host(.hover) {
+            animation: var(--animation, bounce 0.4s cubic-bezier(1, -1.46, 0, 2.49));
+          }
+          @keyframes bounce{
+            from{
+              transform: scale(0.9);
+            }
+            to{
+              transform: scale(1);
+            }
+          }
+        ` 
+        : ''} 
       .left-0{margin:var(--sparkle1-margin)}
       .left-1{margin:var(--sparkle2-margin)}
       .left-2{margin:var(--sparkle3-margin)}
