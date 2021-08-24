@@ -34,7 +34,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
  */
 export default class Heading extends Intersection() {
   constructor (...args) {
-    super({ intersectionObserverInit: { rootMargin: '-50px 0px -50px 0px', threshold: 1 } }, ...args)
+    super({ intersectionObserverInit: { rootMargin: '0px 0px 0px 0px', threshold: 1 } }, ...args)
 
     this.initialHTML = this.html
     // resize listeners
@@ -42,21 +42,25 @@ export default class Heading extends Intersection() {
     this.resizeListener = event => {
       clearTimeout(timeout)
       timeout = setTimeout(() => {
-        this.makeSparkels('left')
-        this.makeSparkels('right')
+        this.makeSparkles('left')
+        this.makeSparkles('right')
       }, 100)
     }
   }
-
+  
   connectedCallback () {
-    if (this.hasAttribute('sparkle') && !this.hasAttribute('no-animation')) super.connectedCallback()
+    if (this.hasAttribute('sparkle')) {
+      if (!this.hasAttribute('no-animation')) super.connectedCallback()
+      self.addEventListener('resize', this.resizeListener)
+    }
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) {
       this.renderHTML(this.initialHTML)
       if (this.hasAttribute('sparkle')) {
-        this.makeSparkels('left')
-        this.makeSparkels('right')
-        self.addEventListener('resize', this.resizeListener)
+        self.requestAnimationFrame(timeStamp => {
+          this.makeSparkles('left')
+          this.makeSparkles('right')
+        })
       }
     }
   }
@@ -69,7 +73,10 @@ export default class Heading extends Intersection() {
   }
 
   intersectionCallback (entries, observer) {
-    if (entries && entries[0]) this.classList[entries[0].isIntersecting ? 'add' : 'remove']('hover')
+    if (entries && entries[0] && entries[0].isIntersecting) {
+      this.classList.add('hover')
+      this.intersectionObserveStop()
+    }
   }
 
   /**
@@ -98,14 +105,10 @@ export default class Heading extends Intersection() {
   renderCSS () {
     this.css = /* css */`
       :host {
-        --sparkle1-margin: 0 0 20px 5px;
-        --sparkle2-margin: 0 0 20px 0;
-        --sparkle3-margin: 20px 0 0 0;
-        --sparkle4-margin: 20px 0 0 5px;
-        --sparkle1-margin-mobile: 0 0 10px 5px;
-        --sparkle2-margin-mobile: 0 0 10px 0;
-        --sparkle3-margin-mobile: 10px 0 0 0;
-        --sparkle4-margin-mobile: 10px 0 0 5px;
+        --sparkle1-margin: 0 0 0.9em 0.9em;
+        --sparkle2-margin: 0 0 0.9em 0;
+        --sparkle3-margin: 0.9em 0 0 0;
+        --sparkle4-margin: 0.9em 0 0 0.9em;
         ${this.hasAttribute('color') ? `--any-color: ${this.getAttribute('color')};` : ''}
         ${this.hasAttribute('title-rotation') ? `--title-rotation: ${this.getAttribute('title-rotation')}deg;` : ''}
         align-items: center;
@@ -128,45 +131,48 @@ export default class Heading extends Intersection() {
         margin: var(--any-margin, unset);
         padding: var(--any-padding, unset);
       }
-      :host h1 {
+      :host h1, :host h1 > span {
         font-size: var(--h1-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
-      :host h2 {
+      :host h2, :host h2 > span {
         font-size: var(--h2-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
-      :host h3 {
+      :host h3, :host h3 > span {
         font-size: var(--h3-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
-      :host h4 {
+      :host h4, :host h4 > span {
         font-size: var(--h4-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
-      :host h5 {
+      :host h5, :host h5 > span {
         font-size: var(--h5-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
-      :host h6 {
+      :host h6, :host h6 > span {
         font-size: var(--h6-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
       .left {
-        padding:0 10px 15px 0;
+        padding:0 0 0.681em 0;
         position:relative;
-        top:30px;
+        top:1.2em;
       }
       .right {
-        padding:0 0 20px 10px;
+        padding:0 0 0.909em 0;
         position:relative;
-        bottom:10px;
+        bottom:0.15rem;
+      }
+      .left, .right {
+        min-width:2em;
       }
       .left > div, .right > div {
         background-color: var(--any-color, white);
         display:block;
-        height:6px;
+        height:0.272em;
         opacity: 0;
         width:0px;
         transition: var(--transition, width 0.5s cubic-bezier(1, -1.46, 0, 2.49), opacity 0.6s ease);
       }
       ${!this.hasAttribute('no-animation') ? ':host(.hover)' : ''} .left > div, ${!this.hasAttribute('no-animation') ? ':host(.hover)' : ''} .right > div {
         opacity: 1;
-        width:25px;
+        width:1em;
       }
       ${!this.hasAttribute('no-animation')
         ? /* css */`
@@ -195,45 +201,30 @@ export default class Heading extends Intersection() {
         :host *:not(.stripes):not(style) {
           font-size: var(--any-font-size-mobile, var(--any-font-size, min(2rem, 10vw)));
         }
-        :host h1 {
+        :host h1, :host h1 > span {
           font-size: var(--h1-font-size-mobile, var(--h1-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        :host h2 {
+        :host h2, :host h2 > span {
           font-size: var(--h2-font-size-mobile, var(--h2-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        :host h3 {
+        :host h3, :host h3 > span {
           font-size: var(--h3-font-size-mobile, var(--h3-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        :host h4 {
+        :host h4, :host h4 > span {
           font-size: var(--h4-font-size-mobile, var(--h4-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        :host h5 {
+        :host h5, :host h5 > span {
           font-size: var(--h5-font-size-mobile, var(--h5-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        :host h6 {
+        :host h6, :host h6 > span {
           font-size: var(--h6-font-size-mobile, var(--h6-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
-        
-        .left {padding:0 10px 30px 0}
-
+        .left {
+          top:0.9em;
+        }
         .right {
-          padding:0 0 15px 10px;
-          bottom:5px;
+          bottom:0.1em;
         }
-
-        .left > div, .right > div {
-          height:3px;
-          width:15px;
-        }
-
-        .left-0{margin:var(--sparkle1-margin-mobile)}
-        .left-1{margin:var(--sparkle2-margin-mobile)}
-        .left-2{margin:var(--sparkle3-margin-mobile)}
-        .left-3{margin:var(--sparkle4-margin-mobile)}
-        .right-0{margin:var(--sparkle2-margin-mobile)}
-        .right-1{margin:var(--sparkle1-margin-mobile)}
-        .right-2{margin:var(--sparkle4-margin-mobile)}
-        .right-3{margin:var(--sparkle3-margin-mobile)}        
       }
     `
   }
@@ -250,6 +241,8 @@ export default class Heading extends Intersection() {
       ${initialHTML}
       ${this.hasAttribute('sparkle') ? '<div class="stripes right"></div>' : ''}
    `
+   this.measureSpan = document.createElement('span')
+   this.root.querySelector('*:not(.stripes):not(style)').prepend(this.measureSpan)
   }
 
   /**
@@ -259,14 +252,12 @@ export default class Heading extends Intersection() {
    *
    * @param {*} className
    */
-  makeSparkels (className) {
+  makeSparkles (className) {
     const parentClassName = `.${className}`
+    let lines = [1, 1]
+    if ((lines = this.countTitleLineBreak(this.root.querySelector('*:not(.stripes):not(style)'), this.measureSpan))[0] > 1) this.setSparkleForMultiLineTitle(this.root.querySelector(parentClassName), lines)
 
-    if (this.hasTitleLineBreak(this.root.querySelector('*:not(.stripes):not(style)').innerHTML)) {
-      this.setSparkelForTwoLineTitle(this.root.querySelector(parentClassName), this.root.querySelector('*:not(.stripes):not(style)').offsetHeight)
-    }
-
-    this.removeSparkels(parentClassName)
+    this.removeSparkles(parentClassName)
 
     const rotationDirection = {
       left: '+',
@@ -274,10 +265,10 @@ export default class Heading extends Intersection() {
     }
 
     const rotationDegrees = {
-      0: 35,
-      1: 10,
-      2: 10,
-      3: 35
+      0: 55,
+      1: 15,
+      2: 15,
+      3: 55
     }
 
     for (let i = 0; i < 4; i++) {
@@ -296,30 +287,30 @@ export default class Heading extends Intersection() {
    * @param {string} parentSelector
    * @returns {void}
    */
-  removeSparkels (parentSelector) {
+  removeSparkles (parentSelector) {
     if (!parentSelector) return
     this.root.querySelector(parentSelector).innerHTML = ''
   }
 
   /**
    * Test if title has line break
-   * @param {string} title
-   * @returns {boolean}
+   * @param {HTMLElement} title
+   * @param {HTMLElement} reference
+   * @returns {[number, number]}
    */
-  hasTitleLineBreak (title) {
-    if (!title) return false
-    return title.search('<br>') !== -1
+  countTitleLineBreak (title, reference) {
+    if (!title) return [1, 1]
+    return [Math.round(title.offsetHeight / reference.offsetHeight), title.innerHTML.split('<br>').length]
   }
-
+  
   /**
    * Set position for sparkel if titel has two lines
    * @param {HTMLElement} element
-   * @param {number} offsetHeight
+   * @param {number} lines
    */
-  setSparkelForTwoLineTitle (element, offsetHeight) {
-    const top = offsetHeight > 100 ? '-10px' : '5px'
-    const bottom = offsetHeight > 100 ? '-30px' : '-20px'
-    if (element.classList.contains('left')) element.style.top = top
-    if (element.classList.contains('right')) element.style.bottom = bottom
+  setSparkleForMultiLineTitle (element, lines) {
+    this.root.querySelector('*:not(.stripes):not(style)').style.textAlign = lines[0] > lines[1] ? 'center' : ''
+    if (element.classList.contains('left')) element.style.top = `-${lines[0] === 2 ? 0 : lines[0] * 0.3}em`
+    if (element.classList.contains('right')) element.style.bottom = `-${lines[0] * 0.5}em`
   }
 }
