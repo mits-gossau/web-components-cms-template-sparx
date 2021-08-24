@@ -50,7 +50,7 @@ export default class Heading extends Shadow() {
   connectedCallback () {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) {
-      this.renderHTML(this.hasAttribute('sparkle'), this.initialHTML)
+      this.renderHTML(this.initialHTML)
       if (this.hasAttribute('sparkle')) {
         this.makeSparkels('left')
         this.makeSparkels('right')
@@ -69,7 +69,7 @@ export default class Heading extends Shadow() {
    * @return {boolean}
    */
   shouldComponentRenderHTML () {
-    return !this.root.querySelector('div.left')
+    return this.hasAttribute('sparkle') && !this.root.querySelector('div.left') || false
   }
 
   /**
@@ -188,12 +188,12 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderHTML (hasSparkle = true, any = this.html) {
+  renderHTML (htmlInsert = this.html) {
     this.html = ''
     this.html = /* html */ `
-    ${hasSparkle ? '<div class="stripes left"></div>' : ''}
-      ${any}
-    ${hasSparkle ? '<div class="stripes right"></div>' : ''}
+      ${this.hasAttribute('sparkle') ? '<div class="stripes left"></div>' : ''}
+      ${htmlInsert}
+      ${this.hasAttribute('sparkle') ? '<div class="stripes right"></div>' : ''}
    `
   }
 
