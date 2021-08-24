@@ -254,8 +254,13 @@ export default class Heading extends Intersection() {
    */
   makeSparkles (className) {
     const parentClassName = `.${className}`
+    /** @type {[number, number]} */
     let lines = [1, 1]
-    if ((lines = this.countTitleLineBreak(this.root.querySelector('*:not(.stripes):not(style)'), this.measureSpan))[0] > 1) this.setSparkleForMultiLineTitle(this.root.querySelector(parentClassName), lines)
+    if ((lines = this.countTitleLineBreak(this.root.querySelector('*:not(.stripes):not(style)'), this.measureSpan))[0] > 1) {
+      this.setSparkleForMultiLineTitle(this.root.querySelector(parentClassName), lines)
+    } else {
+      this.resetSparkleForMultiLineTitle(this.root.querySelector(parentClassName))
+    }
 
     this.removeSparkles(parentClassName)
 
@@ -306,11 +311,15 @@ export default class Heading extends Intersection() {
   /**
    * Set position for sparkel if titel has two lines
    * @param {HTMLElement} element
-   * @param {number} lines
+   * @param {[number, number]} lines
    */
   setSparkleForMultiLineTitle (element, lines) {
     this.root.querySelector('*:not(.stripes):not(style)').style.textAlign = lines[0] > lines[1] ? 'center' : ''
     if (element.classList.contains('left')) element.style.top = `-${lines[0] === 2 ? 0 : lines[0] * 0.3}em`
     if (element.classList.contains('right')) element.style.bottom = `-${lines[0] * 0.5}em`
+  }
+  resetSparkleForMultiLineTitle (element) {
+    if (element.classList.contains('left')) element.style.top = ''
+    if (element.classList.contains('right')) element.style.bottom = ''
   }
 }
