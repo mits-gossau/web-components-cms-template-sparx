@@ -22,7 +22,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
  */
 export default class Logo extends Intersection() {
   constructor (...args) {
-    super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
+    super({ intersectionObserverInit: { rootMargin: '0px 0px 0px 0px' } }, ...args)
 
     this.clickListener = () => {
       if (this.getAttribute('href')) {
@@ -46,7 +46,6 @@ export default class Logo extends Intersection() {
     super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
-    this.makeItSquare()
     this.addEventListener('click', this.clickListener)
   }
 

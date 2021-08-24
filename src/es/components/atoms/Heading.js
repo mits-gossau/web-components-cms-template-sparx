@@ -1,5 +1,5 @@
 // @ts-check
-import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
+import { Intersection } from '../web-components-cms-template/src/es/components/prototypes/Intersection.js'
 
 /* global self */
 
@@ -14,6 +14,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @attribute {
     {string} [title-rotation=-6] example -6 degree for text rotation
     {n.a} sparkle / Determines if title has sparkles
+    {n.a} no-animation / Animation can only take place if there are sparkles
  * }
  * @css {
     --sparkle1-margin, --sparkle2-margin, --sparkle3-margin, --sparkle4-margin
@@ -31,9 +32,9 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
     var(--any-color, white)
  * }
  */
-export default class Heading extends Shadow() {
+export default class Heading extends Intersection() {
   constructor (...args) {
-    super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
+    super({ intersectionObserverInit: { rootMargin: '-100px 0px -100px 0px' } }, ...args)
 
     this.initialHTML = this.html
     // resize listeners
@@ -43,11 +44,12 @@ export default class Heading extends Shadow() {
       timeout = setTimeout(() => {
         this.makeSparkels('left')
         this.makeSparkels('right')
-      }, 200)
+      }, 100)
     }
   }
 
   connectedCallback () {
+    if (this.hasAttribute('sparkle') && !this.hasAttribute('no-animation')) super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) {
       this.renderHTML(this.initialHTML)
@@ -60,7 +62,14 @@ export default class Heading extends Shadow() {
   }
 
   disconnectedCallback () {
-    if (this.hasAttribute('sparkle')) self.removeEventListener('resize', this.resizeListener)
+    if (this.hasAttribute('sparkle')) {
+      if (!this.hasAttribute('no-animation')) super.disconnectedCallback()
+      self.removeEventListener('resize', this.resizeListener)
+    }
+  }
+
+  intersectionCallback (entries, observer) {
+    if (entries && entries[0]) this.classList[entries[0].isIntersecting ? 'add' : 'remove']('hover')
   }
 
   /**
@@ -93,6 +102,10 @@ export default class Heading extends Shadow() {
         --sparkle2-margin: 0 0 20px 0;
         --sparkle3-margin: 20px 0 0 0;
         --sparkle4-margin: 20px 0 0 5px;
+        --sparkle1-margin-mobile: 0 0 10px 5px;
+        --sparkle2-margin-mobile: 0 0 10px 0;
+        --sparkle3-margin-mobile: 10px 0 0 0;
+        --sparkle4-margin-mobile: 10px 0 0 5px;
         ${this.hasAttribute('color') ? `--any-color: ${this.getAttribute('color')};` : ''}
         ${this.hasAttribute('title-rotation') ? `--title-rotation: ${this.getAttribute('title-rotation')}deg;` : ''}
         align-items: center;
@@ -134,19 +147,25 @@ export default class Heading extends Shadow() {
         font-size: var(--h6-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
       }
       .left {
-        padding:0 10px 30px 0;
+        padding:0 10px 15px 0;
         position:relative;
         top:30px;
       }
       .right {
-        padding:0 0 10px 10px;
+        padding:0 0 20px 10px;
         position:relative;
         bottom:10px;
       }
       .left > div, .right > div {
         background-color: var(--any-color, white);
         display:block;
-        height:5px;
+        height:6px;
+        opacity: 0;
+        width:0px;
+        transition: var(--transition, width 0.5s cubic-bezier(1, -1.46, 0, 2.49), opacity 0.6s ease);
+      }
+      ${!this.hasAttribute('no-animation') ? ':host(.hover)' : ''} .left > div, ${!this.hasAttribute('no-animation') ? ':host(.hover)' : ''} .right > div {
+        opacity: 1;
         width:25px;
       }
       .left-0{margin:var(--sparkle1-margin)}
@@ -179,6 +198,27 @@ export default class Heading extends Shadow() {
         :host h6 {
           font-size: var(--h6-font-size-mobile, var(--h6-font-size, var(--any-font-size-mobile, var(--any-font-size, min(5rem, 10vw))))) !important;
         }
+        
+        .left {padding:0 10px 30px 0}
+
+        .right {
+          padding:0 0 15px 10px;
+          bottom:5px;
+        }
+
+        .left > div, .right > div {
+          height:3px;
+          width:15px;
+        }
+
+        .left-0{margin:var(--sparkle1-margin-mobile)}
+        .left-1{margin:var(--sparkle2-margin-mobile)}
+        .left-2{margin:var(--sparkle3-margin-mobile)}
+        .left-3{margin:var(--sparkle4-margin-mobile)}
+        .right-0{margin:var(--sparkle2-margin-mobile)}
+        .right-1{margin:var(--sparkle1-margin-mobile)}
+        .right-2{margin:var(--sparkle4-margin-mobile)}
+        .right-3{margin:var(--sparkle3-margin-mobile)}        
       }
     `
   }
@@ -188,11 +228,11 @@ export default class Heading extends Shadow() {
    *
    * @return {void}
    */
-  renderHTML (htmlInsert = this.html) {
+  renderHTML (initialHTML = this.html) {
     this.html = ''
     this.html = /* html */ `
       ${this.hasAttribute('sparkle') ? '<div class="stripes left"></div>' : ''}
-      ${htmlInsert}
+      ${initialHTML}
       ${this.hasAttribute('sparkle') ? '<div class="stripes right"></div>' : ''}
    `
   }
@@ -205,8 +245,13 @@ export default class Heading extends Shadow() {
    * @param {*} className
    */
   makeSparkels (className) {
-    console.log('offsetHeight', this.root.querySelector('*:not(.stripes):not(style)').offsetHeight);
     const parentClassName = `.${className}`
+
+    if (this.hasTitleLineBreak(this.root.querySelector('*:not(.stripes):not(style)').innerHTML)) {
+      this.setSparkelForTwoLineTitle(this.root.querySelector(parentClassName), this.root.querySelector('*:not(.stripes):not(style)').offsetHeight)
+    }
+
+    this.removeSparkels(parentClassName)
 
     const rotationDirection = {
       left: '+',
@@ -229,5 +274,37 @@ export default class Heading extends Shadow() {
       sparkleDiv.classList.add('stripes')
       this.root.querySelector(parentClassName).appendChild(sparkleDiv)
     }
+  }
+
+  /**
+   * Delete all child elements
+   * @param {string} parentSelector
+   * @returns {void}
+   */
+  removeSparkels (parentSelector) {
+    if (!parentSelector) return
+    this.root.querySelector(parentSelector).innerHTML = ''
+  }
+
+  /**
+   * Test if title has line break
+   * @param {string} title
+   * @returns {boolean}
+   */
+  hasTitleLineBreak (title) {
+    if (!title) return false
+    return title.search('<br>') !== -1
+  }
+
+  /**
+   * Set position for sparkel if titel has two lines
+   * @param {HTMLElement} element
+   * @param {number} offsetHeight
+   */
+  setSparkelForTwoLineTitle (element, offsetHeight) {
+    const top = offsetHeight > 100 ? '-10px' : '5px'
+    const bottom = offsetHeight > 100 ? '-30px' : '-20px'
+    if (element.classList.contains('left')) element.style.top = top
+    if (element.classList.contains('right')) element.style.bottom = bottom
   }
 }
