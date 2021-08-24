@@ -96,7 +96,7 @@ export default class Marquee extends Shadow() {
    * @return {boolean}
    */
   shouldComponentRenderCSS () {
-    return !this.root.querySelector('style[_css]')
+    return !this.root.querySelector(`:host > style[_css], ${this.tagName} > style[_css]`)
   }
 
   /**

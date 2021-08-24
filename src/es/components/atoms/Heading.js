@@ -35,6 +35,7 @@ export default class Heading extends Shadow() {
   constructor (...args) {
     super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
 
+    this.initialHTML = this.html
     // resize listeners
     let timeout = null
     this.resizeListener = event => {
@@ -47,10 +48,9 @@ export default class Heading extends Shadow() {
   }
 
   connectedCallback () {
-    const htmlWithoutStyleTag = this.html
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) {
-      this.renderHTML(this.hasAttribute('sparkle'), htmlWithoutStyleTag)
+      this.renderHTML(this.hasAttribute('sparkle'), this.initialHTML)
       if (this.hasAttribute('sparkle')) {
         this.makeSparkels('left')
         this.makeSparkels('right')
@@ -78,7 +78,7 @@ export default class Heading extends Shadow() {
    * @return {boolean}
    */
   shouldComponentRenderCSS () {
-    return !this.root.querySelector('style[_css]')
+    return !this.root.querySelector(`:host > style[_css], ${this.tagName} > style[_css]`)
   }
 
   /**
@@ -112,6 +112,8 @@ export default class Heading extends Shadow() {
         word-break: var(--any-word-break, normal);
         text-transform: var(--any-text-transform, none);
         transform: rotate(var(--title-rotation, -6deg));
+        margin: var(--any-margin, unset);
+        padding: var(--any-padding, unset);
       }
       :host h1 {
         font-size: var(--h1-font-size, var(--any-font-size, min(5rem, 10vw))) !important;
