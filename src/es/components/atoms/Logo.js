@@ -17,7 +17,7 @@ import { Intersection } from '../web-components-cms-template/src/es/components/p
     {string} href
  * }
  * @css {
- *  
+ *
  * }
  */
 export default class Logo extends Intersection() {

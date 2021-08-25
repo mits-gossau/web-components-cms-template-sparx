@@ -46,8 +46,9 @@ export default class Heading extends Intersection() {
         this.makeSparkles('right')
       }, 100)
     }
+    this.loadPromise = new Promise(resolve => document.body.addEventListener(this.getAttribute('wc-config-load') || 'wc-config-load', event => resolve(), { once: true }))
   }
-  
+
   connectedCallback () {
     if (this.hasAttribute('sparkle')) {
       if (!this.hasAttribute('no-animation')) super.connectedCallback()
@@ -74,7 +75,7 @@ export default class Heading extends Intersection() {
 
   intersectionCallback (entries, observer) {
     if (entries && entries[0] && entries[0].isIntersecting) {
-      this.classList.add('hover')
+      this.loadPromise.then(() => this.classList.add('hover'))
       this.intersectionObserveStop()
     }
   }
@@ -85,7 +86,7 @@ export default class Heading extends Intersection() {
    * @return {boolean}
    */
   shouldComponentRenderHTML () {
-    return this.hasAttribute('sparkle') && !this.root.querySelector('div.left') || false
+    return (this.hasAttribute('sparkle') && !this.root.querySelector('div.left')) || false
   }
 
   /**
@@ -187,7 +188,7 @@ export default class Heading extends Intersection() {
               transform: scale(1);
             }
           }
-        ` 
+        `
         : ''} 
       .left-0{margin:var(--sparkle1-margin)}
       .left-1{margin:var(--sparkle2-margin)}
@@ -241,8 +242,8 @@ export default class Heading extends Intersection() {
       ${initialHTML}
       ${this.hasAttribute('sparkle') ? '<div class="stripes right"></div>' : ''}
    `
-   this.measureSpan = document.createElement('span')
-   this.root.querySelector('*:not(.stripes):not(style)').prepend(this.measureSpan)
+    this.measureSpan = document.createElement('span')
+    this.root.querySelector('*:not(.stripes):not(style)').prepend(this.measureSpan)
   }
 
   /**
@@ -307,7 +308,7 @@ export default class Heading extends Intersection() {
     if (!title) return [1, 1]
     return [Math.round(title.offsetHeight / reference.offsetHeight), title.innerHTML.split('<br>').length]
   }
-  
+
   /**
    * Set position for sparkel if titel has two lines
    * @param {HTMLElement} element
@@ -318,6 +319,7 @@ export default class Heading extends Intersection() {
     if (element.classList.contains('left')) element.style.top = `-${lines[0] === 2 ? 0 : lines[0] * 0.3}em`
     if (element.classList.contains('right')) element.style.bottom = `-${lines[0] * 0.5}em`
   }
+
   resetSparkleForMultiLineTitle (element) {
     if (element.classList.contains('left')) element.style.top = ''
     if (element.classList.contains('right')) element.style.bottom = ''

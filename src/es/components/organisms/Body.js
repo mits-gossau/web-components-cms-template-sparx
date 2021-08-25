@@ -1,7 +1,6 @@
 // @ts-check
 import BaseBody from '../web-components-cms-template/src/es/components/organisms/Body.js'
 
-/* global location */
 /* global self */
 
 /**
