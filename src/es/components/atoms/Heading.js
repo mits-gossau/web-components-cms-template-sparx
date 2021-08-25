@@ -76,6 +76,7 @@ export default class Heading extends Intersection() {
   intersectionCallback (entries, observer) {
     if (entries && entries[0] && entries[0].isIntersecting) {
       this.loadPromise.then(() => this.classList.add('hover'))
+      setTimeout(() => this.classList.add('hover'), 2000) // incase there isn't a 'wc-config-load' event fired just add it after 2s
       this.intersectionObserveStop()
     }
   }
