@@ -215,7 +215,7 @@ export default class CallForIdeas extends Intersection() {
             transition: var(--star-transition, transform .3s ease);
           }
           :host(:hover) .background {
-            transform: rotate(calc(360deg * var(--star-rotate, 5)));
+            transform: rotate(calc(360deg * var(--star-rotate, 5.1)));
           }
         `
         : ''}
@@ -235,7 +235,7 @@ export default class CallForIdeas extends Intersection() {
         ${this.hasAttribute('star')
         ? `
             :host(.hover) .background {
-              transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5))));
+              transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5.1))));
             }
           `
         : ''}

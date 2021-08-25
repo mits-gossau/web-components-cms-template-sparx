@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,17 +20,17 @@
 <body>
   <p-general no-scroll="nav-open">
     <o-header no-scroll="nav-open" menu-icon="true" namespace="header-" role="header">
-      <a-title namespace="header-title-">SPARX</a-title>
+      <a-logo namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
       <m-navigation hover="false" namespace="navigation-" no-scroll="nav-open">
         <ul>
           <li>
             <a href="#" target="">About</a>
             <ul>
               <li>
-                <a href="/news/neue-sparx-home-page/" target="">Idee/a>
+                <a href="/about/idee/" target="">Idee</a>
               </li>
               <li>
-                <a href="/news/noch-eine-neue-news/" target="">Team und Coaches</a>
+                <a href="/about/team/" target="">Team</a>
               </li>
             </ul>
           </li>
@@ -40,13 +41,13 @@
             <a href="/kosmos/" target="">Kosmos</a>
           </li>
           <li>
-            <a href="#" target="">Studios</a>
+            <a href="#" target="">Studio</a>
             <ul>
               <li>
-                <a href="/news/neue-sparx-home-page/" target="">In den Studios/a>
+                <a href="/studio/in-den-studios/" target="">In den Studios</a>
               </li>
               <li>
-                <a href="/news/noch-eine-neue-news/" target="">Projekte</a>
+                <a href="/studio/projekte/" target="">Projekte</a>
               </li>
             </ul>
           </li>
@@ -61,24 +62,13 @@
         </ul>
       </m-navigation>
     </o-header>
-    <sparx-o-body>
-      <sparx-o-style color="#FEDF73" background-color="#282828">
-        <div>
-          <a-picture namespace="picture-"
-            defaultsource="https://testadmin.sparx-space.ch/media/ixqn5dfc/sparx-test.png?anchor=center&mode=crop&format=png&quality=80&rnd=132677060059730000"
-            alt="Sparx Test">
-            <style>
-              :host {
-                --picture-height: ;
-                --picture-height-mobile: ;
-                --picture-width: min(, var(--content-width, 100%));
-                --picture-width-mobile: min(, var(--content-width-mobile, 100%))
-              }
-            </style>
-          </a-picture>
-        </div>
-      </sparx-o-style>
-      <sparx-a-call-for-ideas color=green background-color=blue star namespace="call-for-ideas-" href="xxx/forderung/#cta" text="Jetzt deine Idee<br>einreichen" title="Call<br>for ideas" top=15vh left=15vw left-mobile=5vw>
+    <sparx-o-body home>
+      <sparx-a-logo href="/" namespace="logo-" color="#FEDF73" claim>
+        <a-logo namespace="logo-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
+        <div>Migros</div>
+        <div>Kulturprozent</div>
+      </sparx-a-logo>
+      <sparx-a-call-for-ideas color=green background-color=blue star namespace="call-for-ideas-" href="xxx/forderung/#cta" text="Jetzt deine Idee<br>einreichen" title="Call<br>for ideas" top=60vh top-mobile="51.5vh" left=13vw left-mobile=15vw>
         <sparx-a-heading mode=false title-rotation="-6">
           <h4>Call<br>for ideas</h4>
         </sparx-a-heading>
