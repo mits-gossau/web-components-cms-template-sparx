@@ -175,6 +175,7 @@
   --navigation-li-padding: 0 0 0 2em;
   --navigation-padding-no-scroll: 0;
   --navigation-padding: 0;
+  --navigation-border-top: 0;
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
   --picture-margin: 0 auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */

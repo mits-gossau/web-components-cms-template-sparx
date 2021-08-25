@@ -68,6 +68,7 @@ export default class Logo extends Shadow() {
   renderCSS () {
     this.css = /* css */ `
       :host {
+        ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         box-sizing: border-box;
         cursor:var(--cursor, pointer);
         display:var(--display, flex);
@@ -85,6 +86,7 @@ export default class Logo extends Shadow() {
       }
       :host *:not(:first-child) {
         font-size: var(--font-size, 5rem);
+        color: var(--color, pink);
       }
       :host *:first-of-type:not(:first-child)  {
         margin-top: var(--margin-top, -0.7em);
