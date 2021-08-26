@@ -18,10 +18,10 @@
 </head>
 
 <body>
-  <p-general no-scroll="nav-open">
-    <o-header no-scroll="nav-open" menu-icon="true" namespace="header-" role="header">
+  <p-general>
+    <o-header menu-icon="true" namespace="header-" role="header">
       <a-logo namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
-      <m-navigation hover="false" namespace="navigation-" no-scroll="nav-open" focus-lost-close>
+      <m-navigation hover="false" namespace="navigation-" hit-area="false" focus-lost-close focus-lost-close-mobile>
         <ul>
           <li>
             <a href="#" target="">About</a>
@@ -83,7 +83,7 @@
   <!--<msrc-cookie-banner props="{'env': 'test', 'language': 'de', 'theme': 'mgb', 'webAPIKey': 'YZ2PxeiToHsMMnjPdpeEZU9Tp4N9adVVAwYLQKjJg89KQ6MCFcYKQL9Cdcq2HjgE'}" mobile-breakpoint="1000px"></msrc-cookie-banner>-->
   <script rel=preload type=module>
     self.Environment = {
-      mobileBreakpoint: '600px'
+      mobileBreakpoint: '900px'
     }
   </script>
 </body>

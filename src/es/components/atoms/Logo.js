@@ -104,7 +104,7 @@ export default class Logo extends Shadow() {
           font-size: var(--font-size-mobile, var(--font-size, 5rem));
         }
       }
-      @media only screen and (max-width: 1000px) {
+      @media only screen and (max-width: 400px) {
         :host *:last-of-type:not(:first-child)  {
           align-self: var(--align-self-last, flex-end);
         }

@@ -22,16 +22,16 @@
     <o-header menu-icon="true" namespace="header-" role="header">
       <!--<a-title namespace="header-title-"><sparx-a-heading namespace="heading-" title-rotation="-12"><h3>SPARX</h3></sparx-a-heading></a-title>-->
       <a-logo namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_pos.svg" href="/"></a-logo>
-      <m-navigation hover="false" namespace="navigation-" hit-area="false">
+      <m-navigation hover="false" namespace="navigation-" hit-area="false" focus-lost-close focus-lost-close-mobile>
         <ul>
           <li>
             <a href="#" target="">About</a>
             <ul>
               <li>
-                <a href="/news/neue-sparx-home-page/" target="">Idee</a>
+                <a href="/about/idee/" target="">Idee</a>
               </li>
               <li>
-                <a href="/news/noch-eine-neue-news/" target="">Team und Coaches</a>
+                <a href="/about/team/" target="">Team</a>
               </li>
             </ul>
           </li>
@@ -42,13 +42,13 @@
             <a href="/kosmos/" target="">Kosmos</a>
           </li>
           <li>
-            <a href="#" target="">Studios</a>
+            <a href="#" target="">Studio</a>
             <ul>
               <li>
-                <a href="/news/neue-sparx-home-page/" target="">In den Studios/a>
+                <a href="/studio/in-den-studios/" target="">In den Studios</a>
               </li>
               <li>
-                <a href="/news/noch-eine-neue-news/" target="">Projekte</a>
+                <a href="/studio/projekte/" target="">Projekte</a>
               </li>
             </ul>
           </li>
@@ -56,8 +56,8 @@
             <a href="/netzwerk/" target="">Netzwerk</a>
           </li>
           <li>
-            <a href="/suche/" target="" style="display: flex;">
-              <img src="https://testadmin.sparx-space.ch/assets/img/Lupe_pos.svg">
+            <a href="/suche/" target="">
+              <img src="https://testadmin.sparx-space.ch/assets/img/search_black_24dp.svg">
             </a>
           </li>
         </ul>
@@ -165,7 +165,7 @@
   </p-general>
   <script rel=preload type=module>
     self.Environment = {
-      mobileBreakpoint: '600px'
+      mobileBreakpoint: '900px'
     }
   </script>
 </body>
