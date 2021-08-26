@@ -123,7 +123,7 @@
   --header-align-items: center;
   --header-background-color-open: var(--header-background-color);
   --header-background-color: transparent;
-  --header-color: var(--color);
+  --header-color: var(--navigation-color);
   --header-content-spacing: 0;
   --header-content-width-mobile: var(--header-content-width);
   --header-content-width: auto;
@@ -170,7 +170,6 @@
   --marquee-background-color: var(--color);
   --marquee-color: var(--background-color);
   --marquee-font-size: 1.591rem;
-  --navigation-a-arrow-color-hover: var(--color);
   --navigation-a-arrow-color-hover: var(--navigation-color);
   --navigation-a-link-color-nav-open: var(--color);
   --navigation-a-link-color-no-scroll: var(--navigation-color);
