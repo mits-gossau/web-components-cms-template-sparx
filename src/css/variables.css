@@ -155,7 +155,7 @@
   --logo-logo-a-width: 100%;
   --logo-logo-height-mobile: var(--logo-logo-height);
   --logo-logo-height: auto;
-  --logo-logo-margin: 0 auto;
+  --logo-logo-img-margin: 0 auto;
   --logo-logo-max-width: 100vh;
   --logo-logo-object-fit: contain;
   --logo-logo-width-mobile: var(--logo-logo-width);
