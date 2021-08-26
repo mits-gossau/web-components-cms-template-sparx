@@ -36,7 +36,8 @@ export default class Body extends BaseBody {
       }
       :host > main > q, :host > main > .q > q {
         display: var(--q-display, block);
-        font-size: var(--q-font-size, var(--font-size))
+        font-size: var(--q-font-size, var(--font-size));
+        quotes: var(--q-quotes, none);
       }
       :host > main > q, :host > main > .q * {
         text-align: var(--q-text-align, center);
