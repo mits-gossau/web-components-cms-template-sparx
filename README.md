@@ -31,3 +31,5 @@ breackpoint 950
 
 call for ideas
 bottom=16vh bottom-mobile="16vh"
+
+homepage a-logo style  visibility: hidden;
