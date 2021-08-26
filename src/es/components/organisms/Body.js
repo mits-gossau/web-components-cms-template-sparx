@@ -54,6 +54,11 @@ export default class Body extends BaseBody {
       :host > main p {
         margin: var(--p-margin);
       }
+      :host > main .highlight {
+        color: var(--highlight-color, var(--background-color));
+        background-color: var(--highlight-background-color, var(--color));
+        padding: var(--highlight-padding, 0 0.2em);
+      }
       :host > main a:hover, :host > main a:active, :host > main a:focus {
         font-family: var(--a-font-family-hover);
       }

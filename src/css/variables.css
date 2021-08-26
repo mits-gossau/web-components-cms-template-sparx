@@ -112,6 +112,7 @@
   --h4-margin: 0;
   --h5-margin: 0;
   --h6-margin: 0;
+  --header-a-menu-icon-background-color: var(--navigation-color);
   --header-a-menu-icon-height-open-mobile: var(--header-a-menu-icon-height);
   --header-a-menu-icon-height: 4px;
   --header-a-menu-icon-padding-open: 0 0.3em 0 0;
@@ -140,6 +141,7 @@
   --header-padding: 2%;
   --header-position: static;
   --header-title-margin: 0;
+  --header-z-index: 1000;
   --heading-any-color: var(--color);
   --heading-any-font-family: var(--font-family-quinary);
   --heading-any-font-size-mobile: var(--h1-font-size-mobile);
@@ -169,6 +171,7 @@
   --marquee-color: var(--background-color);
   --marquee-font-size: 1.591rem;
   --navigation-a-arrow-color-hover: var(--color);
+  --navigation-a-arrow-color-hover: var(--navigation-color);
   --navigation-a-link-color-nav-open: var(--color);
   --navigation-a-link-color-no-scroll: var(--navigation-color);
   --navigation-a-link-content-spacing-no-scroll: 0;
@@ -183,6 +186,7 @@
   --navigation-content-spacing: 0;
   --navigation-flex-wrap: wrap;
   --navigation-font-family-hover: var(--a-font-family-hover);
+  --navigation-font-family-open: var(--a-font-family-hover);
   --navigation-hr-color: transparent;
   --navigation-justify-content: flex-end;
   --navigation-li-padding: 0 0 0 2em;
