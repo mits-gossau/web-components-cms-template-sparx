@@ -109,8 +109,8 @@ export default class Logo extends Shadow() {
           font-size: var(--font-size-mobile, var(--font-size, 5rem));
         }
         :host sparx-a-call-for-ideas  {
-          margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, 8%));
-          margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 14%));
+          margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, min(8%, 4vh)));
+          margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 13%));
         }
       }
       @media only screen and (max-width: 400px) {
