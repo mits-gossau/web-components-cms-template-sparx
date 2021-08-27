@@ -173,6 +173,9 @@ export default class CallForIdeas extends Intersection() {
         margin: var(--h4-margin, var(--content-spacing, 0)) auto;
         padding: var(--h4-padding, 0 0 0.2em);
       }
+      :host .text p {
+        font-size: var(--p-font-size);
+      }
       :host .text br {
         line-height: 0;
       }
@@ -241,6 +244,9 @@ export default class CallForIdeas extends Intersection() {
         : ''}
         :host .text h4 {
           font-size: var(--h4-font-size-mobile, var(--h4-font-size, min(2rem, 10vw)));
+        }
+        :host .text p {
+          font-size: var(--p-font-size-mobile, var(--p-font-size));
         }
       }
     `

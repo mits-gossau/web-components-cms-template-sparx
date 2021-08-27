@@ -19,6 +19,8 @@
   --call-for-ideas-h4-font-family: var(--font-family-quinary);
   --call-for-ideas-h4-font-size-mobile: var(--h4-font-size-mobile);
   --call-for-ideas-h4-font-size: var(--h4-font-size);
+  --call-for-ideas-p-font-size-mobile: var(--font-size-mobile);
+  --call-for-ideas-p-font-size: var(--font-size);
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;

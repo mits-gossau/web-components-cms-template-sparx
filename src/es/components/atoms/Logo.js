@@ -84,28 +84,37 @@ export default class Logo extends Shadow() {
         width: 100%;
         height: auto;
       }
-      :host *:not(:first-child) {
+      :host *:not(:first-child):not(sparx-a-call-for-ideas) {
         font-size: var(--font-size, 5rem);
         color: var(--color, pink);
       }
-      :host *:first-of-type:not(:first-child)  {
+      :host *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top, -0.7em);
       }
-      :host *:last-of-type:not(:first-child)  {
+      :host *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top-last, -0.3em);
         margin-left: var(--margin-left-last, 4.3em);
+      }
+      :host sparx-a-call-for-ideas  {
+        margin-top: var(--logo-cfi-margin-top, -9%);
+        margin-left: var(--logo-cfi-margin-left, 10%);
+        align-self: flex-start;
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           justify-content: var(--justify-content-mobile, var(--justify-content, center));
           padding: var(--padding-mobile, var(--padding, 0));
         }
-        :host *:not(:first-child) {
+        :host *:not(:first-child):not(sparx-a-call-for-ideas) {
           font-size: var(--font-size-mobile, var(--font-size, 5rem));
+        }
+        :host sparx-a-call-for-ideas  {
+          margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, 8%));
+          margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 14%));
         }
       }
       @media only screen and (max-width: 400px) {
-        :host *:last-of-type:not(:first-child)  {
+        :host *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
           align-self: var(--align-self-last, flex-end);
         }
       }
