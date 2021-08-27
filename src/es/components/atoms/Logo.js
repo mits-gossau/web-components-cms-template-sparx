@@ -97,7 +97,7 @@ export default class Logo extends Shadow() {
       }
       :host sparx-a-call-for-ideas  {
         margin-top: var(--logo-cfi-margin-top, -9%);
-        margin-left: var(--logo-cfi-margin-left, 10%);
+        margin-left: var(--logo-cfi-margin-left, 16%);
         align-self: flex-start;
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
@@ -110,7 +110,7 @@ export default class Logo extends Shadow() {
         }
         :host sparx-a-call-for-ideas  {
           margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, min(8%, 4vh)));
-          margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 13%));
+          margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 15%));
         }
       }
       @media only screen and (max-width: 400px) {

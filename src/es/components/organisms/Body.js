@@ -24,9 +24,12 @@ export default class Body extends BaseBody {
     super.renderCSS()
     this.css = /* css */`
       ${this.hasAttribute('home')
-        ? /* css */`:host > main {
-          height: var(--height, calc(100% - 4.1em));
-        }`
+        ? /* css */`
+          :host > main {
+            height: var(--height, calc(100% - 4.1em));
+            overflow: hidden;
+          }
+        `
         : ''}
       :host > main > q {
         width: var(--content-width-not-web-component, 80%);
