@@ -248,7 +248,7 @@ export default class Heading extends Intersection() {
   }
 
   /**
-   * Make sparkels
+   * Make sparkles
    * TODO: clear divs on each call
    * TODO: calculate position and size according to font-size aka. offsetHeight
    *
@@ -311,7 +311,7 @@ export default class Heading extends Intersection() {
   }
 
   /**
-   * Set position for sparkel if titel has two lines
+   * Set position for sparkle if title has two lines
    * @param {HTMLElement} element
    * @param {[number, number]} lines
    */
