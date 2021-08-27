@@ -206,7 +206,8 @@
   --q-font-size-mobile: 1.333rem;
   --q-font-size: 1.272rem;
   --q-margin: 0 auto 0.227rem;
-  --search-color: #F9E7D7;
+  --search-background-color: var(--background-color);
+  --search-color: var(--color);
   --search-content-width: 60%;
   --search-field-color: var(--color);
   --search-field-input-border: 1px solid var(--color);

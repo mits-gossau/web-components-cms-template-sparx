@@ -59,8 +59,9 @@ export default class CallForIdeas extends Intersection() {
   constructor (...args) {
     super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
 
-    this.clickListener = () => {
+    this.clickListener = event => {
       if (this.getAttribute('href')) {
+        event.stopPropagation()
         if (this.getAttribute('href')[0] === '#') {
           this.dispatchEvent(new CustomEvent(this.getAttribute('click-anchor') || 'click-anchor', {
             detail: {
@@ -75,27 +76,18 @@ export default class CallForIdeas extends Intersection() {
         }
       }
     }
-    // resize listeners
-    let timeout = null
-    this.resizeListener = event => {
-      clearTimeout(timeout)
-      timeout = setTimeout(() => this.makeItSquare(), 200)
-    }
   }
 
   connectedCallback () {
     super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
-    this.makeItSquare()
     this.addEventListener('click', this.clickListener)
-    self.addEventListener('resize', this.resizeListener)
   }
 
   disconnectedCallback () {
     super.disconnectedCallback()
     this.removeEventListener('click', this.clickListener)
-    self.removeEventListener('resize', this.resizeListener)
   }
 
   intersectionCallback (entries, observer) {
@@ -132,6 +124,8 @@ export default class CallForIdeas extends Intersection() {
         ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         ${this.hasAttribute('position') ? `--position: ${this.getAttribute('position')};` : ''}
         position: var(--position, absolute);
+        ${this.hasAttribute('margin') ? `--margin: ${this.getAttribute('margin')};` : ''}
+        margin: var(--margin, 0);
         ${this.hasAttribute('top') ? `--top: ${this.getAttribute('top')};` : ''}
         top: var(--top, unset);
         ${this.hasAttribute('right') ? `--right: ${this.getAttribute('right')};` : ''}
@@ -140,12 +134,17 @@ export default class CallForIdeas extends Intersection() {
         bottom: var(--bottom, unset);
         ${this.hasAttribute('left') ? `--left: ${this.getAttribute('left')};` : ''}
         left: var(--left, unset);
-        display: var(--display, grid);
+        display: flex;
         cursor: pointer;
         width: auto !important;
         z-index: var(--z-index, 1);
       }
-      :host > *, .background > * {
+      :host > div {
+        display: var(--display, grid);
+        width: fit-content;
+        height: fit-content;
+      }
+      :host > div > *, .background > * {
         grid-column: 1;
         grid-row: 1;
         width: auto;
@@ -226,6 +225,8 @@ export default class CallForIdeas extends Intersection() {
         :host {
           ${this.hasAttribute('position-mobile') ? `--position-mobile: ${this.getAttribute('position-mobile')};` : ''}
           position: var(--position-mobile, var(--position, absolute));
+          ${this.hasAttribute('margin-mobile') ? `--margin-mobile: ${this.getAttribute('margin-mobile')};` : ''}
+          margin: var(--margin-mobile, var(--margin, 0));
           ${this.hasAttribute('top-mobile') ? `--top-mobile: ${this.getAttribute('top-mobile')};` : ''}
           top: var(--top-mobile, var(--top, unset));
           ${this.hasAttribute('right-mobile') ? `--right-mobile: ${this.getAttribute('right-mobile')};` : ''}
@@ -234,6 +235,7 @@ export default class CallForIdeas extends Intersection() {
           bottom: var(--bottom-mobile, var(--bottom, unset));
           ${this.hasAttribute('left-mobile') ? `--left-mobile: ${this.getAttribute('left-mobile')};` : ''}
           left: var(--left-mobile, var(--left, unset));
+          ${this.hasAttribute('right') ? `justify-content: flex-end;` : ''}
         }
         ${this.hasAttribute('star')
         ? `
@@ -259,31 +261,25 @@ export default class CallForIdeas extends Intersection() {
    */
   renderHTML () {
     this.html = /* html */`
-      <section class=background>
-        <div class=one></div>
-        ${this.hasAttribute('star')
-        ? /* html */`
-            <div class=two></div>
-            <div class=three></div>
-            <div class=four></div>
-          `
-        : ''}
-      </section>
-      <section class=text>
-        <h4>${this.getAttribute('title') || 'No title attribute set!'}</h4>
-        <p>${this.getAttribute('text') || 'No text attribute set!'}</p>
-      </section>
+      <div>
+        <section class=background>
+          <div class=one></div>
+          ${this.hasAttribute('star')
+          ? /* html */`
+              <div class=two></div>
+              <div class=three></div>
+              <div class=four></div>
+            `
+          : ''}
+        </section>
+        <section class=text>
+          <h4>${this.getAttribute('title') || 'No title attribute set!'}</h4>
+          <p>${this.getAttribute('text') || 'No text attribute set!'}</p>
+        </section>
+      </div>
     `
     if (this.h4) this.root.querySelector('.text h4').replaceWith(this.h4.parentNode !== this.root ? this.h4.parentNode : this.h4)
     if (this.p) this.root.querySelector('.text p').replaceWith(this.p)
-  }
-
-  makeItSquare () {
-    self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
-      :host > * {
-        height: ${this.offsetWidth}px;
-      }
-    `))
   }
 
   get h4 () {
