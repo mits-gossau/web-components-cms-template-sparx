@@ -105,9 +105,13 @@ export default class Logo extends Shadow() {
           justify-content: var(--justify-content-mobile, var(--justify-content, center));
           padding: var(--padding-mobile, var(--padding, 0));
         }
+      }
+      @media only screen and (max-width: 800px) {
         :host *:not(:first-child):not(sparx-a-call-for-ideas) {
-          font-size: var(--font-size-mobile, var(--font-size, 5rem));
+          font-size: max(var(--font-size-mobile, var(--font-size, 5rem)), 8vw);
         }
+      }
+      @media only screen and (max-width: 650px) {
         :host sparx-a-call-for-ideas  {
           margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, min(8%, 4vh)));
           margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 15%));
@@ -116,6 +120,9 @@ export default class Logo extends Shadow() {
       @media only screen and (max-width: 400px) {
         :host *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
           align-self: var(--align-self-last, flex-end);
+        }
+        :host *:not(:first-child):not(sparx-a-call-for-ideas) {
+          font-size: var(--font-size-mobile, var(--font-size, 5rem));
         }
       }
     `
