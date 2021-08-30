@@ -177,7 +177,7 @@
   --navigation-a-link-color-no-scroll: var(--navigation-color);
   --navigation-a-link-content-spacing-no-scroll: 0;
   --navigation-a-link-content-spacing: 0;
-  --navigation-a-link-font-size-no-scroll-mobile: min(24px, 7vw);
+  --navigation-a-link-font-size-no-scroll-mobile: min(24px, min(7vw, 7vh));
   --navigation-a-link-second-level-font-size-no-scroll: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-a-link-second-level-font-size: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-arrow-display: none;
@@ -194,7 +194,7 @@
   --navigation-li-ul-margin-bottom-mobile: 0;
   --navigation-li-ul-right-second-half: 0;
   --navigation-li-ul-z-index: 1;
-  --navigation-margin-bottom-mobile: 2.222rem;
+  --navigation-margin-bottom-mobile: min(2.222rem, 6vh);
   --navigation-padding-no-scroll: 0;
   --navigation-padding-top: 0;
   --navigation-padding: 0;
