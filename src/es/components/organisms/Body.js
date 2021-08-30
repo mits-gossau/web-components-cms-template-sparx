@@ -27,7 +27,7 @@ export default class Body extends BaseBody {
         ? /* css */`
           :host > main {
             height: var(--height, calc(100% - 4.1em));
-            overflow: hidden;
+            overflow: visible;
           }
         `
         : ''}
