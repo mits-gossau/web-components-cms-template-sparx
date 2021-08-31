@@ -16,14 +16,15 @@
   --animation: none;
   --any-a-display: inline;
   --background-color: #272727;
-  --button-a-font-family-hover: var(--a-font-family-hover);
   --button-background-color-hover: var(--button-background-color, transparent);
   --button-background-color: var(--color-secondary);
   --button-border-radius:2rem;
   --button-color:var(--color);
+  --button-font-family-hover: var(--a-font-family-hover);
   --button-font-size:var(--font-size);
   --button-icon-padding:0 1.2rem;
   --button-margin: 1rem 0 0;
+  --button-padding-button-with-icon: 0;
   --button-padding:1.16rem 2.31rem; 
   --button-width:auto;
   --call-for-ideas-h4-font-family: var(--font-family-quinary);

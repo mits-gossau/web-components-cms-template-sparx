@@ -14,8 +14,8 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @type {CustomElementConstructor}
  * @attribute {
     {string} href
-    {n.a} icon
-    {n.a} center
+    {n.a} has-icon
+    {n.a} align-center
     'background-color' css props as attribute
     'background-color-hover' css props as attribute
     'color' css props as attribute
@@ -114,19 +114,19 @@ export default class Button extends Shadow() {
   renderCSS() {
     this.css = /* css */ `
     :host {
-      display: ${this.hasIcon ? 'inline-block' : 'flex'};
-      ${this.shouldAlignCenter && !this.hasIcon ? 'justify-content: center' : ''};
-      margin: var(--margin, 0);
-    }
-    :host  button {
+      ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
       ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
       ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
-      ${this.hasIcon ? '--padding: var(--padding, 0);' : '0'}
+      display: var(--display, ${this.hasIcon ? 'inline-flex' : 'flex'});
+      justify-content: var(--justify-content, ${this.alignCenter && !this.hasIcon ? 'center' : 'normal'});
+      margin: var(--margin, 0);
+    }
+    :host button {
       width: var(--width, 100%);
       height: var(--height, 100%);
       transition: var(--transition, 0.3s all);
       border: var(--border, none);
-      padding:var(--padding, 0);
+      padding:var(${this.hasIcon ? '--padding-button-with-icon' : '--padding'}, 0);
       cursor: var(--cursor, pointer);
       color: var(--color, white);
       background-color: var(--background-color, transparent);
@@ -135,12 +135,11 @@ export default class Button extends Shadow() {
       font-size: var(--font-size, 1em);
       text-transform: var(--text-transform, none);
       text-decoration: var(--text-decoration, none);
-      text-underline-offset: var(--a-text-underline-offset, unset);
+      text-underline-offset: var(--text-underline-offset, unset);
       border-radius: var(--border-radius, 0);
     }
     :host button:hover,  button:active, button:focus {
-      ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
-      font-family: var(--a-font-family-hover);
+      font-family: var(--font-family-hover);
       color: var(--color-hover, --color);
       background-color: var(--background-color-hover, --background-color);
     }
@@ -152,11 +151,11 @@ export default class Button extends Shadow() {
       background-color:transparent !important;
     }
     .icon > img {
-      margin-right:var(--icon-margin-right, .7rem);
-      width: var(--icon-width, 2.7rem);
+      margin-right:var(--icon-img-margin-right, .7rem);
+      width: var(--icon-img-width, 2.7rem);
     }
     @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
-      :host {${this.hasIcon ? '' : 'justify-content: center'}}      
+      :host {${this.hasIcon ? '' : 'justify-content: var(--justify-content-mobile, var(--justify-content, center));'}}      
       :host button {font-size: var(--font-size-mobile, 1em)}
       .icon > img {width: var(--icon-width-mobile, min(2.7rem, 10vw))}
     }
@@ -169,7 +168,8 @@ export default class Button extends Shadow() {
    * @return {void}
    */
   renderHTML() {
-    if (this.hasIcon) this.addIconToButton(this.button)
+    // @ts-ignore
+    if (this.hasIcon) this.constructor.addIconToButton(this.button, this.getAttribute('icon-image') || '../../../img/ButtonDownload.svg')
     this.html = this.button
   }
 
@@ -177,14 +177,16 @@ export default class Button extends Shadow() {
    * Prepend icon to button
    *
    * @param {HTMLButtonElement} button
-   * @return {void}
+   * @param {string} iconSrc
+   * @return {HTMLElement}
    */
-  addIconToButton(button) {
+  static addIconToButton(button, iconSrc) {
     const iconImg = new Image()
-    iconImg.src = '../../../img/ButtonDownload.svg'
+    iconImg.src = iconSrc
     iconImg.alt = button.innerText || ''
     button.prepend(iconImg)
     button.classList.add('icon')
+    return button
   }
 
   /**
@@ -202,7 +204,7 @@ export default class Button extends Shadow() {
    * @return {boolean}
    */
   get hasIcon() {
-    return this.hasAttribute('icon')
+    return this.hasAttribute('has-icon')
   }
 
   /**
@@ -210,7 +212,7 @@ export default class Button extends Shadow() {
    *
    * @return {boolean}
    */
-  get shouldAlignCenter() {
-    return this.hasAttribute('center')
+  get alignCenter() {
+    return this.hasAttribute('align-center')
   }
 }
