@@ -6,7 +6,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 
 
 /**
- * Button
+ * Wrapper for a button element
  * Example at: /src/es/components/pages/Idee.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
@@ -33,15 +33,34 @@ export default class Button extends Shadow() {
       // @ts-ignore
       Array.from(this.childNodes).forEach(node => this.button.appendChild(this.root.appendChild(node)))
     }
+
+    this.clickListener = event => {
+      if (this.getAttribute('href')) {
+        event.stopPropagation()
+        if (this.getAttribute('href')[0] === '#') {
+          this.dispatchEvent(new CustomEvent(this.getAttribute('click-anchor') || 'click-anchor', {
+            detail: {
+              selector: this.getAttribute('href')
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: true
+          }))
+        } else {
+          location.href = this.getAttribute('href')
+        }
+      }
+    }
   }
 
   connectedCallback() {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
-
+    this.addEventListener('click', this.clickListener)
   }
 
   disconnectedCallback() {
+    this.removeEventListener('click', this.clickListener)
   }
 
   /**
@@ -76,10 +95,8 @@ export default class Button extends Shadow() {
     }
     :host  button {
       ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
-      ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
       ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
       ${this.hasIcon ? `--padding: var(--padding, 0);` : '0'}
-      ${this.hasIcon ? `--background-color: var(--background-color, transparent);` : 'transparent'}
       width: var(--width, 100%);
       height: var(--height, 100%);
       transition: var(--transition, 0.3s all);
@@ -97,20 +114,22 @@ export default class Button extends Shadow() {
       border-radius: var(--border-radius, 0);
     }
     :host button:hover,  button:active, button:focus {
+      ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
       font-family: var(--a-font-family-hover);
-      background-color: var(--background-color-hover, var(--background-color))
+      color: var(--color-hover, --color);
+      background-color: var(--background-color-hover, --background-color);
     }
     .icon {
       display:var(--icon-display, flex);
       flex-direction: var(--icon-display-direction, row);
       align-items: var(--icon-align-items, center);
       margin-right:var(--icon-margin-right, 2rem);
+      background-color:transparent !important;
     }
     .icon > img {
       margin-right:var(--icon-margin-right, .7rem);
       width: var(--icon-width, 2.7rem);
     }
-   
     @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
       :host {${this.hasIcon ? '' : 'justify-content: center'}}      
       :host button {font-size: var(--font-size-mobile, 1em)}
@@ -168,5 +187,13 @@ export default class Button extends Shadow() {
    */
   get shouldAlignCenter() {
     return this.hasAttribute('center')
+  }
+
+  get color() {
+    return this.getAttribute('color')
+  }
+
+  get backgroundColor() {
+    return this.getAttribute('background-color')
   }
 }

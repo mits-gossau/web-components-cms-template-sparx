@@ -218,7 +218,8 @@
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin: 0 auto;
 
-  --button-background-color:#D9ADFF;
+  --button-background-color: var(--color-secondary);
+  --button-background-color-hover: var(--button-background-color, transparent);
   --button-color:var(--color);
   --button-width:auto;
   --button-padding:1.16rem 2.31rem; 
