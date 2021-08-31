@@ -76,6 +76,11 @@ export default class CallForIdeas extends Intersection() {
         }
       }
     }
+    // link behavior made accessible
+    if (this.hasAttribute('href')) {
+      this.setAttribute('data-href', this.getAttribute('href'))
+      this.setAttribute('role', 'link')
+    }
   }
 
   connectedCallback () {
