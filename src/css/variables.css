@@ -16,6 +16,16 @@
   --animation: none;
   --any-a-display: inline;
   --background-color: #272727;
+  --button-a-font-family-hover: var(--a-font-family-hover);
+  --button-background-color-hover: var(--button-background-color, transparent);
+  --button-background-color: var(--color-secondary);
+  --button-border-radius:2rem;
+  --button-color:var(--color);
+  --button-font-size:var(--font-size);
+  --button-icon-padding:0 1.2rem;
+  --button-margin: 1rem 0 0;
+  --button-padding:1.16rem 2.31rem; 
+  --button-width:auto;
   --call-for-ideas-h4-font-family: var(--font-family-quinary);
   --call-for-ideas-h4-font-size-mobile: var(--h4-font-size-mobile);
   --call-for-ideas-h4-font-size: var(--h4-font-size);
@@ -217,15 +227,4 @@
   --spacer-height: 4.41rem;
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin: 0 auto;
-
-  --button-background-color: var(--color-secondary);
-  --button-background-color-hover: var(--button-background-color, transparent);
-  --button-color:var(--color);
-  --button-width:auto;
-  --button-padding:1.16rem 2.31rem; 
-  --button-font-size:var(--font-size);
-  --button-border-radius:2rem;
-  --button-a-font-family-hover: var(--a-font-family-hover);
-  --button-margin: 1rem 0 0;
-  --button-icon-padding:0 1.2rem;
 }

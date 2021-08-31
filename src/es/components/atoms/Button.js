@@ -4,7 +4,6 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 /* global CustomEvent */
 /* global location */
 
-
 /**
  * Wrapper for a button element
  * Example at: /src/es/components/pages/Idee.html
@@ -15,15 +14,41 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @type {CustomElementConstructor}
  * @attribute {
     {string} href
-    {n.a} icon 
+    {n.a} icon
     {n.a} center
     'background-color' css props as attribute
     'background-color-hover' css props as attribute
     'color' css props as attribute
- * }
+  }
  * @css {
- *
- * }
+  var(--margin, 0);
+  var(--padding, 0);
+  var(--width, 100%);
+  var(--height, 100%);
+  var(--transition, 0.3s all);
+  var(--border, none);
+  var(--cursor, pointer);
+  var(--color, white);
+  var(--background-color, transparent);
+  var(--font-family, var(--font-family-bold));
+  var(--font-weight, var(--font-weight, normal));
+  var(--font-size, 1em);
+  var(--text-transform, none);
+  var(--text-decoration, none);
+  var(--a-text-underline-offset, unset);
+  var(--border-radius, 0);
+  var(--a-font-family-hover);
+  var(--color-hover, --color);
+  var(--background-color-hover, --background-color);
+  var(--icon-display, flex);
+  var(--icon-display-direction, row);
+  var(--icon-align-items, center);
+  var(--icon-margin-right, 2rem);
+  var(--icon-margin-right, .7rem);
+  var(--icon-width, 2.7rem);
+  var(--font-size-mobile, 1em);
+  var(--icon-width-mobile, min(2.7rem, 10vw));
+}
  */
 export default class Button extends Shadow() {
   constructor(...args) {
@@ -96,7 +121,7 @@ export default class Button extends Shadow() {
     :host  button {
       ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
       ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
-      ${this.hasIcon ? `--padding: var(--padding, 0);` : '0'}
+      ${this.hasIcon ? '--padding: var(--padding, 0);' : '0'}
       width: var(--width, 100%);
       height: var(--height, 100%);
       transition: var(--transition, 0.3s all);
@@ -150,21 +175,21 @@ export default class Button extends Shadow() {
 
   /**
    * Prepend icon to button
-   * 
-   * @param {HTMLButtonElement} button 
+   *
+   * @param {HTMLButtonElement} button
    * @return {void}
    */
   addIconToButton(button) {
     const iconImg = new Image()
-    iconImg.src = "../../../img/ButtonDownload.svg"
-    iconImg.alt = button.innerText || ""
+    iconImg.src = '../../../img/ButtonDownload.svg'
+    iconImg.alt = button.innerText || ''
     button.prepend(iconImg)
     button.classList.add('icon')
   }
 
   /**
    * Get button element. If not set, create element and return it
-   * 
+   *
    * @return {HTMLButtonElement}
    */
   get button() {
@@ -173,7 +198,7 @@ export default class Button extends Shadow() {
 
   /**
    * Evaluate if icon attribute is set
-   * 
+   *
    * @return {boolean}
    */
   get hasIcon() {
@@ -182,18 +207,10 @@ export default class Button extends Shadow() {
 
   /**
    * Evaluate if button should align center
-   * 
+   *
    * @return {boolean}
    */
   get shouldAlignCenter() {
     return this.hasAttribute('center')
-  }
-
-  get color() {
-    return this.getAttribute('color')
-  }
-
-  get backgroundColor() {
-    return this.getAttribute('background-color')
   }
 }
