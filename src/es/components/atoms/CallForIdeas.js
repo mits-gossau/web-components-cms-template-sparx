@@ -72,7 +72,7 @@ export default class CallForIdeas extends Intersection() {
             composed: true
           }))
         } else {
-          location.href = this.getAttribute('href')
+          self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
         }
       }
     }

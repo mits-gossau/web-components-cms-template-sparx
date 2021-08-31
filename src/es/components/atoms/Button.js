@@ -16,11 +16,13 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @type {CustomElementConstructor}
  * @attribute {
     {string} href
+    {_self | _blank | _parent | _top} target
     {n.a} has-icon
     {n.a} align-center
     'background-color' css props as attribute
     'background-color-hover' css props as attribute
     'color' css props as attribute
+    {link/src} icon-image default: ../../../img/ButtonDownload.svg
   }
  * @css {
   var(--margin, 0);
@@ -74,7 +76,7 @@ export default class Button extends Shadow() {
             composed: true
           }))
         } else {
-          location.href = this.getAttribute('href')
+          self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
         }
       }
     }

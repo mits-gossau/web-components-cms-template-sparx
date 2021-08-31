@@ -36,7 +36,7 @@ export default class Logo extends Shadow() {
             composed: true
           }))
         } else {
-          location.href = this.getAttribute('href')
+          self.open(this.getAttribute('href'), this.getAttribute('target') || '_self')
         }
       }
     }
