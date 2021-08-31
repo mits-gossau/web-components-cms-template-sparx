@@ -40,6 +40,11 @@ export default class Logo extends Shadow() {
         }
       }
     }
+    // link behavior made accessible
+    if (this.hasAttribute('href')) {
+      this.setAttribute('data-href', this.getAttribute('href'))
+      this.setAttribute('role', 'link')
+    }
   }
 
   connectedCallback () {
