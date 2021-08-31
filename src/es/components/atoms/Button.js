@@ -3,6 +3,8 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 
 /* global CustomEvent */
 /* global location */
+/* global self */
+/* global Image */
 
 /**
  * Wrapper for a button element
@@ -51,7 +53,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 }
  */
 export default class Button extends Shadow() {
-  constructor(...args) {
+  constructor (...args) {
     super(...args)
 
     if (this.hasShadowRoot) {
@@ -78,13 +80,13 @@ export default class Button extends Shadow() {
     }
   }
 
-  connectedCallback() {
+  connectedCallback () {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.addEventListener('click', this.clickListener)
   }
 
-  disconnectedCallback() {
+  disconnectedCallback () {
     this.removeEventListener('click', this.clickListener)
   }
 
@@ -93,7 +95,7 @@ export default class Button extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderCSS() {
+  shouldComponentRenderCSS () {
     return !this.root.querySelector(`:host > style[_css], ${this.tagName} > style[_css]`)
   }
 
@@ -102,7 +104,7 @@ export default class Button extends Shadow() {
    *
    * @return {boolean}
    */
-  shouldComponentRenderHTML() {
+  shouldComponentRenderHTML () {
     return !this.root.querySelector('button')
   }
 
@@ -111,7 +113,7 @@ export default class Button extends Shadow() {
    *
    * @return {void}
    */
-  renderCSS() {
+  renderCSS () {
     this.css = /* css */ `
     :host {
       ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
@@ -167,7 +169,7 @@ export default class Button extends Shadow() {
    *
    * @return {void}
    */
-  renderHTML() {
+  renderHTML () {
     // @ts-ignore
     if (this.hasIcon) this.constructor.addIconToButton(this.button, this.getAttribute('icon-image') || '../../../img/ButtonDownload.svg')
     this.html = this.button
@@ -180,7 +182,7 @@ export default class Button extends Shadow() {
    * @param {string} iconSrc
    * @return {HTMLElement}
    */
-  static addIconToButton(button, iconSrc) {
+  static addIconToButton (button, iconSrc) {
     const iconImg = new Image()
     iconImg.src = iconSrc
     iconImg.alt = button.innerText || ''
@@ -194,7 +196,7 @@ export default class Button extends Shadow() {
    *
    * @return {HTMLButtonElement}
    */
-  get button() {
+  get button () {
     return this._button || (this._button = document.createElement('button'))
   }
 
@@ -203,7 +205,7 @@ export default class Button extends Shadow() {
    *
    * @return {boolean}
    */
-  get hasIcon() {
+  get hasIcon () {
     return this.hasAttribute('has-icon')
   }
 
@@ -212,7 +214,7 @@ export default class Button extends Shadow() {
    *
    * @return {boolean}
    */
-  get alignCenter() {
+  get alignCenter () {
     return this.hasAttribute('align-center')
   }
 }

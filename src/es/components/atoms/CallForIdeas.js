@@ -235,7 +235,7 @@ export default class CallForIdeas extends Intersection() {
           bottom: var(--bottom-mobile, var(--bottom, unset));
           ${this.hasAttribute('left-mobile') ? `--left-mobile: ${this.getAttribute('left-mobile')};` : ''}
           left: var(--left-mobile, var(--left, unset));
-          ${this.hasAttribute('right') ? `justify-content: flex-end;` : ''}
+          ${this.hasAttribute('right') ? 'justify-content: flex-end;' : ''}
         }
         ${this.hasAttribute('star')
         ? `
