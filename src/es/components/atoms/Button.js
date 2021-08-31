@@ -164,9 +164,15 @@ export default class Button extends Shadow() {
       width: var(--icon-img-width, 2.7rem);
     }
     @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
-      :host {${this.hasIcon ? '' : 'justify-content: var(--justify-content-mobile, var(--justify-content, center));'}}      
-      :host button {font-size: var(--font-size-mobile, 1em)}
-      .icon > img {width: var(--icon-width-mobile, min(2.7rem, 10vw))}
+      :host {
+        justify-content: var(--justify-content-mobile, var(--justify-content, ${this.alignCenter && !this.hasIcon ? 'center' : 'normal'}));
+      }
+      :host button {
+        font-size: var(--font-size-mobile, 1em)
+      }
+      .icon > img {
+        width: var(--icon-width-mobile, min(2.7rem, 10vw))
+      }
     }
   `
   }
