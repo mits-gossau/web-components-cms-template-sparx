@@ -2,7 +2,6 @@
 import { Intersection } from '../web-components-cms-template/src/es/components/prototypes/Intersection.js'
 
 /* global CustomEvent */
-/* global location */
 /* global self */
 
 /**

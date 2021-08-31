@@ -2,7 +2,6 @@
 import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
 
 /* global CustomEvent */
-/* global location */
 /* global self */
 /* global Image */
 
@@ -125,6 +124,7 @@ export default class Button extends Shadow() {
     :host {
       ${this.hasAttribute('background-color-hover') ? `--background-color-hover: ${this.getAttribute('background-color-hover')};` : ''}
       ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
+      ${this.hasAttribute('color-hover') ? `--color-hover: ${this.getAttribute('color-hover')};` : ''}
       ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
       display: var(--display, ${this.hasIcon ? 'inline-flex' : 'flex'});
       justify-content: var(--justify-content, ${this.alignCenter && !this.hasIcon ? 'center' : 'normal'});

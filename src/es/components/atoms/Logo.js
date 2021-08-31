@@ -2,7 +2,6 @@
 import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
 
 /* global CustomEvent */
-/* global location */
 /* global self */
 
 /**
