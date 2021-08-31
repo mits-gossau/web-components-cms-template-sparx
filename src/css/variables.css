@@ -217,4 +217,14 @@
   --spacer-height: 4.41rem;
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin: 0 auto;
+
+  --button-background-color:#D9ADFF;
+  --button-color:var(--color);
+  --button-width:auto;
+  --button-padding:1.16rem 2.31rem; 
+  --button-font-size:var(--font-size);
+  --button-border-radius:2rem;
+  --button-a-font-family-hover: var(--a-font-family-hover);
+  --button-margin: 1rem 0 0;
+  --button-icon-padding:0 1.2rem;
 }
