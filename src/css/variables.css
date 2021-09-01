@@ -41,6 +41,14 @@
   --content-width-not-web-component-mobile: 92%;
   --content-width-not-web-component: 55%;
   --content-width: 85%;
+  --details-animation: none;
+  --details-border-bottom-last: var(--details-border);
+  --details-border-top: var(--details-border);
+  --details-border: min(3px, 7vw) solid var(--color);
+  --details-icon-justify-content: space-between;
+  --details-padding: var(--padding, 27px 0);
+  --details-summary-font-size: 1.3rem;
+  --details-text-align: left;
   --flex-grow: 1;
   --font-family-quaternary: "GT-Haptik-Medium-Oblique-2", Arial, sans-serif;
   --font-family-quinary: "GT-Haptik-Medium-Rotalic", Arial, sans-serif;
