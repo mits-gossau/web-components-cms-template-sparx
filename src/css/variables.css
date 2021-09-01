@@ -44,7 +44,7 @@
   --details-animation: none;
   --details-border-bottom-last: var(--details-border);
   --details-border-top: var(--details-border);
-  --details-border: min(3px, 7vw) solid var(--color);
+  --details-border: min(3px, 7vw) solid;
   --details-icon-justify-content: space-between;
   --details-padding: var(--padding, 27px 0);
   --details-summary-font-size: 1.3rem;
