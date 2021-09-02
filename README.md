@@ -18,7 +18,6 @@ Using web-components-cms-template Repository
 1. Footer
 1. list styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
 1. pictures/videos with teaser and different layouts https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
-1. carousel indicators === color example projekt einzelseite https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
 
 ## Meeting Themen:
 
