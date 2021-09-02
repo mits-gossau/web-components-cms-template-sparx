@@ -42,7 +42,7 @@
   --content-width-not-web-component: 55%;
   --content-width: 85%;
   --details-animation: none;
-  --details-border-bottom-last: var(--details-border);
+  --details-border-bottom-last: 0;
   --details-border-top: var(--details-border);
   --details-border: min(3px, 7vw) solid;
   --details-icon-justify-content: space-between;
