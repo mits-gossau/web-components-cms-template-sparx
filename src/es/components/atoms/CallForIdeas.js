@@ -148,7 +148,7 @@ export default class CallForIdeas extends Intersection() {
         ${this.hasAttribute('left') ? `--left: ${this.getAttribute('left')};` : ''}
         left: var(--left, unset);
         display: flex;
-        cursor: pointer;
+        ${this.hasAttribute('href') ? 'cursor: pointer;' : ''}
         width: auto !important;
         z-index: var(--z-index, 1);
       }
