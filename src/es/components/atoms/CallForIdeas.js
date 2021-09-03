@@ -80,18 +80,27 @@ export default class CallForIdeas extends Intersection() {
       this.setAttribute('data-href', this.getAttribute('href'))
       this.setAttribute('role', 'link')
     }
+    // resize listeners
+    let timeout = null
+    this.resizeListener = event => {
+      clearTimeout(timeout)
+      timeout = setTimeout(() => this.makeItSquare(), 200)
+    }
   }
 
   connectedCallback () {
     super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
+    this.makeItSquare()
     this.addEventListener('click', this.clickListener)
+    self.addEventListener('resize', this.resizeListener)
   }
 
   disconnectedCallback () {
     super.disconnectedCallback()
     this.removeEventListener('click', this.clickListener)
+    self.removeEventListener('resize', this.resizeListener)
   }
 
   intersectionCallback (entries, observer) {
@@ -192,7 +201,7 @@ export default class CallForIdeas extends Intersection() {
       }
       .background {
         display: var(--background-display, grid);
-        transform: var(--background-transform, rotate(35deg));
+        ${this.hasAttribute('star') ? 'transform: var(--background-transform, rotate(35deg)' : ''});
       }
       .background > * {
         background-color: var(--background-color, red);
@@ -284,6 +293,14 @@ export default class CallForIdeas extends Intersection() {
     `
     if (this.h4) this.root.querySelector('.text h4').replaceWith(this.h4.parentNode !== this.root ? this.h4.parentNode : this.h4)
     if (this.p) this.root.querySelector('.text p').replaceWith(this.p)
+  }
+
+  makeItSquare () {
+    self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
+      :host > div {
+        height: ${this.offsetWidth}px;
+      }
+    `))
   }
 
   get h4 () {
