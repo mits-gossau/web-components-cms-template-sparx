@@ -53,9 +53,15 @@ export default class Wrapper extends Shadow() {
         --carousel-content-width: 100%;
         --carousel-margin: 0;
         --picture-margin: 0;
+        --picture-height-mobile: 100%;
+        --picture-height: 100%;
         --picture-width-mobile: 100%;
         --picture-width: 100%;
         --spacing: 0.5rem;
+        --video-margin: 0;
+        --video-min-height: 100%;
+        --video-width-mobile: 100%;
+        --video-min-width: 100%;
         display: block;
       }
       :host > section {
