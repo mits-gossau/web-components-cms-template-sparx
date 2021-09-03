@@ -38,6 +38,15 @@
   --call-for-ideas-h4-font-size: var(--h4-font-size);
   --call-for-ideas-p-font-size-mobile: var(--font-size-mobile);
   --call-for-ideas-p-font-size: var(--font-size);
+  --carousel-content-width-mobile: var(--content-width-mobile);
+  --carousel-content-width: var(--content-width);
+  --carousel-margin-mobile: var(--content-spacing-mobile) auto;
+  --carousel-margin: var(--content-spacing) auto;
+  --carousel-pagination-background-color-selected: var(--color);
+  --carousel-pagination-background-color: #D2BB6180;
+  --carousel-pagination-width: min(12px, 4vw);
+  --carousel-transition-duration: 1.6s;
+  --carousel-video-min-height: 100%;
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;
@@ -241,5 +250,8 @@
   --spacer-height-mobile: 1.53rem;
   --spacer-height: 4.41rem;
   --sparx-a-heading-margin: var(--content-spacing) auto;
-  --video-margin: 0 auto;
+  --video-margin-mobile: var(--content-spacing-mobile) auto;
+  --video-margin: var(--content-spacing) auto;
+  --video-min-width: var(--content-width);
+  --video-width-mobile: var(--content-width-mobile);
 }
