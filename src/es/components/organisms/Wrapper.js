@@ -1,24 +1,25 @@
 // @ts-check
-import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
+import Style from './Style.js'
 
 /* global self */
 
 /**
  * As an organism, this component shall hold molecules and/or atoms
+ * Example at: /src/es/components/pages/Tester1.html
+ * Example at: /src/es/components/pages/Netzwerk.html
  *
  * @export
  * @class Wrapper
  * @type {CustomElementConstructor}
  * @attribute {
- *  {has} first (tells the first item to be big, else its the last)
- * }
- * @css {
- *  --margin [20px]
- *  --min-width [370px]
- *  --justify-content [center]
+ *  {has} no-content-width-overwrite (do not overwrite the :host > section --content-width-not-web-component with --content-width)
+ *  {number} spacing
+ *  {percent} first-width
+ *  {percent} last-width
+ *  {has} four
  * }
  */
-export default class Wrapper extends Shadow() {
+export default class Wrapper extends Style {
   connectedCallback () {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
@@ -48,41 +49,127 @@ export default class Wrapper extends Shadow() {
    * @return {void}
    */
   renderCSS () {
+    super.renderCSS()
     this.css = /* css */`
       :host {
+        ${this.hasAttribute('no-content-width-overwrite')
+          ? ''
+          : /* css */`
+            --content-width-not-web-component: var(--content-width);
+            --content-width-not-web-component-mobile: var(--content-width-mobile);
+          `
+        }
         --carousel-content-width: 100%;
+        --carousel-margin-mobile: 0;
         --carousel-margin: 0;
         --picture-margin: 0;
-        --picture-height-mobile: 100%;
+        --picture-height-mobile: auto;
         --picture-height: 100%;
         --picture-width-mobile: 100%;
         --picture-width: 100%;
-        --spacing: 0.5rem;
+        --picture-img-width: auto;
+        --spacing: ${this.getAttribute('spacing') || '0.5em'};
         --video-margin: 0;
         --video-min-height: 100%;
         --video-width-mobile: 100%;
         --video-min-width: 100%;
-        display: block;
       }
       :host > section {
         display: flex;
         flex-wrap: wrap;
         justify-content: var(--justify-content, space-between);
+        margin: 0 auto;
       }
-      :host > section > * {
-        width: calc(50% - var(--spacing));
+      ${this.nextSibling && this.nextSibling.tagName === this.tagName
+        ? /* css */`
+          :host > section {
+            margin-bottom: var(--content-spacing);
+          }
+        `
+        : ''
+      }
+      ${this.div
+        ? /* css */`
+          ${!this.hasAttribute('four')
+            ? /* css */`
+              :host > section > div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              }
+              :host > section > div > * {
+                width: 100%;
+              }
+              :host > section > a-picture, :host > section > a {
+                align-self: var(--align-self, center);
+              }
+              :host > section > a {
+                margin: 0;
+              }
+            `
+            : ''
+          }
+          :host > section > div > *:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+          @media only screen and (min-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
+            :host > section > div > *:first-child {
+              margin-top: 0;
+              padding-top: 0;
+            }
+          }
+        `
+        : ''
+      }
+      ${this.hasAttribute('first-width') || this.hasAttribute('last-width')
+        ? /* css */`
+          :host > section > * {
+            width: calc(${100 - Number(this.getAttribute('first-width') || this.getAttribute('last-width'))}% - var(--spacing));
+          }
+          :host > section > *:${this.hasAttribute('first-width') ? 'first' : 'last'}-child {
+            width: calc(${this.getAttribute('first-width') || this.getAttribute('last-width')}% - var(--spacing));
+          }
+        `
+        : /* css */ `
+          :host > section > * {
+            width: calc(${this.hasAttribute('four') ? '25' : '50'}% - var(--spacing));
+          }
+        `
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           --carousel-content-width-mobile: 100%;
         }
         :host > section {
-          display: block;
+          display: ${this.hasAttribute('four') ? 'flex' : 'block'};
         }
-        :host > section > * {
-          display: block;
-          width: 100%;
-          margin: var(--content-spacing-mobile, var(--content-spacing, unset)) auto;
+        ${this.hasAttribute('four')
+          ? /* css */`
+            :host > section {
+              justify-content: var(--justify-content-mobile, center);
+            }
+            :host > section > * {
+              min-width: calc(50% - var(--spacing) / 2);
+            }
+            :host > section > *:nth-of-type(2n) {
+              margin-left: var(--spacing);
+              margin-bottom: var(--content-spacing-mobile);
+            }
+          `
+          : /* css */`
+            :host > section > * {
+              display: block;
+              width: auto !important;
+              margin: var(--content-spacing-mobile, var(--content-spacing, unset)) auto;
+            }
+          `
+        }
+        :host > section > *:first-child {
+          margin-top: 0;
+        }
+        :host > section > *:last-child {
+          margin-bottom: 0;
         }
       }
     `
@@ -99,5 +186,9 @@ export default class Wrapper extends Shadow() {
       if (node.tagName !== 'STYLE') section.appendChild(node)
     })
     this.html = section
+  }
+
+  get div () {
+    return this.root.querySelector('div')
   }
 }

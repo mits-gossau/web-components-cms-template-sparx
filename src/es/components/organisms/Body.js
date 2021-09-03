@@ -31,6 +31,10 @@ export default class Body extends BaseBody {
           }
         `
         : ''}
+      :host > main > *[content-width] {
+        width: var(--content-width, 80%);
+        margin-bottom: var(--content-spacing);
+      }
       :host > main > q {
         width: var(--content-width-not-web-component, 80%);
       }
@@ -66,6 +70,10 @@ export default class Body extends BaseBody {
         font-family: var(--a-font-family-hover);
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
+        :host > main > *[content-width] {
+          width: var(--content-width-mobile, 80%);
+          margin-bottom: calc(var(--content-spacing-mobile) * 2);
+        }
         :host > main > q {
           width: var(--content-width-not-web-component-mobile, var(--content-width-not-web-component, var(--content-width-mobile, var(--content-width, 90%))));
         }

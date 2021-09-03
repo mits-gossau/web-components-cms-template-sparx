@@ -45,8 +45,11 @@
   --carousel-pagination-background-color-selected: var(--color);
   --carousel-pagination-background-color: #D2BB6180;
   --carousel-pagination-width: min(12px, 4vw);
+  --carousel-picture-height-mobile: auto;
+  --carousel-picture-height: 100%;
   --carousel-transition-duration: 1.6s;
   --carousel-video-min-height: 100%;
+  --carousel-video-min-width: 100%;
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;
@@ -234,7 +237,7 @@
   --navigation-padding: 0;
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
-  --picture-margin: 0 auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
+  --picture-margin: var(--content-spacing) auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
   --picture-width-mobile: var(--content-width-mobile);
   --picture-width: var(--content-width);
   --q-font-size-mobile: 1.333rem;

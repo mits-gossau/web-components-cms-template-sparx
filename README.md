@@ -11,8 +11,6 @@ Using web-components-cms-template Repository
 
 1. back button in studio/projects/project behavior absolute/static analog call for ideas button https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
 1. search styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/eKzVwmm / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/Gmy3L1E / http://localhost:4200/src/es/components/pages/Suche.html
-1. studio/project cards https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/ZOpmA3Y
-1. studio/project media cards https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/ZOpmA3Y
 1. Footer
 
 ## Meeting Themen:
