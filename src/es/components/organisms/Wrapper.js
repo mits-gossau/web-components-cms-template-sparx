@@ -108,7 +108,7 @@ export default class Wrapper extends Style {
                 margin: 0;
               }
             `
-            : ''
+            : ':host > section > * {height:100%;}'
           }
           :host > section > div > *:last-child {
             margin-bottom: 0;
