@@ -243,18 +243,32 @@
   --q-font-size-mobile: 1.333rem;
   --q-font-size: 1.272rem;
   --q-margin: 0 auto 0.227rem;
+
+
+  --search-width: var(--content-width-not-web-component);
+  --search-width-mobile: var(--content-width-not-web-component-mobile);
+  --search-field-input-font-size: var(--h3-font-size);
   --search-background-color: var(--background-color);
   --search-color: var(--color);
-  --search-content-width: 60%;
   --search-field-color: var(--color);
   --search-field-input-border: 1px solid var(--color);
   --search-field-input-outline: none;
-  --search-field-width: 500px;
+  --search-field-input-box-shadow: none;
+  --search-field-width: 100%;
+  --search-field-input-border-radius: 2em;
   --spacer-height-mobile: 1.53rem;
   --spacer-height: 4.41rem;
+  --search-field-input-padding: 1rem;
+  --search-field-text-align: left;
+
+
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin-mobile: var(--content-spacing-mobile) auto;
   --video-margin: var(--content-spacing) auto;
   --video-min-width: var(--content-width);
   --video-width-mobile: var(--content-width-mobile);
+
+
+  --search-a-display: var(--any-a-display);
+  --search-a-font-family-hover: var(--a-font-family-hover);
 }
