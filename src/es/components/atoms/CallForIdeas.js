@@ -298,7 +298,7 @@ export default class CallForIdeas extends Intersection() {
   makeItSquare () {
     self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
       :host > div {
-        height: ${this.offsetWidth}px;
+        height: ${this.text.offsetWidth}px;
       }
     `))
   }
@@ -309,5 +309,9 @@ export default class CallForIdeas extends Intersection() {
 
   get p () {
     return this.root.querySelector('p')
+  }
+
+  get text () {
+    return this.root.querySelector('section.text')
   }
 }
