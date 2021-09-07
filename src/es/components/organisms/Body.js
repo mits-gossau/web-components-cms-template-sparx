@@ -72,7 +72,7 @@ export default class Body extends BaseBody {
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host > main > *[content-width] {
           width: var(--content-width-mobile, 80%);
-          margin-bottom: calc(var(--content-spacing-mobile) * 2);
+          margin-bottom: var(--content-spacing-mobile);
         }
         :host > main > q {
           width: var(--content-width-not-web-component-mobile, var(--content-width-not-web-component, var(--content-width-mobile, var(--content-width, 90%))));
