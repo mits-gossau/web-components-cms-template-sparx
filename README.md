@@ -23,10 +23,10 @@ Using web-components-cms-template Repository
   - [x] sparx-a-heading     letter-spacing: 0.02em;
   - [x] sparx-a-call-for-ideas > line-height: 1em; , Button round, more spacing=30 (move to backend when done)
   - [x] details>summary mobile styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/1K59Jg4
+  - [x] mobile sparx-o-wrapper cards spacing double
   - [ ] variablen.css button always background gold font black
   - [ ] sparx-o-wrapper align flex-start
   - [ ] marquee no underline and slower
-  - [ ] mobile sparx-o-wrapper cards spacing double
   - [ ] desktop call for ideas slower evtl. font turn, endless
   - [ ] navigation show scroll up and hide scroll down
   - [ ] overflow mobile body no scroll

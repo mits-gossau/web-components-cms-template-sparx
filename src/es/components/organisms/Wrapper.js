@@ -156,7 +156,7 @@ export default class Wrapper extends Style {
             ${this.hasAttribute('three')
               ? /* css */`
                 :host > section > * {
-                  margin-bottom: var(--content-spacing-mobile);
+                  margin-bottom: calc(var(--content-spacing-mobile) * 2);
                 }
               `
               : /* css */`
