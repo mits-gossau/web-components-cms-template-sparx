@@ -247,8 +247,8 @@
   --q-font-size-mobile: 1.333rem;
   --q-font-size: 1.272rem;
   --q-margin: 0 auto 0.227rem;
-
-
+  --search-a-color-hover: var(--footer-color);
+  --search-a-color: var(--footer-color);
   --search-a-display: var(--any-a-display);
   --search-a-font-family-hover: var(--a-font-family-hover);
   --search-a-text-decoration: underline;
@@ -272,29 +272,22 @@
   --search-field-input-font-size: var(--h3-font-size);
   --search-field-input-height:auto;
   --search-field-input-outline: none;
+  --search-field-input-padding: 1rem;
   --search-field-position-mobile:relative;
   --search-field-position: relative;
+  --search-field-text-align: left;
   --search-field-width: 100%;
-  --search-h3-color:var(--color);
+  --search-h3-color: var(--footer-color);
   --search-h3-font-size: var(--h3-font-size);
+  --search-p-color: var(--footer-color);
   --search-p-margin:0.5em 0;
   --search-width-mobile: var(--content-width-not-web-component-mobile);
   --search-width: var(--content-width-not-web-component);
-
-
-
-  
   --spacer-height-mobile: 1.53rem;
   --spacer-height: 4.41rem;
-  --search-field-input-padding: 1rem;
-  --search-field-text-align: left;
-
-
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin-mobile: var(--content-spacing-mobile) auto;
   --video-margin: var(--content-spacing) auto;
   --video-min-width: var(--content-width);
   --video-width-mobile: var(--content-width-mobile);
-
-
 }
