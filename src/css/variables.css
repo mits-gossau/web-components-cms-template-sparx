@@ -245,17 +245,41 @@
   --q-margin: 0 auto 0.227rem;
 
 
-  --search-width: var(--content-width-not-web-component);
-  --search-width-mobile: var(--content-width-not-web-component-mobile);
-  --search-field-input-font-size: var(--h3-font-size);
+  --search-a-display: var(--any-a-display);
+  --search-a-font-family-hover: var(--a-font-family-hover);
+  --search-a-text-decoration: underline;
   --search-background-color: var(--background-color);
+  --search-button-bottom-mobile:0;
+  --search-button-height:auto;
+  --search-button-position-mobile: absolute;
+  --search-button-position: absolute;
+  --search-button-right-mobile:20px;
+  --search-button-right: 30px;
+  --search-button-top-mobile:min(10px, 0.5em);
+  --search-button-top: 30px;
+  --search-button-width:fit-content;
   --search-color: var(--color);
+  --search-div-margin: 0 0 3em;
   --search-field-color: var(--color);
-  --search-field-input-border: 1px solid var(--color);
-  --search-field-input-outline: none;
-  --search-field-input-box-shadow: none;
-  --search-field-width: 100%;
+  --search-field-flex-direction:row-reverse;
   --search-field-input-border-radius: 2em;
+  --search-field-input-border: 0.15em solid var(--color);
+  --search-field-input-box-shadow: none;
+  --search-field-input-font-size: var(--h3-font-size);
+  --search-field-input-height:auto;
+  --search-field-input-outline: none;
+  --search-field-position-mobile:relative;
+  --search-field-position: relative;
+  --search-field-width: 100%;
+  --search-h3-color:var(--color);
+  --search-h3-font-size: var(--h3-font-size);
+  --search-p-margin:0.5em 0;
+  --search-width-mobile: var(--content-width-not-web-component-mobile);
+  --search-width: var(--content-width-not-web-component);
+
+
+
+  
   --spacer-height-mobile: 1.53rem;
   --spacer-height: 4.41rem;
   --search-field-input-padding: 1rem;
@@ -269,6 +293,4 @@
   --video-width-mobile: var(--content-width-mobile);
 
 
-  --search-a-display: var(--any-a-display);
-  --search-a-font-family-hover: var(--a-font-family-hover);
 }
