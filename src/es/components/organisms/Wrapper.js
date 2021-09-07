@@ -17,6 +17,7 @@ import Style from './Style.js'
  *  {percent} first-width
  *  {percent} last-width
  *  {has} four
+ *  {has} three
  * }
  */
 export default class Wrapper extends Style {
@@ -59,6 +60,7 @@ export default class Wrapper extends Style {
             --content-width-not-web-component-mobile: var(--content-width-mobile);
           `
         }
+        ${this.hasAttribute('spacing') ? `--spacing: ${this.getAttribute('spacing')};` : '--spacing: 0.5em;'}
         --carousel-content-width: 100%;
         --carousel-margin-mobile: 0;
         --carousel-margin: 0;
@@ -68,7 +70,6 @@ export default class Wrapper extends Style {
         --picture-width-mobile: 100%;
         --picture-width: 100%;
         --picture-img-width: auto;
-        --spacing: ${this.getAttribute('spacing') || '0.5em'};
         --video-margin: 0;
         --video-min-height: 100%;
         --video-width-mobile: 100%;
@@ -90,7 +91,7 @@ export default class Wrapper extends Style {
       }
       ${this.div
         ? /* css */`
-          ${!this.hasAttribute('four')
+          ${!this.hasAttribute('four') && !this.hasAttribute('three')
             ? /* css */`
               :host > section > div {
                 display: flex;
@@ -107,7 +108,7 @@ export default class Wrapper extends Style {
                 margin: 0;
               }
             `
-            : ''
+            : ':host > section > * {height:100%;}'
           }
           :host > section > div > *:last-child {
             margin-bottom: 0;
@@ -133,7 +134,7 @@ export default class Wrapper extends Style {
         `
         : /* css */ `
           :host > section > * {
-            width: calc(${this.hasAttribute('four') ? '25' : '50'}% - var(--spacing));
+            width: calc(${this.hasAttribute('four') ? '25' : this.hasAttribute('three') ? '33' : '50'}% - var(--spacing));
           }
         `
       }
@@ -142,19 +143,30 @@ export default class Wrapper extends Style {
           --carousel-content-width-mobile: 100%;
         }
         :host > section {
-          display: ${this.hasAttribute('four') ? 'flex' : 'block'};
+          display: ${this.hasAttribute('four') || this.hasAttribute('three') ? 'flex' : 'block'};
         }
-        ${this.hasAttribute('four')
+        ${this.hasAttribute('four') || this.hasAttribute('three')
           ? /* css */`
             :host > section {
               justify-content: var(--justify-content-mobile, center);
             }
             :host > section > * {
-              min-width: calc(50% - var(--spacing) / 2);
+              min-width: calc(${this.hasAttribute('three') ? '100' : '50'}% - var(--spacing) / 2);
             }
-            :host > section > *:nth-of-type(2n) {
-              margin-left: var(--spacing);
-              margin-bottom: var(--content-spacing-mobile);
+            ${this.hasAttribute('three')
+              ? /* css */`
+                :host > section > * {
+                  margin-bottom: var(--content-spacing-mobile);
+                }
+              `
+              : /* css */`
+                :host > section > *:nth-of-type(2n) {
+                  margin-left: var(--spacing);
+                }
+                :host > section > *:first-child, :host > section > *:first-child + * {
+                  margin-bottom: var(--content-spacing-mobile);
+                }
+              `
             }
           `
           : /* css */`

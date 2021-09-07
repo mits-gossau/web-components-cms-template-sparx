@@ -66,7 +66,7 @@ export default class Body extends BaseBody {
         background-color: var(--highlight-background-color, var(--color));
         padding: var(--highlight-padding, 0 0.2em);
       }
-      :host > main a:hover, :host > main a:active, :host > main a:focus {
+      :host > main a:hover, :host > main a:active, :host > main a:focus, :host > main a:hover *, :host > main a:active *, :host > main a:focus * {
         font-family: var(--a-font-family-hover);
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {

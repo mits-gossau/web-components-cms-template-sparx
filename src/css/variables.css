@@ -149,7 +149,10 @@
   --h4-font-size-mobile: var(--h1-font-size-mobile);
   --h4-font-size: 1.82rem;
   --h4-margin: 0;
+  --h5-font-size-mobile: 1rem;
+  --h5-font-size: 1rem;
   --h5-margin: 0;
+  --h5-padding: calc(var(--content-spacing) * 0.58) 0 0;
   --h6-margin: 0;
   --header-a-menu-icon-background-color: var(--navigation-color);
   --header-a-menu-icon-height-open-mobile: var(--header-a-menu-icon-height);
@@ -220,6 +223,7 @@
   --navigation-arrow-display: none;
   --navigation-background-color: var(--background-color);
   --navigation-border-top: 0;
+  --navigation-color-open: var(--navigation-color);
   --navigation-color: var(--color);
   --navigation-content-spacing: 0;
   --navigation-flex-wrap: wrap;
