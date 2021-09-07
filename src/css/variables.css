@@ -36,6 +36,7 @@
   --call-for-ideas-h4-font-family: var(--font-family-quinary);
   --call-for-ideas-h4-font-size-mobile: var(--h4-font-size-mobile);
   --call-for-ideas-h4-font-size: var(--h4-font-size);
+  --call-for-ideas-h4-line-height: 1em;
   --call-for-ideas-p-font-size-mobile: var(--font-size-mobile);
   --call-for-ideas-p-font-size: var(--font-size);
   --carousel-content-width-mobile: var(--content-width-mobile);
@@ -63,6 +64,7 @@
   --details-border-bottom-last: 0;
   --details-border-top: var(--details-border);
   --details-border: min(3px, 7vw) solid;
+  --details-child-padding-open-mobile: 0 0 0 1em;
   --details-icon-justify-content: space-between;
   --details-padding: var(--padding, 27px 0);
   --details-summary-font-size: 1.3rem;

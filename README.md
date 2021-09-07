@@ -21,9 +21,9 @@ Using web-components-cms-template Repository
   - [x] desktop logo 172x70
   - [x] spacing between two pic one big same https://testadmin.sparx-space.ch/about/idee/
   - [x] sparx-a-heading     letter-spacing: 0.02em;
-  - [ ] sparx-a-call-for-ideas > line-height: 1em; , Button round, more spacing=30 (move to backend when done)
-  - [ ] details>summary mobile styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/1K59Jg4
-  - [ ] variablen.css button immer background gold font schwarz
+  - [x] sparx-a-call-for-ideas > line-height: 1em; , Button round, more spacing=30 (move to backend when done)
+  - [x] details>summary mobile styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/1K59Jg4
+  - [ ] variablen.css button always background gold font black
   - [ ] sparx-o-wrapper align flex-start
   - [ ] marquee no underline and slower
   - [ ] mobile sparx-o-wrapper cards spacing double
