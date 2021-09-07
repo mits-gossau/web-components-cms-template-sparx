@@ -175,10 +175,11 @@
   --header-justify-content: space-between;
   --header-logo-height-mobile: 2.4em;
   --header-logo-justify-content: flex-start;
-  --header-m-navigation-align-items-mobile: center;
+  --header-m-navigation-align-items-mobile: flex-start;
   --header-m-navigation-background-color-mobile: var(--background-color);
   --header-m-navigation-display-mobile: flex;
   --header-m-navigation-justify-content-mobile: center;
+  --header-m-navigation-padding-open-mobile: min(4em, 10vh) 0 0;
   --header-m-navigation-top-mobile: 0;
   --header-padding: 2%;
   --header-position: static;
@@ -194,7 +195,7 @@
   --html-background-color: var(--background-color);
   --logo-font-size-mobile: 2rem;
   --logo-font-size: 4rem;
-  --logo-justify-content-mobile: flex-start;
+  --logo-justify-content-mobile: center;
   --logo-logo-a-height: auto;
   --logo-logo-a-width: 100%;
   --logo-logo-height-mobile: var(--logo-logo-height);
@@ -202,9 +203,10 @@
   --logo-logo-img-margin: 0 auto;
   --logo-logo-max-width: 100vh;
   --logo-logo-object-fit: contain;
+  --logo-logo-padding-mobile: 0 30px;
   --logo-logo-width-mobile: var(--logo-logo-width);
   --logo-logo-width: 100%;
-  --logo-padding-mobile: 17vh var(--header-padding) 0;
+  --logo-padding-mobile: 0 var(--header-padding);
   --logo-padding: 0 var(--header-padding);
   --marquee-a-margin: 0;
   --marquee-a-text-decoration-hover: none;
@@ -247,32 +249,26 @@
   --q-font-size-mobile: 1.333rem;
   --q-font-size: 1.272rem;
   --q-margin: 0 auto 0.227rem;
-
-
-  --search-width: var(--content-width-not-web-component);
-  --search-width-mobile: var(--content-width-not-web-component-mobile);
-  --search-field-input-font-size: var(--h3-font-size);
+  --search-a-display: var(--any-a-display);
+  --search-a-font-family-hover: var(--a-font-family-hover);
   --search-background-color: var(--background-color);
   --search-color: var(--color);
   --search-field-color: var(--color);
-  --search-field-input-border: 1px solid var(--color);
-  --search-field-input-outline: none;
-  --search-field-input-box-shadow: none;
-  --search-field-width: 100%;
   --search-field-input-border-radius: 2em;
-  --spacer-height-mobile: 1.53rem;
-  --spacer-height: 4.41rem;
+  --search-field-input-border: 1px solid var(--color);
+  --search-field-input-box-shadow: none;
+  --search-field-input-font-size: var(--h3-font-size);
+  --search-field-input-outline: none;
   --search-field-input-padding: 1rem;
   --search-field-text-align: left;
-
-
+  --search-field-width: 100%;
+  --search-width-mobile: var(--content-width-not-web-component-mobile);
+  --search-width: var(--content-width-not-web-component);
+  --spacer-height-mobile: 1.53rem;
+  --spacer-height: 4.41rem;
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --video-margin-mobile: var(--content-spacing-mobile) auto;
   --video-margin: var(--content-spacing) auto;
   --video-min-width: var(--content-width);
   --video-width-mobile: var(--content-width-mobile);
-
-
-  --search-a-display: var(--any-a-display);
-  --search-a-font-family-hover: var(--a-font-family-hover);
 }
