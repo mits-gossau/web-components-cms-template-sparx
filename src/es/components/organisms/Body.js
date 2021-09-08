@@ -95,6 +95,9 @@ export default class Body extends BaseBody {
         :host > main p {
           margin: var(--p-margin-mobile, var(--p-margin));
         }
+        :host > main > div.sparx-a-call-for-ideas + div.spacer {
+          display: none;
+        }
       }
     `
   }
