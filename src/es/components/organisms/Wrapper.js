@@ -60,7 +60,7 @@ export default class Wrapper extends Style {
             --content-width-not-web-component-mobile: var(--content-width-mobile);
           `
         }
-        ${this.hasAttribute('spacing') ? `--spacing: ${this.getAttribute('spacing')};` : '--spacing: 0.5em;'}
+        ${this.hasAttribute('spacing') ? `--spacing: ${this.getAttribute('spacing')};` : '--spacing: 0.85em;'}
         --carousel-content-width: 100%;
         --carousel-margin-mobile: 0;
         --carousel-margin: 0;
@@ -156,7 +156,7 @@ export default class Wrapper extends Style {
             ${this.hasAttribute('three')
               ? /* css */`
                 :host > section > * {
-                  margin-bottom: var(--content-spacing-mobile);
+                  margin-bottom: calc(var(--content-spacing-mobile) * 2);
                 }
               `
               : /* css */`

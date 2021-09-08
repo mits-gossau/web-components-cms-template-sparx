@@ -128,6 +128,7 @@ export default class Heading extends Intersection() {
         line-height: var(--any-line-height, normal);
         text-align: var(--any-text-align, start);
         word-break: var(--any-word-break, normal);
+        letter-spacing: var(--any-letter-spacing, 0.02em);
         text-transform: var(--any-text-transform, none);
         transform: rotate(var(--title-rotation, -6deg));
         margin: var(--any-margin, unset);

@@ -159,9 +159,12 @@ export default class Button extends Shadow() {
       margin-right:var(--icon-margin-right, 2rem);
       background-color:transparent !important;
     }
-    .icon > img {
+    .icon > img, .icon > svg {
       margin-right:var(--icon-img-margin-right, .7rem);
       width: var(--icon-img-width, 2.7rem);
+    }
+    button.icon:hover > svg circle{
+      fill: var(--background-color-hover);
     }
     @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
       :host {
@@ -170,7 +173,7 @@ export default class Button extends Shadow() {
       :host button {
         font-size: var(--font-size-mobile, 1em)
       }
-      .icon > img {
+      .icon > img, .icon > svg {
         width: var(--icon-width-mobile, min(2.7rem, 10vw))
       }
     }
@@ -184,7 +187,7 @@ export default class Button extends Shadow() {
    */
   renderHTML () {
     // @ts-ignore
-    if (this.hasIcon) this.constructor.addIconToButton(this.button, this.getAttribute('icon-image') || '../../../img/ButtonDownload.svg')
+    if (this.hasIcon) this.constructor.addIconToButton(this.button, this.getAttribute('icon-image'))
     this.html = this.button
   }
 
@@ -196,9 +199,32 @@ export default class Button extends Shadow() {
    * @return {HTMLElement}
    */
   static addIconToButton (button, iconSrc) {
-    const iconImg = new Image()
-    iconImg.src = iconSrc
-    iconImg.alt = button.innerText || ''
+    let iconImg
+    if (!iconSrc) {
+      iconImg = document.createElement('div')
+      iconImg.innerHTML = `
+        <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+          <title>Button Download</title>
+          <desc>Created with Sketch.</desc>
+          <g id="Button-Download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Group-2">
+                  <circle id="Oval" fill="var(--button-background-color)" cx="30" cy="30" r="30"></circle>
+                  <g id="Group" transform="translate(19.000000, 14.000000)" stroke="#282828" stroke-width="3">
+                      <line x1="0" y1="30.5" x2="23" y2="30.5" id="Line-3" stroke-linecap="square"></line>
+                      <line x1="11.5" y1="22" x2="11.5" y2="-6.10622664e-16" id="Line-3-Copy" stroke-linecap="square"></line>
+                      <polyline id="Path-2" points="0 12.5 11.5 24.5 23 12.5"></polyline>
+                  </g>
+              </g>
+          </g>
+        </svg>
+      `
+      iconImg = iconImg.children[0]
+    } else {
+      iconImg = new Image()
+      iconImg.src = iconSrc
+      iconImg.alt = button.innerText || ''
+    }
     button.prepend(iconImg)
     button.classList.add('icon')
     return button
