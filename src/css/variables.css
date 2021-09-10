@@ -87,7 +87,7 @@
   --footer-engagement-logo-height: 2.9rem;
   --footer-engagement-logo-justify-content: flex-start;
   --footer-engagement-logo-margin-mobile: 2rem 0;
-  --footer-engagement-logo-margin: 1rem;
+  --footer-engagement-logo-margin: 1rem 0;
   --footer-engagement-logo-text-a-color-hover:red;
   --footer-engagement-logo-text-a-color: var(--footer-color);
   --footer-engagement-logo-text-color: var(--footer-color);

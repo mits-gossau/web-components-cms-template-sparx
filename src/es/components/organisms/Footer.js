@@ -19,27 +19,29 @@ import BaseFooter from '../web-components-cms-template/src/es/components/organis
  *  var(--content-spacing, 0)
  *  var(--content-width, 80%)
  *  var(--align-content, normal)
- *  var(--box-sizing, content-box);
+ *  var(--box-sizing, content-box)
  *  var(--color, white)
- *  var(--display, flex);
- *  var(--flex-direction, row);
- *  var(--justify-content, normal);
- *  var(--padding, 0);
- *  var(--ul-list-style-type, none);
- *  var(--ul-padding, 0);
- *  var(--li-line-height, 1.5em);
- *  var(--wrapper-language-align-items, flex-start);
- *  var(--wrapper-language-display, flex);
- *  var(--wrapper-language-flex-direction, column);
- *  var(--wrapper-language-justify-content, space-between);
- *  var(--language-switcher-li-float, left);
- *  var(--language-switcher-li-padding, 0 1.4em 0 0);
- *  var(--wrapper-logo-display, flex);
- *  var(--wrapper-logo-flex-direction, column);
- *  var(--wrapper-logo-justify-content, start);
- *  var(--wrapper-info-links-display, flex);
+ *  var(--display, flex)
+ *  var(--flex-direction, row)
+ *  var(--justify-content, normal)
+ *  var(--padding, 0)
+ *  var(--ul-list-style-type, none)
+ *  var(--ul-padding, 0)
+ *  var(--li-line-height, 1.5em)
+ *  var(--wrapper-language-align-items, flex-start)
+ *  var(--wrapper-language-display, flex)
+ *  var(--wrapper-language-flex-direction, column)
+ *  var(--wrapper-language-justify-content, space-between)
+ *  var(--language-switcher-li-float, left)
+ *  var(--language-switcher-li-padding, 0 1.4em 0 0)
+ *  var(--wrapper-logo-display, flex)
  *  var(--wrapper-logo-flex-direction, column)
- *  var(--wrapper-logo-justify-content, flex-end);
+ *  var(--wrapper-logo-justify-content, start)
+ *  var(--wrapper-info-links-display, flex)
+ *  var(--wrapper-logo-flex-direction, column)
+ *  var(--wrapper-logo-justify-content, flex-end)
+ *  var(--wrapper-logo-width, 30vw)
+ *  var(--wrapper-logo-width-mobile, 30vw)
  * }
  */
 export default class Footer extends BaseFooter {
@@ -93,6 +95,7 @@ export default class Footer extends BaseFooter {
         display: var(--wrapper-logo-display, flex);
         flex-direction:var(--wrapper-logo-flex-direction, column);
         justify-content: var(--wrapper-logo-justify-content, start);
+        width: var(--wrapper-logo-width, 30vw);
       }
       :host .wrapper-info-links {
         display:var(--wrapper-info-links-display, flex);
@@ -118,6 +121,9 @@ export default class Footer extends BaseFooter {
         }
         :host .language-block-links li {
           float: var(--language-switcher-li-float-mobile, left);
+        }
+        :host .wrapper-logo {
+          width: var(--wrapper-logo-width-mobile, max(60%, 2vw));
         }
       
       }
