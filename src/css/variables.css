@@ -89,8 +89,8 @@
   --footer-engagement-logo-margin-mobile: 2rem 0;
   --footer-engagement-logo-margin: 1rem;
   --footer-engagement-logo-text-a-color-hover:red;
-  --footer-engagement-logo-text-a-color: #FFF4E3;
-  --footer-engagement-logo-text-color: #FFF4E3;
+  --footer-engagement-logo-text-a-color: var(--footer-color);
+  --footer-engagement-logo-text-color: var(--footer-color);
   --footer-engagement-logo-text-line-height: 1.4em;
   --footer-engagement-logo-text-margin: 1em 0 0 4em;
   --footer-font-family-hover: var(--a-font-family-hover);
