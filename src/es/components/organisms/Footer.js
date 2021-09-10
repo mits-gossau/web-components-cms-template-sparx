@@ -4,7 +4,7 @@ import BaseFooter from '../web-components-cms-template/src/es/components/organis
 /* global self */
 
 /**
- * Footer is sticky and hosts uls
+ * Footer is sticky
  * Example at: /src/es/components/pages/Kosmos.html
  * As an organism, this component shall hold molecules and/or atoms
  *
@@ -14,16 +14,32 @@ import BaseFooter from '../web-components-cms-template/src/es/components/organis
  * @attribute {}
  * @css {
  *  NOTE: grid-area: footer;
- *  --background-color [black]
- *  --z-index [100]
- *  --content-spacing [40px]
- *  --a-link-content-spacing [0]
- *  --a-link-font-size [1rem]
- *  --a-link-font-size-2 [1rem]
- *  --list-style [none]
- *  --align-items [start]
- *  --font-size [1rem]
- *  --p-margin [0]
+ *  var(--background-color, black)
+ *  var(--z-index, 100)
+ *  var(--content-spacing, 0)
+ *  var(--content-width, 80%)
+ *  var(--align-content, normal)
+ *  var(--box-sizing, content-box);
+ *  var(--color, white)
+ *  var(--display, flex);
+ *  var(--flex-direction, row);
+ *  var(--justify-content, normal);
+ *  var(--padding, 0);
+ *  var(--ul-list-style-type, none);
+ *  var(--ul-padding, 0);
+ *  var(--li-line-height, 1.5em);
+ *  var(--wrapper-language-align-items, flex-start);
+ *  var(--wrapper-language-display, flex);
+ *  var(--wrapper-language-flex-direction, column);
+ *  var(--wrapper-language-justify-content, space-between);
+ *  var(--language-switcher-li-float, left);
+ *  var(--language-switcher-li-padding, 0 1.4em 0 0);
+ *  var(--wrapper-logo-display, flex);
+ *  var(--wrapper-logo-flex-direction, column);
+ *  var(--wrapper-logo-justify-content, start);
+ *  var(--wrapper-info-links-display, flex);
+ *  var(--wrapper-logo-flex-direction, column)
+ *  var(--wrapper-logo-justify-content, flex-end); 
  * }
  */
 export default class Footer extends BaseFooter {
@@ -32,66 +48,67 @@ export default class Footer extends BaseFooter {
    *
    * @return {void}
    */
-  renderCSS () {
+  renderCSS() {
     this.css = /* css */`
       :host {
+        background-color: var(--background-color, black);
         grid-area: footer;
         z-index: var(--z-index, 100);
-        background-color: var(--background-color, black);
       }
     
       :host > * {
+        margin: var(--content-spacing, 0) auto;
         width: var(--content-width, 80%);
-        margin: var(--content-spacing, 0) auto; /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
       }
-      
-      
       
       :host > footer {
-        width: var(--content-width, 80%);
-        display: var(--display, flex);
-       
-        justify-content: var(--justify-content, normal);
-        flex-direction: var(--flex-direction, row);
         align-content: var(--align-content, normal);
-        padding: var(${this.getAttribute('homepage') === 'true'
-          ? '--homepage-padding'
-          : '--padding'}, 0);
         box-sizing: var(--box-sizing, content-box);
+        color: var(--color, white);
+        display: var(--display, flex);
+        flex-direction: var(--flex-direction, row);
+        justify-content: var(--justify-content, normal);
+        padding: var(--padding, 0);
       }
 
-      :host .wrapper-left {
-        display:flex;
-        flex-direction: column;
-        align-items: flex-start;
+      :host > footer ul {
+        list-style-type: var(--ul-list-style-type, none);
+        padding: var(--ul-padding, 0);
+        margin: var(--ul-margin, 1em 0);
+      }
+
+      :host > footer li {
+        line-height:var(--li-line-height, 1.5em);
+      }
+
+      :host .wrapper-language {
+        align-items: var(--wrapper-language-align-items, flex-start);
+        display:var(--wrapper-language-display, flex);
+        flex-direction: var(--wrapper-language-flex-direction, column);
+        justify-content: var(--wrapper-language-justify-content, space-between);
       }
       
-      :host .logo-container {
-        width: ${this.getAttribute('homepage') === 'true' ? '100%' : 'unset'};
-        justify-content: var(${this.getAttribute('homepage') === 'true'
-          ? '--homepage-logo-container-justify-content'
-          : '--logo-container-justify-content'}, space-between);
-        display: flex;
-        flex-wrap: var(--logo-container-flex-wrap, nowrap);
-        align-content: var(--logo-container-align-content, normal);
+    
+
+      :host .language-switcher li {
+        float:var(--language-switcher-li-float, left);
+        padding:var(--language-switcher-li-padding, 0 1.4em 0 0);
       }
-      :host .logo-container.wrapped {
-        justify-content: var(--logo-container-justify-content-wrapped, var(--logo-container-justify-content, space-between));
+
+      :host .language-block-links li {
+        padding:var(--language-switcher-li-padding, 0 1.4em 0 0);
       }
-      ${this.getAttribute('homepage') === 'true'
-        ? ''
-        : /* css */`
-          :host .logo-container:first-child {
-            --logo-height: var(--logo-height-first, max(65px, 4.8vw));
-            --logo-height-mobile: var(--logo-height-first-mobile, 48px);
-          }
-        `
+
+      :host .wrapper-logo {
+        display: var(--wrapper-logo-display, flex);
+        flex-direction:var(--wrapper-logo-flex-direction, column);
+        justify-content: var(--wrapper-logo-justify-content, start);
       }
-      
-      :host .footer-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+
+      :host .wrapper-info-links {
+        display:var(--wrapper-info-links-display, flex);
+        flex-direction: var(--wrapper-logo-flex-direction, column);
+        justify-content: var(--wrapper-logo-justify-content, flex-end); 
       }
 
       :host a-link {
@@ -99,48 +116,26 @@ export default class Footer extends BaseFooter {
         --display: var(--a-link-display);
         --display-mobile: var(--a-link-display-mobile);
       }
-      :host > footer ul > li {
-        color: var(--color, red);
-      }
-      :host > footer ul > li > * {
-        font-size: var(--a-link-font-size, 1rem);
-        display: block;
-      }
-      :host > footer ul > li > a-link {
-        --font-size: var(--a-link-font-size, 1rem);
-      }
-      :host > footer ul > li > ul a-link {
-        --font-size: var(--a-link-font-size-2, 1rem);
-      }
+
 
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host > * {
-          width: var(--content-width-mobile, 90%);
-          margin: var(--content-spacing-mobile, 0) auto; /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
+          width: var(--content-width-mobile, 80%);
+          margin: var(--content-spacing-mobile, 0) auto; 
         }
-        :host > footer {
-          padding: var(${this.getAttribute('homepage') === 'true'
-          ? '--homepage-padding-mobile'
-          : '--padding-mobile'}, 0);
+    
+        :host > footer {     
+          flex-direction: var(--flex-direction-mobile, column);
         }
-        :host > span, :host > div, :host > p, :host > ul, :host > ol {
-          width: var(--content-width-not-web-component-mobile, 90%);
+        
+        :host > footer ul {
+          margin: var(--ul-margin-mobile, 0.5em 0);
         }
-        :host .logo-container {
-          flex-wrap: var(--logo-container-flex-wrap-mobile, nowrap);
-          justify-content: var(${this.getAttribute('homepage') === 'true'
-          ? '--homepage-logo-container-justify-content'
-          : '--logo-container-justify-content-mobile'}, space-between);
+
+        :host .language-block-links li {
+          float: var(--language-switcher-li-float-mobile, left);
         }
-        :host .logo-container.wrapped {
-          justify-content: var(--logo-container-justify-content-wrapped-mobile, var(--logo-container-justify-content-mobile, space-between));
-        }
-        :host .logo-container:first-child {
-          --logo-height: var(--logo-height-first-mobile, 50px);
-        }
-        :host .footer-links {
-          flex-direction: column;
-        }
+      
       }
     `
   }
