@@ -309,7 +309,7 @@ export default class CallForIdeas extends Intersection() {
       `
       // incase it wouldn't have worked, re-trigger makeItSquare
       self.requestAnimationFrame(timeStamp => {
-        if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) setTimeout(() => this.makeItSquare(), 2000);
+        if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) setTimeout(() => this.makeItSquare(), 2000)
       })
     })
   }
