@@ -45,6 +45,13 @@ import BaseFooter from '../web-components-cms-template/src/es/components/organis
  * }
  */
 export default class Footer extends BaseFooter {
+  connectedCallback () {
+    if (this.shouldComponentRenderCSS()) this.renderCSS()
+    this.renderHTML()
+  }
+
+  disconnectedCallback () {}
+
   /**
    * renders the o-footer css
    *
@@ -95,6 +102,7 @@ export default class Footer extends BaseFooter {
         display: var(--wrapper-logo-display, flex);
         flex-direction:var(--wrapper-logo-flex-direction, column);
         justify-content: var(--wrapper-logo-justify-content, start);
+        align-items: var(--wrapper-logo-align-items, normal);
         width: var(--wrapper-logo-width, 30vw);
       }
       :host .wrapper-info-links {
@@ -109,6 +117,10 @@ export default class Footer extends BaseFooter {
       }
 
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
+        :host {
+          --wrapper-language-align-items: var(--wrapper-language-align-items-mobile);
+          --engagement-logo-text-margin: var(--engagement-logo-text-margin-mobile);
+        }
         :host > * {
           width: var(--content-width-mobile, 80%);
           margin: var(--content-spacing-mobile, 0) auto; 
@@ -125,7 +137,6 @@ export default class Footer extends BaseFooter {
         :host .wrapper-logo {
           width: var(--wrapper-logo-width-mobile, max(60%, 2vw));
         }
-      
       }
     `
   }
