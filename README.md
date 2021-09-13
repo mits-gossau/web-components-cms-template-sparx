@@ -16,6 +16,7 @@ Using web-components-cms-template Repository
 
 ## TODO Anja:
 
+  - [ ] navigation show scroll up and hide scroll down
   - [x] mobile nav align top not vertical centered
   - [x] desktop Studio > Sparx Studio align left
   - [x] desktop menu sub menu point font-size all 22px
@@ -30,4 +31,3 @@ Using web-components-cms-template Repository
   - [x] marquee no underline and slower
   - [x] desktop call for ideas slower evtl. font turn, endless
   - [X] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke solved => http://localhost:4200/src/es/components/pages/Tester1.html:L117
-  - [ ] navigation show scroll up and hide scroll down
