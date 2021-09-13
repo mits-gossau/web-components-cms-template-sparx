@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,82 +9,93 @@
   <script type="text/javascript" src="../../../../wc-config.js"></script>
   <!-- NOTE: Remove line Debugging.js below for none localhost -->
   <script rel=preload type=module>import('../../../es/helpers/Debugging.js')</script>
-  <title>Home</title>
-  <meta name="title" content="">
-  <meta name="description" content="">
-  <meta property="og:description" content="">
-  <meta name="keywords" content="">
+  <title>Sparx</title>
 </head>
-
 <body>
   <p-general>
-    <o-header menu-icon="true" namespace="header-" role="header">
-      <a-logo style="visibility: hidden;" namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
-      <m-navigation hover="false" namespace="navigation-" hit-area="false" focus-lost-close focus-lost-close-mobile set-active>
+    <o-header mobile-breakpoint="100vw" no-scroll="nav-open" menu-icon="true" namespace="header-">
+      <m-navigation hover="false" namespace="navigation-" mobile-breakpoint="0vw" no-scroll="nav-open">
         <ul>
           <li>
-            <a href="#" target="">About</a>
-            <ul>
-              <li>
-                <a href="/pages/Home2.html" target="">Idee</a>
-              </li>
-              <li>
-                <a href="/about/team/" target="">Team</a>
-              </li>
-            </ul>
+            <a href="/about/" target="">About</a>
           </li>
           <li>
-            <a href="/pages/Home2.html" target="">Förderung</a>
+            <a href="/forderung/" target="">Förderung</a>
           </li>
           <li>
             <a href="/kosmos/" target="">Kosmos</a>
           </li>
           <li>
-            <a href="#" target="">Studio</a>
+            <a href="/studios/" target="">Studios</a>
+          </li>
+          <li>
+            <a href="/news/" target="">News</a>
             <ul>
               <li>
-                <a href="/studio/in-den-studios/" target="">In den Studios</a>
+                <a href="/news/neue-sparx-home-page/" target="">Neue Sparx Home Page</a>
               </li>
               <li>
-                <a href="/studio/projekte/" target="">Projekte</a>
+                <a href="/news/noch-eine-neue-news/" target="">Noch eine neue News</a>
               </li>
             </ul>
           </li>
           <li>
             <a href="/netzwerk/" target="">Netzwerk</a>
           </li>
-          <li>
-            <a href="/suche/" target="">
-              <img src="https://testadmin.sparx-space.ch/assets/img/search_black_24dp.svg">
-            </a>
-          </li>
         </ul>
       </m-navigation>
     </o-header>
-    <sparx-o-body home>
-      <sparx-a-logo href="/" namespace="logo-" color="#D9ADFF">
-        <a-logo namespace="logo-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
-        <div>Migros</div>
-        <div>Kulturprozent</div>
-        <sparx-a-call-for-ideas color=#282828 background-color=#FF675D star namespace="call-for-ideas-" href="xxx/forderung/#cta" position="static">
-          <sparx-a-heading mode=false title-rotation="-6">
-            <h4>Call<br>for ideas</h4>
-          </sparx-a-heading>
-          <p>Jetzt deine Idee<br>einreichen</p>
-        </sparx-a-call-for-ideas>
-      </sparx-a-logo>
+    <sparx-o-body>
+      <div>
+        <a-picture namespace="picture-" defaultsource="../../../img/sparx-test.png" alt="Sparx Test">
+          <style>:host{--picture-width:min(,var(--content-width,100%));--picture-width-mobile:min(,var(--content-width-mobile,100%))}</style>
+        </a-picture>
+      </div>
+      <sparx-a-marquee>
+        <div>
+          <span>
+            <a href="/news/noch-eine-neue-news/">   Natürlich können auch mehrere solche PUSH-News erfasst werden!</a>
+          </span> 
+          <span>
+            <a href="/news/neue-sparx-home-page/">Neue Sparx Home Page (soll der Page Title auch in die News-Leiste??)   Endlich ist die neue SPARX-Seite Online - Juhui!!</a>
+          </span>
+        </div>
+      </sparx-a-marquee>
     </sparx-o-body>
-    <sparx-a-marquee namespace="marquee-">
-      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit eveniet adipisci aliquam, fuga nulla
-        distinctio iste consectetur, architecto blanditiis fugiat necessitatibus ipsam illum quam facere eligendi unde,
-        quo dolore dolorum!</div>
-    </sparx-a-marquee>
+    <o-footer namespace="footer-">
+      <div>
+        <a-logo class="hide-mobile" namespace="footer-engagement-logo-" src="../../../img/logo_fge_mk_rgb_neg_300dpi_de.png" href="https://www.migros-engagement.ch/engagement" target="_blank" lang="de">
+          <p>sparx ist ein Projekt des Migros-Kulturprozent, Teil des gesellschaftlichen Engagements der Migros-Gruppe:  <br> <strong> <a style="color:#f60;font-size:var(--footer-engagement-logo-text-color)" href="https://www.migros-engagement.ch" target="_blank">https://www.migros-engagement.ch</a> </strong>
+          </p>
+        </a-logo>
+      </div>
+      <div class="footer-ul-wrapper">
+        <ul>
+          <li>
+            <p>© 2021</p>
+          </li>
+          <li>
+            <p class="language-switcher">
+              <a href="http://testadmin.sparx-space.ch/"> EN </a> <a href="http://testadmin.sparx-space.ch/"> FR </a>
+            </p>
+          </li>
+          <br>
+          <li>
+            <p></p>
+          </li>
+        </ul>
+      </div>
+      <div class="logo-container">
+        <a-logo class="hide-desktop" namespace="footer-engagement-logo-" src="../../../img/logo_fge_mk_rgb_neg_300dpi_de.png" href="https://www.migros-engagement.ch/engagement" target="_blank" lang="de">
+          <p>sparx ist ein Projekt des Migros-Kulturprozent, Teil des gesellschaftlichen Engagements der Migros-Gruppe:  <br> <strong> <a class="test" href="https://www.migros-engagement.ch" target="_blank">https://www.migros-engagement.ch</a> </strong> SO EIN ARSCH SO EIN ARSCH</p>
+        </a-logo>
+      </div>
+    </o-footer>
   </p-general>
-  <!--<msrc-cookie-banner props="{'env': 'test', 'language': 'de', 'theme': 'mgb', 'webAPIKey': 'YZ2PxeiToHsMMnjPdpeEZU9Tp4N9adVVAwYLQKjJg89KQ6MCFcYKQL9Cdcq2HjgE'}" mobile-breakpoint="1000px"></msrc-cookie-banner>-->
   <script rel=preload type=module>
     self.Environment = {
-      mobileBreakpoint: '1250px'
+      mobileBreakpoint: '600px'
     }
   </script>
-</body>
+  </body>
 </html>
