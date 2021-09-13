@@ -13,7 +13,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  * @class Sample
  * @type {CustomElementConstructor}
  * @attribute {
- *  {number} [animation-duration=20] example 20 seconds for an 800px text to cross the screen
+ *  {number} [animation-duration=30] example 30 seconds for an 800px text to cross the screen
  *  {string} [background-color: vars]
  *  {string} [color: vars]
  * }
@@ -136,7 +136,7 @@ export default class Marquee extends Shadow() {
         transition: transform .3s ease;
       }
       :host > section > * {
-        animation: marquee ${this._animationDuration = this.getAttribute('animation-duration') || 20}s linear infinite;
+        animation: marquee ${this._animationDuration = this.getAttribute('animation-duration') || 30}s linear infinite;
       }
       :host > section > * a {
         color: var(--a-color, var(--color-secondary, var(--color, pink)));
@@ -188,7 +188,7 @@ export default class Marquee extends Shadow() {
         :host {
           visibility: visible;
         }
-        ${this.generateAnimationDuration((Number(this.getAttribute('animation-duration')) || 20) * (offsetWidth / 800))}
+        ${this.generateAnimationDuration((Number(this.getAttribute('animation-duration')) || 30) * (offsetWidth / 800))}
         ${this.generateKeyframesMarquee('100vw', `-${offsetWidth}px`)}
       `
     })
@@ -197,10 +197,10 @@ export default class Marquee extends Shadow() {
   /**
    * generates the keyframes css
    *
-   * @param {number} [animationDuration = this._animationDuration || 20]
+   * @param {number} [animationDuration = this._animationDuration || 30]
    * @return {string}
    */
-  generateAnimationDuration (animationDuration = this._animationDuration || 20) {
+  generateAnimationDuration (animationDuration = this._animationDuration || 30) {
     this._animationDuration = animationDuration = Math.round(animationDuration)
     return /* css */`
       :host > section > * {

@@ -186,7 +186,7 @@
   --logo-padding: 0 var(--header-padding);
   --marquee-a-margin: 0;
   --marquee-a-text-decoration-hover: none;
-  --marquee-a-text-decoration: underline;
+  --marquee-a-text-decoration: none;
   --marquee-background-color: var(--color);
   --marquee-color: var(--background-color);
   --marquee-font-size: 1.591rem;

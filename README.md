@@ -25,7 +25,7 @@ Using web-components-cms-template Repository
   - [x] mobile sparx-o-wrapper cards spacing double
   - [x] variablen.css button always background pinkish on hover background gold font black only font-family change
   - [x] sparx-o-wrapper align flex-start
-  - [ ] marquee no underline and slower
-  - [ ] desktop call for ideas slower evtl. font turn, endless
+  - [x] marquee no underline and slower
+  - [x] desktop call for ideas slower evtl. font turn, endless
   - [ ] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke
   - [ ] navigation show scroll up and hide scroll down
