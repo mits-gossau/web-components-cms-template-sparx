@@ -36,8 +36,8 @@ export default class Style extends Body {
     super.renderCSS()
     const bodyCss = this.css.replace(/\s>\smain/g, '')
     this.css = ''
+    this._css.textContent = bodyCss
     this.css = /* css */`
-      ${bodyCss}
       :host {
         display: flow-root;
         ${Array.from(this.attributes).reduce((acc, attribute) => `${acc}${attribute.name}: ${attribute.value};--${attribute.name}: ${attribute.value};`, '')}

@@ -9,10 +9,12 @@ Using web-components-cms-template Repository
 
 ## TODO:
 
-  - [x] cookie banner style
   - [ ] animation
   - [ ] back button in studio/projects/project behavior absolute/static analog call for ideas button https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
-  - [ ] Footer
+  - [x] cookie banner style
+  - [x] Footer
+
+## TODO Anja:
 
   - [x] mobile nav align top not vertical centered
   - [x] desktop Studio > Sparx Studio align left
@@ -27,5 +29,5 @@ Using web-components-cms-template Repository
   - [x] sparx-o-wrapper align flex-start
   - [x] marquee no underline and slower
   - [x] desktop call for ideas slower evtl. font turn, endless
-  - [ ] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke
+  - [X] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke solved => http://localhost:4200/src/es/components/pages/Tester1.html:L117
   - [ ] navigation show scroll up and hide scroll down
