@@ -96,13 +96,13 @@ export default class Wrapper extends Style {
               :host > section > div {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
               }
               :host > section > div > * {
                 width: 100%;
               }
               :host > section > a-picture, :host > section > a {
-                align-self: var(--align-self, center);
+                align-self: var(--align-self, flex-start);
               }
               :host > section > a {
                 margin: 0;
@@ -174,6 +174,15 @@ export default class Wrapper extends Style {
               display: block;
               width: auto !important;
               margin: var(--content-spacing-mobile, var(--content-spacing, unset)) auto;
+            }
+            ${this.div
+              ? /* css */`
+                :host {
+                  --h3-padding: 0;
+                  --content-spacing-mobile: calc(var(--content-spacing) / 3);
+                }
+              `
+              : ''
             }
           `
         }
