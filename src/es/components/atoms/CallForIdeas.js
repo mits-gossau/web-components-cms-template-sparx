@@ -297,7 +297,7 @@ export default class CallForIdeas extends Intersection() {
     this.root.appendChild(this.makeItSquareStyle)
   }
 
-  makeItSquare () {
+  makeItSquare (recursive = false) {
     this.makeItSquareStyle.textContent = ''
     self.requestAnimationFrame(timeStamp => {
       const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
@@ -308,9 +308,11 @@ export default class CallForIdeas extends Intersection() {
         }
       `
       // incase it wouldn't have worked, re-trigger makeItSquare
-      self.requestAnimationFrame(timeStamp => {
-        if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) setTimeout(() => this.makeItSquare(), 2000)
-      })
+      if (!recursive) {
+        self.requestAnimationFrame(timeStamp => {
+          if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) this.makeItSquare(true)
+        })
+      }
     })
   }
 
