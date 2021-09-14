@@ -31,3 +31,13 @@ Using web-components-cms-template Repository
   - [x] sparx-o-wrapper align flex-start
   - [x] marquee no underline and slower
   - [X] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke solved => http://localhost:4200/src/es/components/pages/Tester1.html:L117
+
+## Fixes
+
+  - [ ] Pictures too big fix
+    ```
+      --carousel-picture-img-max-width: var(--img-max-width);
+      --picture-img-max-width: var(--img-max-width);
+      --img-max-width: 100vh;
+      --macro-carousel-gap: 0;
+    ```
