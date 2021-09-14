@@ -268,4 +268,6 @@
   --video-margin: var(--content-spacing) auto;
   --video-min-width: var(--content-width);
   --video-width-mobile: var(--content-width-mobile);
+
+  --back-button-width:auto !important;
 }
