@@ -306,7 +306,7 @@ export default class CallForIdeas extends Intersection() {
       self.requestAnimationFrame(timeStamp => {
         const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
         this.makeItSquareStyle.textContent = /* css */ `
-          :host > div {
+          :host > div > section.background {
             width: ${size}px;
             height: ${size}px;
           }
