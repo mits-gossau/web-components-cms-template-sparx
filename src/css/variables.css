@@ -37,6 +37,7 @@
   --button-background-color: #D9ADFF;
   --button-border-color: transparent;
   --button-border-radius: 1.85rem;
+  --button-color-hover: var(--button-color);
   --button-color: #282828;
   --button-font-family-hover: var(--a-font-family-hover);
   --button-font-size: var(--font-size);
