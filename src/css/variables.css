@@ -18,6 +18,14 @@
   --appointments-background-color: transparent;
   --appointments-content-spacing: var(--content-spacing-mobile);
   --appointments-content-width: 100%;
+  --back-button-color-hover:var(--button-background-color);
+  --back-button-color: var(--button-background-color);
+  --back-button-display:block;
+  --back-button-font-family-hover: var(--a-font-family-hover);
+  --back-button-icon-img-width: 1rem;
+  --back-button-icon-width-mobile:1rem;
+  --back-button-margin:0;
+  --back-button-width:auto !important;
   --background-color: #272727;
   --badge-call-for-ideas-h4-font-family: var(--font-family-quinary);
   --badge-call-for-ideas-h4-font-size-mobile: var(--h4-font-size-mobile);

@@ -10,7 +10,7 @@ Using web-components-cms-template Repository
 ## TODO:
 
   - [ ] animation
-  - [ ] back button in studio/projects/project behavior absolute/static analog call for ideas button https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
+  - [x] back button in studio/projects/project behavior absolute/static analog call for ideas button https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
   - [x] cookie banner style
   - [x] Footer
 
