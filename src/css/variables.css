@@ -15,7 +15,7 @@
   --a-text-decoration: underline;
   --animation: none;
   --any-a-display: inline;
-  --appointments-background-color: transparent;
+  --appointments-background-color: var(--background-color, transparent);
   --appointments-content-spacing: var(--content-spacing-mobile);
   --appointments-content-width: 100%;
   --background-color: #272727;
