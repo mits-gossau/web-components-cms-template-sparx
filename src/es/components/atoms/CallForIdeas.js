@@ -227,7 +227,7 @@ export default class CallForIdeas extends Intersection() {
       ${this.hasAttribute('star')
         ? `
           .background {
-            transition: var(--star-transition, transform .3s ease);
+            transition: var(--star-transition, transform 100s linear);
           }
           :host(:hover) .background {
             transform: rotate(calc(360deg * var(--star-rotate, 5.1)));
@@ -252,6 +252,9 @@ export default class CallForIdeas extends Intersection() {
         }
         ${this.hasAttribute('star')
         ? `
+            .background {
+              transition: var(--star-transition-mobile, var(--star-transition, transform .5s ease));
+            }
             :host(.hover) .background {
               transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5.1))));
             }
@@ -297,22 +300,24 @@ export default class CallForIdeas extends Intersection() {
     this.root.appendChild(this.makeItSquareStyle)
   }
 
-  makeItSquare (recursive = false) {
-    this.makeItSquareStyle.textContent = ''
+  makeItSquare (recursive = 0) {
     self.requestAnimationFrame(timeStamp => {
-      const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
-      this.makeItSquareStyle.textContent = /* css */ `
-        :host > div {
-          width: ${size}px;
-          height: ${size}px;
+      this.makeItSquareStyle.textContent = ''
+      self.requestAnimationFrame(timeStamp => {
+        const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
+        this.makeItSquareStyle.textContent = /* css */ `
+          :host > div {
+            width: ${size}px;
+            height: ${size}px;
+          }
+        `
+        // incase it wouldn't have worked, re-trigger makeItSquare
+        if (recursive < 5) {
+          self.requestAnimationFrame(timeStamp => {
+            if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) this.makeItSquare(recursive++)
+          })
         }
-      `
-      // incase it wouldn't have worked, re-trigger makeItSquare
-      if (!recursive) {
-        self.requestAnimationFrame(timeStamp => {
-          if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) this.makeItSquare(true)
-        })
-      }
+      })
     })
   }
 
