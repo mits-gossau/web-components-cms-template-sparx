@@ -81,7 +81,7 @@ export default class Wrapper extends Style {
         justify-content: var(--justify-content, space-between);
         margin: 0 auto;
       }
-      ${this.nextSibling && this.nextSibling.tagName === this.tagName
+      ${this.nextElementSibling && this.nextElementSibling.tagName === this.tagName
         ? /* css */`
           :host > section {
             margin-bottom: var(--content-spacing);
