@@ -64,6 +64,7 @@ export default class Wrapper extends Style {
         --carousel-content-width: 100%;
         --carousel-margin-mobile: 0;
         --carousel-margin: 0;
+        --picture-display: inline;
         --picture-margin: 0;
         --picture-height-mobile: auto;
         --picture-height: 100%;
