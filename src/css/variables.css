@@ -15,6 +15,9 @@
   --a-text-decoration: underline;
   --animation: none;
   --any-a-display: inline;
+  --appointments-background-color: transparent;
+  --appointments-content-spacing: var(--content-spacing-mobile);
+  --appointments-content-width: 100%;
   --background-color: #272727;
   --badge-call-for-ideas-h4-font-family: var(--font-family-quinary);
   --badge-call-for-ideas-h4-font-size-mobile: var(--h4-font-size-mobile);
@@ -186,7 +189,7 @@
   --logo-padding: 0 var(--header-padding);
   --marquee-a-margin: 0;
   --marquee-a-text-decoration-hover: none;
-  --marquee-a-text-decoration: underline;
+  --marquee-a-text-decoration: none;
   --marquee-background-color: var(--color);
   --marquee-color: var(--background-color);
   --marquee-font-size: 1.591rem;
@@ -269,5 +272,11 @@
   --video-min-width: var(--content-width);
   --video-width-mobile: var(--content-width-mobile);
 
+  --back-button-color-hover:#D9ADFF;
+  --back-button-color:#D9ADFF;
+  --back-button-display:block;
+  --back-button-font-family-hover: var(--a-font-family-hover);
+  --back-button-icon-img-width: 1rem;
+  --back-button-margin:0;
   --back-button-width:auto !important;
 }

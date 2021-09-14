@@ -227,7 +227,7 @@ export default class CallForIdeas extends Intersection() {
       ${this.hasAttribute('star')
         ? `
           .background {
-            transition: var(--star-transition, transform .3s ease);
+            transition: var(--star-transition, transform 100s linear);
           }
           :host(:hover) .background {
             transform: rotate(calc(360deg * var(--star-rotate, 5.1)));
@@ -252,6 +252,9 @@ export default class CallForIdeas extends Intersection() {
         }
         ${this.hasAttribute('star')
         ? `
+            .background {
+              transition: var(--star-transition-mobile, var(--star-transition, transform .5s ease));
+            }
             :host(.hover) .background {
               transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5.1))));
             }
@@ -293,14 +296,29 @@ export default class CallForIdeas extends Intersection() {
     `
     if (this.h4) this.root.querySelector('.text h4').replaceWith(this.h4.parentNode !== this.root ? this.h4.parentNode : this.h4)
     if (this.p) this.root.querySelector('.text p').replaceWith(this.p)
+    this.makeItSquareStyle.setAttribute('protected', 'true')
+    this.root.appendChild(this.makeItSquareStyle)
   }
 
-  makeItSquare () {
-    self.requestAnimationFrame(timeStamp => (this.css = /* css */ `
-      :host > div {
-        height: ${this.text.offsetWidth}px;
-      }
-    `))
+  makeItSquare (recursive = 0) {
+    self.requestAnimationFrame(timeStamp => {
+      this.makeItSquareStyle.textContent = ''
+      self.requestAnimationFrame(timeStamp => {
+        const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
+        this.makeItSquareStyle.textContent = /* css */ `
+          :host > div > section.background {
+            width: ${size}px;
+            height: ${size}px;
+          }
+        `
+        // incase it wouldn't have worked, re-trigger makeItSquare
+        if (recursive < 5) {
+          self.requestAnimationFrame(timeStamp => {
+            if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) this.makeItSquare(recursive++)
+          })
+        }
+      })
+    })
   }
 
   get h4 () {
@@ -313,5 +331,13 @@ export default class CallForIdeas extends Intersection() {
 
   get text () {
     return this.root.querySelector('section.text')
+  }
+
+  get background () {
+    return this.root.querySelector('section.background')
+  }
+
+  get makeItSquareStyle () {
+    return this._makeItSquareStyle || (this._makeItSquareStyle = document.createElement('style'))
   }
 }
