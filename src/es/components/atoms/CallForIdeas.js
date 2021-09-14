@@ -93,6 +93,9 @@ export default class CallForIdeas extends Intersection() {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.makeItSquare()
+    // avoid any render delays
+    setTimeout(() => this.makeItSquare(), 200)
+    setTimeout(() => this.makeItSquare(), 2000)
     this.addEventListener('click', this.clickListener)
     self.addEventListener('resize', this.resizeListener)
   }
