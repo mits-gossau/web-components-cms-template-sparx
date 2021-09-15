@@ -151,7 +151,7 @@
   --header-a-title-z-index: 1;
   --header-align-items: center;
   --header-background-color-open: var(--header-background-color);
-  --header-background-color: transparent;
+  --header-background-color: var(--background-color);
   --header-color: var(--navigation-color);
   --header-content-spacing: 0;
   --header-content-width-mobile: var(--header-content-width);
