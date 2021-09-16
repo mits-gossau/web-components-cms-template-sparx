@@ -84,7 +84,7 @@ export default class CallForIdeas extends Intersection() {
     let timeout = null
     this.resizeListener = event => {
       clearTimeout(timeout)
-      timeout = setTimeout(() => this.makeItSquare(), 200)
+      timeout = setTimeout(() => this.makeItSquare(true), 200)
     }
   }
 
@@ -94,8 +94,7 @@ export default class CallForIdeas extends Intersection() {
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.makeItSquare()
     // avoid any render delays
-    setTimeout(() => this.makeItSquare(), 200)
-    setTimeout(() => this.makeItSquare(), 2000)
+    setTimeout(() => this.makeItSquare(true), 200)
     this.addEventListener('click', this.clickListener)
     self.addEventListener('resize', this.resizeListener)
   }
@@ -204,7 +203,7 @@ export default class CallForIdeas extends Intersection() {
       }
       .background {
         display: var(--background-display, grid);
-        ${this.hasAttribute('star') ? 'transform: var(--background-transform, rotate(35deg)' : ''});
+        ${this.hasAttribute('star') ? 'transform: var(--background-transform, rotate(35deg));' : ''}
       }
       .background > * {
         background-color: var(--background-color, red);
@@ -230,7 +229,7 @@ export default class CallForIdeas extends Intersection() {
       ${this.hasAttribute('star')
         ? `
           .background {
-            transition: var(--star-transition, transform 100s linear);
+            transition: var(--star-transition, all 100s linear);
           }
           :host(:hover) .background {
             transform: rotate(calc(360deg * var(--star-rotate, 5.1)));
@@ -256,7 +255,7 @@ export default class CallForIdeas extends Intersection() {
         ${this.hasAttribute('star')
         ? `
             .background {
-              transition: var(--star-transition-mobile, var(--star-transition, transform .5s ease));
+              transition: var(--star-transition-mobile, var(--star-transition, all .5s ease));
             }
             :host(.hover) .background {
               transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5.1))));
@@ -303,8 +302,8 @@ export default class CallForIdeas extends Intersection() {
     this.root.appendChild(this.makeItSquareStyle)
   }
 
-  makeItSquare (recursive = 0) {
-    self.requestAnimationFrame(timeStamp => {
+  makeItSquare (force = false, recursive = 0) {
+    if (force || !this.isSquare) {
       this.makeItSquareStyle.textContent = ''
       self.requestAnimationFrame(timeStamp => {
         const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
@@ -315,13 +314,13 @@ export default class CallForIdeas extends Intersection() {
           }
         `
         // incase it wouldn't have worked, re-trigger makeItSquare
-        if (recursive < 5) {
-          self.requestAnimationFrame(timeStamp => {
-            if (Math.abs(this.background.offsetWidth) !== Math.abs(this.background.offsetHeight)) this.makeItSquare(recursive++)
-          })
-        }
+        if (recursive < 5) self.requestAnimationFrame(timeStamp => this.makeItSquare(false, recursive++))
       })
-    })
+    }
+  }
+
+  get isSquare () {
+    return Math.abs(this.background.offsetWidth) === Math.abs(this.background.offsetHeight)
   }
 
   get h4 () {
