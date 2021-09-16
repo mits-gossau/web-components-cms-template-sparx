@@ -222,7 +222,9 @@
   --navigation-hr-color: transparent;
   --navigation-justify-content: flex-end;
   --navigation-li-padding: 0 0 0 2em;
+  --navigation-li-ul-border-radius: 0.5em;
   --navigation-li-ul-margin-bottom-mobile: 0;
+  --navigation-li-ul-padding: 0.5em;
   --navigation-li-ul-z-index: 1;
   --navigation-margin-bottom-mobile: min(2.222rem, 6vh);
   --navigation-padding-no-scroll: 0;
