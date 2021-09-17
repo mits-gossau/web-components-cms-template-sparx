@@ -9,35 +9,81 @@ Using web-components-cms-template Repository
 
 ## TODO:
 
-  - [ ] animation
-  - [x] back button in studio/projects/project behavior absolute/static analog call for ideas button https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/zxkaAg4
-  - [x] cookie banner style
-  - [x] Footer
+  - [ ] animation https://jira.migros.net/browse/SPARX-13
+  - [ ] Barrierefreiheit https://jira.migros.net/browse/SPARX-117
 
-## TODO Anja:
+## TODO from Anja:
 
-  - [x] navigation show scroll up and hide scroll down
-  - [x] desktop call for ideas slower evtl. font turn, endless (font turn is UXish a uncool)
-  - [x] mobile nav align top not vertical centered
-  - [x] desktop Studio > Sparx Studio align left
-  - [x] desktop menu sub menu point font-size all 22px
-  - [x] desktop logo 172x70
-  - [x] spacing between two pic one big same https://testadmin.sparx-space.ch/about/idee/
-  - [x] sparx-a-heading     letter-spacing: 0.02em;
-  - [x] sparx-a-call-for-ideas > line-height: 1em; , Button round, more spacing=30 (move to backend when done)
-  - [x] details>summary mobile styling https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/1K59Jg4
-  - [x] mobile sparx-o-wrapper cards spacing double
-  - [x] variablen.css button always background pinkish on hover background gold font black only font-family change
-  - [x] sparx-o-wrapper align flex-start
-  - [x] marquee no underline and slower
-  - [X] Termine Styling https://testadmin.sparx-space.ch/forderung / https://www.sketch.com/s/4ba85331-0ced-4476-91ef-3c8f857efcd5/a/DPyQKke solved => http://localhost:4200/src/es/components/pages/Tester1.html:L117
+  - [x] sticky navigation
 
-## Fixes
+### https://jira.migros.net/browse/SPARX-121
 
-  - [ ] Pictures too big fix
-    ```
-      --carousel-picture-img-max-width: var(--img-max-width);
-      --picture-img-max-width: var(--img-max-width);
-      --img-max-width: 100vh;
-      --macro-carousel-gap: 0;
-    ```
+#### Desktop
+
+##### Startseite
+
+  - [ ] Animation von «Call for Ideas» schneller, etwas schneller als Laufband.
+
+##### Förderung
+
+  - [ ] Letterspacing im Titel als einzige Stelle noch nicht korrekt (auch Mobile) > grösser machen
+  - [ ] Akkordeon: rechts/links unbegrenzt, bitte auf Container begrenzen > Vergleich Sketch
+  - [ ] Akkordeon: Abstand Frage und Antwort vergrössern > Vergleich Sketch
+
+##### Kosmos
+
+  - [ ] Button: Kreis vergrössern, die Schrift ist zu nahe am Rand (auch Mobile) > Vergleich Sketch und haben wir letztes Mal besprochen.
+
+##### Suche
+
+  - [ ] Linienstärke beim Suchfeld ist zu dick > feiner machen
+  - [ ] Ganzer Suchtext weiss wie nach Vorlage oder «mehr erfahren» goldig > einheitliche Farbe
+
+##### Lesbarkeit Laufschrift verbessern:
+
+  - [ ] Zeilenabstand vergrössern > Vergleich Sketch
+  - [ ] Ebenfalls etwas Letterspacing > Vergleich Sketch
+
+##### Cookiebanner
+
+  - [ ] Weisser Verlauf kannst du löschen, passt nicht ins Konzept (auch Mobile) > Screenshot im Anhang.
+
+##### Studio
+
+  - [ ] Bild / Text Layout von Coaches stimmt noch nicht > Gerne 2-spaltig (links Bild und rechts Text. Momentan nimmt der Text die mittlere und rechte Spalte der drei ein > Vergleich Sketch
+
+#### Mobile
+
+##### Startseite
+
+  - [ ] Animation von «Call for Ideas» zu schnell > Abgleich mit Desktopvariante
+
+##### Menü
+
+  - [ ] Schriftgrösse zu klein > grösser machen, nach Vorlage
+  - [ ] Animation Menü Einblenden und Ausblenden bitte löschen
+
+##### Förderung
+
+  - [ ] Akkordeon: Frage hat falsche Schriftgrösse
+
+##### Suche
+
+  - [ ] Linienstärke beim Suchfeld ist zu dick > feiner machen
+  - [ ] Suchfeld zu gross, Schriftgrösse zu gross > kleiner machen
+
+##### Bilder
+
+  - [ ] Bilder grösser darstellen bei Team und Coaches (Studios) > bis an Rand, wie besprochen
+
+##### Footer
+
+  - [ ] Migros-Logo und dazugehöriger Text kann sich auf die ganze Breite ausbreiten > nach Vorlage
+
+## TODO for Backend:
+
+  - [ ] regarding SPARX-109 + SPARX-110, do we already have some sample html?
+
+## Questions for Anja:
+
+  - [ ] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?)
