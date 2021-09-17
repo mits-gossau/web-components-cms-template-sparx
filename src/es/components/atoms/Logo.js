@@ -102,8 +102,11 @@ export default class Logo extends Shadow() {
       :host > section > svg {
         max-width: min(98vh, 64.4vw);
       }
-      :host > section > svg path, :host > section > svg circle {
+      :host > section > svg path {
         fill: var(--color, pink);
+      }
+      :host > section > svg .x1, :host > section > svg .x2 {
+        animation: var(--animation, sparx 2.5s ease infinite);
       }
       :host > section *:first-child {
         width: 100%;
@@ -157,6 +160,25 @@ export default class Logo extends Shadow() {
           font-size: var(--font-size-mobile, var(--font-size, 5rem));
         }
       }
+      @keyframes sparx{
+        0%{
+          clip-path: circle(0% at center);
+          opacity: 1;
+        }
+        15%{
+          clip-path: circle(100% at center);
+        }
+        16%{
+          opacity: 1;
+        }
+        27%{
+          opacity: 0;
+        }
+        100%{
+          clip-path: circle(0% at center);
+          opacity: 0;
+        }
+      }
     `
   }
 
@@ -189,59 +211,6 @@ export default class Logo extends Shadow() {
       if (node.tagName !== 'STYLE') this.section.appendChild(node)
     })
     this.html = this.section
-    this.loadDependency().then(Snap => {
-      // SVG animation
-      const svg = Snap(this.root.querySelector('svg'));
-      // calculate the ratio from svg viewBox to svg bounding client rect which effects all coordinates inside Snap (0.04 is the error margin)
-      const viewBoxInnerWidthRation = Number((svg.attr('viewBox').width / this.root.querySelector('svg').getBoundingClientRect().width) - 0.038).toFixed(3)
-      const x1Rect = this.root.querySelector('.x1').getBoundingClientRect()
-      const x2Rect = this.root.querySelector('.x2').getBoundingClientRect()
-      const xRect = {}
-      for (const key in x1Rect) {
-        xRect[key] = Math.round(Math.max(x1Rect[key], x2Rect[key]) * viewBoxInnerWidthRation)
-      }
-      const circle1 = svg.circle(xRect.left, xRect.top, 0);
-      circle1.attr({
-          mask: svg.select('.x1')
-      })
-      const circle2 = svg.circle(xRect.left, xRect.top, 0);
-      circle2.attr({
-        mask: svg.select('.x2')
-      })
-      const radius = Math.max(xRect.width, xRect.height) / 1.3
-      const speed = 500
-      const animateOut = () => {
-        circle1.animate({r: radius}, speed, undefined, reset);
-        circle2.animate({r: radius}, speed, undefined, reset);
-      }
-      const reset = () => {
-        circle1.attr({r: 0});
-        circle2.attr({r: 0});
-        setTimeout(() => animateOut(), speed);
-      }
-      animateOut()
-    })
-  }
-
-  /**
-   * fetch dependency
-   *
-   * @returns {Promise<{components: any}>}
-   */
-  loadDependency () {
-    return this._loadDependency || (this._loadDependency = new Promise(resolve => {
-      const snapSvgScript = document.createElement('script')
-      snapSvgScript.setAttribute('type', 'text/javascript')
-      snapSvgScript.setAttribute('src', 'https://cdn.jsdelivr.net/npm/snapsvg/dist/snap.svg-min.js')
-      snapSvgScript.onload = () => {
-        if (self.Snap) {
-          resolve(self.Snap)
-        } else {
-          reject('failed to load Snap.svg')
-        }
-      }
-      this.html = snapSvgScript
-    }))
   }
 
   get section () {
