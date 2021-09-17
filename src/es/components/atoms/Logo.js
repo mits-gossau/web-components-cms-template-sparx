@@ -107,6 +107,8 @@ export default class Logo extends Shadow() {
       }
       :host > section > svg .x1, :host > section > svg .x2 {
         animation: var(--animation, sparx 2.5s ease infinite);
+        animation-delay: var(--animation-delay, .5s);
+        clip-path: circle(0% at center);
       }
       :host > section *:first-child {
         width: 100%;
