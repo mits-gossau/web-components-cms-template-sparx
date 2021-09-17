@@ -48,6 +48,7 @@ export default class Logo extends Shadow() {
 
   connectedCallback () {
     if (this.shouldComponentRenderCSS()) this.renderCSS()
+    if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.addEventListener('click', this.clickListener)
   }
 
@@ -65,6 +66,15 @@ export default class Logo extends Shadow() {
   }
 
   /**
+   * evaluates if a render is necessary
+   *
+   * @return {boolean}
+   */
+  shouldComponentRenderHTML () {
+    return !this.querySelector('section')
+  }
+
+  /**
    * renders the css
    *
    * @return {void}
@@ -72,6 +82,11 @@ export default class Logo extends Shadow() {
   renderCSS () {
     this.css = /* css */ `
       :host {
+        display: block;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      :host > section {
         ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         box-sizing: border-box;
         cursor:var(--cursor, pointer);
@@ -84,51 +99,67 @@ export default class Logo extends Shadow() {
         width: var(--width, 100%) !important;
         height: 100%;
       }
-      :host *:first-child {
+      :host > section *:first-child {
         width: 100%;
         height: auto;
       }
-      :host *:not(:first-child):not(sparx-a-call-for-ideas) {
+      :host > section *:not(:first-child):not(sparx-a-call-for-ideas) {
         font-size: var(--font-size, 5rem);
         color: var(--color, pink);
       }
-      :host *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
+      :host > section *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top, -0.7em);
       }
-      :host *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
+      :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top-last, -0.3em);
         margin-left: var(--margin-left-last, 4.3em);
       }
-      :host sparx-a-call-for-ideas  {
+      :host > section sparx-a-call-for-ideas  {
         margin-top: var(--logo-cfi-margin-top, -9%);
         margin-left: var(--logo-cfi-margin-left, 16%);
         align-self: flex-start;
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
-        :host {
+        :host > section {
           justify-content: var(--justify-content-mobile, var(--justify-content, center));
           padding: var(--padding-mobile, var(--padding, 0));
         }
       }
       @media only screen and (max-width: 800px) {
-        :host *:not(:first-child):not(sparx-a-call-for-ideas) {
+        :host > section *:not(:first-child):not(sparx-a-call-for-ideas) {
           font-size: max(var(--font-size-mobile, var(--font-size, 5rem)), 8vw);
         }
       }
       @media only screen and (max-width: 650px) {
-        :host sparx-a-call-for-ideas  {
+        :host > section sparx-a-call-for-ideas  {
           margin-top: var(--logo-cfi-margin-top-mobile, var(--logo-cfi-margin-top, min(8%, 4vh)));
           margin-left: var(--logo-cfi-margin-left-mobile, var(--logo-cfi-margin-left, 15%));
         }
       }
       @media only screen and (max-width: 400px) {
-        :host *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
+        :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
           align-self: var(--align-self-last, flex-end);
         }
-        :host *:not(:first-child):not(sparx-a-call-for-ideas) {
+        :host > section *:not(:first-child):not(sparx-a-call-for-ideas) {
           font-size: var(--font-size-mobile, var(--font-size, 5rem));
         }
       }
     `
+  }
+
+  /**
+   * renders the a-link html
+   *
+   * @return {void}
+   */
+  renderHTML () {
+    Array.from(this.root.children).forEach(node => {
+      if (node.tagName !== 'STYLE') this.section.appendChild(node)
+    })
+    this.html = this.section
+  }
+
+  get section () {
+    return this._section || (this._section = document.createElement('section'))
   }
 }
