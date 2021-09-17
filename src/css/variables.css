@@ -107,7 +107,7 @@
   --footer-engagement-logo-text-a-color: #f60;
   --footer-engagement-logo-text-a-text-decoration-hover: none;
   --footer-engagement-logo-text-color: var(--footer-color);
-  --footer-engagement-logo-text-font-family: Helvetica;
+  --footer-engagement-logo-text-font-family: "HelveticaNowTextRegular";
   --footer-engagement-logo-text-font-size-mobile: 0.89rem;
   --footer-engagement-logo-text-line-height: 1.4em;
   --footer-engagement-logo-text-padding-mobile: min(5vw, 1em) 0 0 5.6em;
