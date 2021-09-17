@@ -150,7 +150,7 @@
   --header-a-title-z-index: 1;
   --header-align-items: center;
   --header-background-color-open: var(--header-background-color);
-  --header-background-color: transparent;
+  --header-background-color: var(--background-color);
   --header-color: var(--navigation-color);
   --header-content-spacing: 0;
   --header-content-width-mobile: var(--header-content-width);
@@ -221,7 +221,9 @@
   --navigation-hr-color: transparent;
   --navigation-justify-content: flex-end;
   --navigation-li-padding: 0 0 0 2em;
+  --navigation-li-ul-border-radius: 0.5em;
   --navigation-li-ul-margin-bottom-mobile: 0;
+  --navigation-li-ul-padding: 0.5em;
   --navigation-li-ul-z-index: 1;
   --navigation-margin-bottom-mobile: min(2.222rem, 6vh);
   --navigation-padding-no-scroll: 0;
