@@ -16,7 +16,7 @@ Using web-components-cms-template Repository
 
 ## TODO Anja:
 
-  - [ ] navigation show scroll up and hide scroll down
+  - [x] navigation show scroll up and hide scroll down
   - [x] desktop call for ideas slower evtl. font turn, endless (font turn is UXish a uncool)
   - [x] mobile nav align top not vertical centered
   - [x] desktop Studio > Sparx Studio align left
