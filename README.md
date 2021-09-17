@@ -9,7 +9,7 @@ Using web-components-cms-template Repository
 
 ## TODO:
 
-  - [ ] animation https://jira.migros.net/browse/SPARX-13
+  - [x] animation https://jira.migros.net/browse/SPARX-13
   - [ ] Barrierefreiheit https://jira.migros.net/browse/SPARX-117
 
 ## TODO from Anja:
@@ -82,7 +82,7 @@ Using web-components-cms-template Repository
 
 ## TODO for Backend:
 
-  - [ ] regarding SPARX-109 + SPARX-110, do we already have some sample html?
+  - [ ] regarding project sites SPARX-109 + SPARX-110, do we already have some sample html?
 
 ## Questions for Anja:
 

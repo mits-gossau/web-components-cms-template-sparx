@@ -102,7 +102,7 @@ export default class Logo extends Shadow() {
       :host > section > svg {
         max-width: min(98vh, 64.4vw);
       }
-      :host > section > svg path {
+      :host > section > svg path, :host > section > svg circle {
         fill: var(--color, pink);
       }
       :host > section *:first-child {
@@ -181,15 +181,46 @@ export default class Logo extends Shadow() {
         <path d="M123,31.3l1.4,2.2l-4.3-0.5l1.5-14.1l8.9,0.9c3.9,0.4,6.8,3.6,6.3,7.8c-0.3,3-2.2,5.2-4.7,6l-3.7-5.9L123,31.3z
           M119.5,39.4l9.4,1l8.6,13.3l8.2,0.9l-10-15.4c4-1.9,6.9-5.8,7.4-10.8c0.8-7.7-4.3-14-12-14.8l-15.2-1.6l-4.1,39l6.4,0.7L119.5,39.4
           z"/>
-        <path d="M144.8,39.8l4.6,5.7l17-13.7l-4.6-5.7L144.8,39.8z M172.5,17.4l4.6,5.7L194,9.4l-4.6-5.7L172.5,17.4z"/>
-        <path d="M170.9,32.3l13.7,16.9l5.7-4.6l-13.7-16.9L170.9,32.3z M154.2,0l-5.7,4.6l13.7,17l5.7-4.6L154.2,0z"/>
+        <path class="x1" d="M144.8,39.8l4.6,5.7l17-13.7l-4.6-5.7L144.8,39.8z M172.5,17.4l4.6,5.7L194,9.4l-4.6-5.7L172.5,17.4z"/>
+        <path class="x2" d="M170.9,32.3l13.7,16.9l5.7-4.6l-13.7-16.9L170.9,32.3z M154.2,0l-5.7,4.6l13.7,17l5.7-4.6L154.2,0z"/>
       </svg>
     `
     Array.from(this.root.children).forEach(node => {
       if (node.tagName !== 'STYLE') this.section.appendChild(node)
     })
     this.html = this.section
-    this.loadDependency().then(Snap => console.log('changed', Snap))
+    this.loadDependency().then(Snap => {
+      // SVG animation
+      const svg = Snap(this.root.querySelector('svg'));
+      // calculate the ratio from svg viewBox to svg bounding client rect which effects all coordinates inside Snap (0.04 is the error margin)
+      const viewBoxInnerWidthRation = Number((svg.attr('viewBox').width / this.root.querySelector('svg').getBoundingClientRect().width) - 0.038).toFixed(3)
+      const x1Rect = this.root.querySelector('.x1').getBoundingClientRect()
+      const x2Rect = this.root.querySelector('.x2').getBoundingClientRect()
+      const xRect = {}
+      for (const key in x1Rect) {
+        xRect[key] = Math.round(Math.max(x1Rect[key], x2Rect[key]) * viewBoxInnerWidthRation)
+      }
+      const circle1 = svg.circle(xRect.left, xRect.top, 0);
+      circle1.attr({
+          mask: svg.select('.x1')
+      })
+      const circle2 = svg.circle(xRect.left, xRect.top, 0);
+      circle2.attr({
+        mask: svg.select('.x2')
+      })
+      const radius = Math.max(xRect.width, xRect.height) / 1.3
+      const speed = 1000
+      const animateOut = () => {
+        circle1.animate({r: radius}, speed, undefined, reset);
+        circle2.animate({r: radius}, speed, undefined, reset);
+      }
+      const reset = () => {
+        circle1.attr({r: 0});
+        circle2.attr({r: 0});
+        animateOut()
+      }
+      animateOut()
+    })
   }
 
   /**
