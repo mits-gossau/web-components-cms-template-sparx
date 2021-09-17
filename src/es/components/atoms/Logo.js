@@ -209,7 +209,7 @@ export default class Logo extends Shadow() {
         mask: svg.select('.x2')
       })
       const radius = Math.max(xRect.width, xRect.height) / 1.3
-      const speed = 1000
+      const speed = 500
       const animateOut = () => {
         circle1.animate({r: radius}, speed, undefined, reset);
         circle2.animate({r: radius}, speed, undefined, reset);
@@ -217,7 +217,7 @@ export default class Logo extends Shadow() {
       const reset = () => {
         circle1.attr({r: 0});
         circle2.attr({r: 0});
-        animateOut()
+        setTimeout(() => animateOut(), speed);
       }
       animateOut()
     })
