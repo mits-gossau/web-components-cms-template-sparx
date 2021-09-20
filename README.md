@@ -69,8 +69,8 @@ Using web-components-cms-template Repository
 
 ##### Suche
 
-  - [ ] Linienstärke beim Suchfeld ist zu dick > feiner machen
-  - [ ] Suchfeld zu gross, Schriftgrösse zu gross > kleiner machen
+  - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
+  - [x] Suchfeld zu gross, Schriftgrösse zu gross > kleiner machen
 
 ##### Bilder
 
