@@ -36,7 +36,7 @@ Using web-components-cms-template Repository
 
 ##### Suche
 
-  - [ ] Linienstärke beim Suchfeld ist zu dick > feiner machen
+  - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
   - [ ] Ganzer Suchtext weiss wie nach Vorlage oder «mehr erfahren» goldig > einheitliche Farbe
 
 ##### Lesbarkeit Laufschrift verbessern:

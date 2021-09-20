@@ -248,7 +248,7 @@
   --search-field-color: var(--color);
   --search-field-flex-direction:row-reverse;
   --search-field-input-border-radius: 2em;
-  --search-field-input-border: 0.15em solid var(--color);
+  --search-field-input-border: 0.1em solid var(--color);
   --search-field-input-box-shadow: none;
   --search-field-input-font-size: var(--h3-font-size);
   --search-field-input-height:auto;
