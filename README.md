@@ -22,31 +22,27 @@ Using web-components-cms-template Repository
 
 ##### Startseite
 
-  - [ ] Animation von «Call for Ideas» schneller, etwas schneller als Laufband.
+  - [x] Animation von «Call for Ideas» schneller, etwas schneller als Laufband. (Von 100 auf 50 Sekunden)
 
 ##### Förderung
 
-  - [ ] Letterspacing im Titel als einzige Stelle noch nicht korrekt (auch Mobile) > grösser machen
-  - [ ] Akkordeon: rechts/links unbegrenzt, bitte auf Container begrenzen > Vergleich Sketch
+  - [x] Letterspacing im Titel als einzige Stelle noch nicht korrekt (auch Mobile) > grösser machen (Von 0.02 auf 0.05 em)
+  - [x] Akkordeon: rechts/links unbegrenzt, bitte auf Container begrenzen > Vergleich Sketch (div Wrapper mit margin 0 auto)
   - [x] Akkordeon: Abstand Frage und Antwort vergrössern > Vergleich Sketch
 
 ##### Kosmos
 
-  - [ ] Button: Kreis vergrössern, die Schrift ist zu nahe am Rand (auch Mobile) > Vergleich Sketch und haben wir letztes Mal besprochen.
+  - [x] Button: Kreis vergrössern, die Schrift ist zu nahe am Rand (auch Mobile) > Vergleich Sketch und haben wir letztes Mal besprochen. (Spacing erhöht von 20 auf 65%)
 
 ##### Suche
 
   - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
   - [x] Ganzer Suchtext weiss wie nach Vorlage oder «mehr erfahren» goldig > einheitliche Farbe
 
-##### Lesbarkeit Laufschrift verbessern:
-
-  - [ ] Zeilenabstand vergrössern > Vergleich Sketch
-  - [ ] Ebenfalls etwas Letterspacing > Vergleich Sketch
 
 ##### Cookiebanner
 
-  - [ ] Weisser Verlauf kannst du löschen, passt nicht ins Konzept (auch Mobile) > Screenshot im Anhang.
+  - [x] Weisser Verlauf kannst du löschen, passt nicht ins Konzept (auch Mobile) > Screenshot im Anhang. (weisser schatten entfernt und 1px linie in detault color hinzugefügt)
 
 ##### Studio
 
@@ -85,5 +81,7 @@ Using web-components-cms-template Repository
   - [ ] regarding project sites SPARX-109 + SPARX-110, do we already have some sample html?
 
 ## Questions for Anja:
-
   - [ ] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?)
+##### Lesbarkeit Laufschrift verbessern:
+  - [ ] Zeilenabstand vergrössern > Vergleich Sketch (Unklar. Genauer definieren)
+  - [ ] Ebenfalls etwas Letterspacing > Vergleich Sketch  (Unklar. Genauer definieren)

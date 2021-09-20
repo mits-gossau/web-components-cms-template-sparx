@@ -229,7 +229,7 @@ export default class CallForIdeas extends Intersection() {
       ${this.hasAttribute('star')
         ? `
           .background {
-            transition: var(--star-transition, all 100s linear);
+            transition: var(--star-transition, all 50s linear);
           }
           :host(:hover) .background {
             transform: rotate(calc(360deg * var(--star-rotate, 5.1)));
