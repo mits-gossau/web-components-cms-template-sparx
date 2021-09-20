@@ -77,6 +77,7 @@
   --details-border-bottom-last: 0;
   --details-border-top: var(--details-border);
   --details-border: min(3px, 7vw) solid;
+  --details-child-margin-open: 1rem 0 0 0;
   --details-child-padding-open-mobile: 0 0 0 1em;
   --details-icon-justify-content: space-between;
   --details-padding: var(--padding, 27px 0);

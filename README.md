@@ -28,7 +28,7 @@ Using web-components-cms-template Repository
 
   - [ ] Letterspacing im Titel als einzige Stelle noch nicht korrekt (auch Mobile) > grösser machen
   - [ ] Akkordeon: rechts/links unbegrenzt, bitte auf Container begrenzen > Vergleich Sketch
-  - [ ] Akkordeon: Abstand Frage und Antwort vergrössern > Vergleich Sketch
+  - [x] Akkordeon: Abstand Frage und Antwort vergrössern > Vergleich Sketch
 
 ##### Kosmos
 
