@@ -2,6 +2,9 @@
  * NOTE: consider the following <link rel="preload" href="[url_to_font]"> to prefetch initially displayed fonts
  */
 
+ /* HelveticaNow for Kulturprozent Logo */
+@import url("https://cdn.fonts.net/kit/3340f570-162c-11ec-861a-06a1935d90d4/3340f570-162c-11ec-861a-06a1935d90d4.css");
+
 /* GT-Haptik-Medium */
 @font-face {
   font-family: 'GT-Haptik-Medium';
