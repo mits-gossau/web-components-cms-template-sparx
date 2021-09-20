@@ -83,6 +83,7 @@
   --details-child-padding-open-mobile: 0 0 0 1em;
   --details-icon-justify-content: space-between;
   --details-padding: var(--padding, 27px 0);
+  --details-summary-font-size-mobile: 1rem;
   --details-summary-font-size: 1.3rem;
   --details-text-align: left;
   --flex-grow: 1;
@@ -172,6 +173,7 @@
   --header-m-navigation-justify-content-mobile: center;
   --header-m-navigation-padding-open-mobile: min(4em, 10vh) 0 0;
   --header-m-navigation-top-mobile: 0;
+  --header-m-navigation-transition: none;
   --header-padding: 2%;
   --header-position: static;
   --header-sticky-border-bottom: 1px solid var(--color);
@@ -201,7 +203,7 @@
   --navigation-a-link-color-no-scroll: var(--navigation-color);
   --navigation-a-link-content-spacing-no-scroll: 0;
   --navigation-a-link-content-spacing: 0;
-  --navigation-a-link-font-size-no-scroll-mobile: min(1em, min(7vw, 7vh));
+  --navigation-a-link-font-size-no-scroll-mobile: min(1.33rem, min(7vw, 7vh));
   --navigation-a-link-second-level-font-size-no-scroll: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-a-link-second-level-font-size: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-arrow-display: none;
@@ -224,6 +226,7 @@
   --navigation-padding-no-scroll: 0;
   --navigation-padding-top: 0;
   --navigation-padding: 0;
+  --navigation-transition: none;
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
   --picture-margin: var(--content-spacing) auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */

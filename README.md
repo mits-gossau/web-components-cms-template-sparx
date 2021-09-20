@@ -11,6 +11,7 @@ Using web-components-cms-template Repository
 
   - [x] animation https://jira.migros.net/browse/SPARX-13
   - [ ] Barrierefreiheit https://jira.migros.net/browse/SPARX-117
+  - [ ] project sites SPARX-109 + SPARX-110
 
 ## TODO from Anja:
 
@@ -39,49 +40,47 @@ Using web-components-cms-template Repository
   - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
   - [x] Ganzer Suchtext weiss wie nach Vorlage oder «mehr erfahren» goldig > einheitliche Farbe
 
-
 ##### Cookiebanner
 
   - [x] Weisser Verlauf kannst du löschen, passt nicht ins Konzept (auch Mobile) > Screenshot im Anhang. (weisser schatten entfernt und 1px linie in detault color hinzugefügt)
 
 ##### Studio
 
-  - [ ] Bild / Text Layout von Coaches stimmt noch nicht > Gerne 2-spaltig (links Bild und rechts Text. Momentan nimmt der Text die mittlere und rechte Spalte der drei ein > Vergleich Sketch
+  - [x] Bild / Text Layout von Coaches stimmt noch nicht > Gerne 2-spaltig (links Bild und rechts Text. Momentan nimmt der Text die mittlere und rechte Spalte der drei ein > Vergleich Sketch (von 30%/70% zu 50%/50% Spalten mit 1.75em Spacing)
 
 #### Mobile
 
 ##### Startseite
 
-  - [ ] Animation von «Call for Ideas» zu schnell > Abgleich mit Desktopvariante
+  - [x] Animation von «Call for Ideas» zu schnell > Abgleich mit Desktopvariante (rotation reduziert auf 0.5 mit 3s)
 
 ##### Menü
 
-  - [ ] Schriftgrösse zu klein > grösser machen, nach Vorlage
-  - [ ] Animation Menü Einblenden und Ausblenden bitte löschen
+  - [x] Schriftgrösse zu klein > grösser machen, nach Vorlage ("bug" fixed)
+  - [x] Animation Menü Einblenden und Ausblenden bitte löschen (navigations animationen --navigation-transition, --header-m-navigation-transition removed)
 
 ##### Förderung
 
-  - [ ] Akkordeon: Frage hat falsche Schriftgrösse
+  - [x] Akkordeon: Frage hat falsche Schriftgrösse (bug fixed)
 
 ##### Suche
 
   - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
   - [x] Suchfeld zu gross, Schriftgrösse zu gross > kleiner machen
 
+##### Footer
+
+  - [x] Migros-Logo und dazugehöriger Text kann sich auf die ganze Breite ausbreiten > nach Vorlage (gelösst gemäss Guidelines_FGE_Stand_06_2021_1_de.pdf)
+
+## TODO for Backend:
+
 ##### Bilder
 
   - [ ] Bilder grösser darstellen bei Team und Coaches (Studios) > bis an Rand, wie besprochen
 
-##### Footer
-
-  - [ ] Migros-Logo und dazugehöriger Text kann sich auf die ganze Breite ausbreiten > nach Vorlage
-
-## TODO for Backend:
-
-  - [ ] regarding project sites SPARX-109 + SPARX-110, do we already have some sample html?
-
 ## Questions for Anja:
-  - [ ] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?)
+
+  - [ ] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?) / sticky nur mobile?
 ##### Lesbarkeit Laufschrift verbessern:
   - [ ] Zeilenabstand vergrössern > Vergleich Sketch (Unklar. Genauer definieren)
   - [ ] Ebenfalls etwas Letterspacing > Vergleich Sketch  (Unklar. Genauer definieren)

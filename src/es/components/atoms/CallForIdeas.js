@@ -255,10 +255,10 @@ export default class CallForIdeas extends Intersection() {
         ${this.hasAttribute('star')
         ? `
             .background {
-              transition: var(--star-transition-mobile, var(--star-transition, all .5s ease));
+              transition: var(--star-transition-mobile, var(--star-transition, all 3s ease));
             }
             :host(.hover) .background {
-              transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 5.1))));
+              transform: rotate(calc(360deg * var(--star-rotate-mobile, var(--star-rotate, 0.5))));
             }
           `
         : ''}
