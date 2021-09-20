@@ -228,8 +228,8 @@
   --q-font-size-mobile: 1.333rem;
   --q-font-size: 1.272rem;
   --q-margin: 0 auto 0.227rem;
-  --search-a-color-hover: var(--footer-color);
-  --search-a-color: var(--footer-color);
+  --search-a-color-hover: var(--color);
+  --search-a-color: var(--color);
   --search-a-display: var(--any-a-display);
   --search-a-font-family-hover: var(--a-font-family-hover);
   --search-a-text-decoration: underline;
