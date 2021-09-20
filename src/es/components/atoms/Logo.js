@@ -131,6 +131,11 @@ export default class Logo extends Shadow() {
         margin-left: var(--logo-cfi-margin-left, 3%);
         align-self: flex-start;
       }
+      .xy {
+      ${this.hasAttribute('x-disappear')
+      ? 'display:none;'
+      : 'opacity: 0.8;'} 
+      }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host > section > svg {
           max-width: min(90vh, 79.2vw);
@@ -207,6 +212,8 @@ export default class Logo extends Shadow() {
           z"/>
         <path class="x1" d="M144.8,39.8l4.6,5.7l17-13.7l-4.6-5.7L144.8,39.8z M172.5,17.4l4.6,5.7L194,9.4l-4.6-5.7L172.5,17.4z"/>
         <path class="x2" d="M170.9,32.3l13.7,16.9l5.7-4.6l-13.7-16.9L170.9,32.3z M154.2,0l-5.7,4.6l13.7,17l5.7-4.6L154.2,0z"/>
+        <path class="xy" d="M144.8,39.8l4.6,5.7l17-13.7l-4.6-5.7L144.8,39.8z M172.5,17.4l4.6,5.7L194,9.4l-4.6-5.7L172.5,17.4z"/>
+        <path class="xy" d="M170.9,32.3l13.7,16.9l5.7-4.6l-13.7-16.9L170.9,32.3z M154.2,0l-5.7,4.6l13.7,17l5.7-4.6L154.2,0z"/>
       </svg>
     `
     Array.from(this.root.children).forEach(node => {
