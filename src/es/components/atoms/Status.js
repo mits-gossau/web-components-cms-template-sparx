@@ -4,7 +4,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 /* global self */
 
 /**
- * Display  current status of a project
+ * Display current status of a project
  * Example at: /src/es/components/pages/Kosmos.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
@@ -52,20 +52,22 @@ export default class Status extends Shadow() {
   renderCSS () {
     this.css = /* css */`
       :host > div {
-        width: 9em;
-        height: 9em;
-        display: flex;
-        transform: rotate(45deg);
-        justify-content: center;
         align-items: center;
         background-color: var(--background-color, white);
+        display: flex;
+        height: 9em;
+        justify-content: center;
+        transform: rotate(45deg);
+        width: 9em;
       }
 
       :host p {
+        color: var(--p-color, white);
+        font-family: var(--p-font-family, var(--font-family-secondary));
+        font-size: var(--p-font-size, 1em);
+        font-weight: var(--p-font-weight, var(--font-weight, normal));
+        text-align: var(--p-text-align, center);
         transform: rotate(-55deg);
-        color: var(--color, white);
-        font-size: var(--font-size, 1em);
-        text-align: center;
       }
       
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {

@@ -275,8 +275,9 @@
   --spacer-height: 4.41rem;
   --sparx-a-heading-margin: var(--content-spacing) auto;
   --status-background-color: #D2BB61;
-  --status-color: var(--color);
-  --status-font-size: 1.85rem;
+  --status-p-color: var(--color);
+  --status-p-font-size: 1.85rem;
+  --status-p-font-family: var(--font-family-quinary);
   --text-transform: none;
   --video-margin-mobile: var(--content-spacing-mobile) auto;
   --video-margin: var(--content-spacing) auto;
