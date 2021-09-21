@@ -68,15 +68,13 @@ Using web-components-cms-template Repository
   - [x] Linienstärke beim Suchfeld ist zu dick > feiner machen
   - [x] Suchfeld zu gross, Schriftgrösse zu gross > kleiner machen
 
+##### Bilder
+
+  - [x] Bilder grösser darstellen bei Team und Coaches (Studios) > bis an Rand, wie besprochen
+
 ##### Footer
 
   - [x] Migros-Logo und dazugehöriger Text kann sich auf die ganze Breite ausbreiten > nach Vorlage (gelösst gemäss Guidelines_FGE_Stand_06_2021_1_de.pdf)
-
-## TODO for Backend:
-
-##### Bilder
-
-  - [ ] Bilder grösser darstellen bei Team und Coaches (Studios) > bis an Rand, wie besprochen
 
 ## Questions for Anja:
 

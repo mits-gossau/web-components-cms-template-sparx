@@ -204,7 +204,7 @@
   --navigation-a-link-content-spacing-no-scroll: 0;
   --navigation-a-link-content-spacing: 0;
   --navigation-a-link-font-size-no-scroll-mobile: min(1.33rem, min(7vw, 7vh));
-  --navigation-a-link-second-level-font-size-no-scroll: var(--navigation-a-link-font-size-no-scroll-mobile);
+  --navigation-a-link-second-level-font-size-no-scroll-mobile: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-a-link-second-level-font-size: var(--navigation-a-link-font-size-no-scroll-mobile);
   --navigation-arrow-display: none;
   --navigation-background-color: var(--background-color);
