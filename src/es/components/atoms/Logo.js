@@ -98,6 +98,7 @@ export default class Logo extends Shadow() {
         margin: 0 !important;
         width: var(--width, 100%) !important;
         height: 100%;
+        white-space: nowrap;
       }
       :host > section > svg {
         max-width: min(98vh, 64.4vw);
@@ -125,6 +126,22 @@ export default class Logo extends Shadow() {
       :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top-last, -0.3em);
         margin-left: var(--margin-left-last, 3.2em);
+      }
+      ${!document.querySelector('html[lang=de]')
+        ? /* css */`
+          @media only screen and (max-width: 1400px) {
+            :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas) {
+              align-self: end;
+              margin-left: 0;
+            }
+          }
+          @media only screen and (min-width: 1401px) {
+            :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas) {
+              margin-left: var(--margin-left-last-large, var(--margin-left-last, 6.2em));
+            }
+          }
+        `
+        : ''
       }
       :host > section sparx-a-call-for-ideas  {
         margin-top: var(--logo-cfi-margin-top, -9%);
