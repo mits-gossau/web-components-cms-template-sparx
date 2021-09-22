@@ -139,12 +139,17 @@ export default class Wrapper extends Style {
           }
         `
       }
-      :host > section .has-status {
+      :host(.project) {
+        --picture-img-max-height: 444px;
+        --picture-img-object-fit: cover;
+        --content-spacing: 2.5rem;
+      }
+      :host(.project) > section .has-status {
         display: grid;
         align-items: center;
         justify-items: center;
       }
-      :host > section .has-status > * {
+      :host(.project) > section .has-status > * {
         grid-column: 1;
         grid-row: 1;
       }
@@ -201,6 +206,10 @@ export default class Wrapper extends Style {
         }
         :host > section > *:last-child {
           margin-bottom: 0;
+        }
+        :host(.project) {
+          --picture-img-max-height: unset;
+          --content-spacing-mobile: 2.25rem;
         }
       }
     `

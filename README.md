@@ -10,8 +10,8 @@ Using web-components-cms-template Repository
 ## TODO:
 
   - [x] animation https://jira.migros.net/browse/SPARX-13
-  - [ ] Barrierefreiheit https://jira.migros.net/browse/SPARX-117
-  - [ ] project sites SPARX-109 + SPARX-110
+  - [x] Barrierefreiheit https://jira.migros.net/browse/SPARX-117
+  - [x] project sites SPARX-109 + SPARX-110
 
 ## TODO from Anja:
 
