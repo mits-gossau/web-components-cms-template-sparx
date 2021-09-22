@@ -130,9 +130,17 @@ export default class Status extends Shadow() {
    * @return {void}
    */
   renderHTML () {
-    this.html = /* html */ `
-      <div><p>${this.getAttribute('text') || 'No text attribute set!'}</p></div>
-    `
+    if (this.getAttribute('text')) {
+      this.html = /* html */ `
+        <div><p>${this.getAttribute('text') || 'No text attribute set!'}</p></div>
+      `
+    } else {
+      const div = document.createElement('div')
+      Array.from(this.root.children).forEach(node => {
+        if (node.tagName !== 'STYLE') div.appendChild(node)
+      })
+      this.html = div
+    }
     this.makeItSquareStyle.setAttribute('protected', 'true')
     this.root.appendChild(this.makeItSquareStyle)
   }
