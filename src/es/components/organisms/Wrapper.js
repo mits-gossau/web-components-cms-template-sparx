@@ -139,6 +139,15 @@ export default class Wrapper extends Style {
           }
         `
       }
+      :host > section .has-status {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+      :host > section .has-status > * {
+        grid-column: 1;
+        grid-row: 1;
+      }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           --carousel-content-width-mobile: 100%;
