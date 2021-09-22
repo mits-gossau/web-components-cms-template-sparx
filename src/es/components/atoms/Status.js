@@ -5,7 +5,7 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
 
 /**
  * Display current status of a project
- * Example at: /src/es/components/pages/Kosmos.html
+ * Example at: /src/es/components/pages/Projekte.html
  * As an atom, this component can not hold further children (those would be quantum)
  *
  * @export
