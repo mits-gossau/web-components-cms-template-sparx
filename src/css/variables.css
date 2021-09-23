@@ -240,7 +240,7 @@
   --navigation-transition: none;
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
-  --picture-img-max-height: 75vh;
+  --picture-img-max-height: 90vh;
   --picture-img-object-fit: contain;
   --picture-margin: var(--content-spacing) auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
   --picture-width-mobile: var(--content-width-mobile);
