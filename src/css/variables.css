@@ -33,7 +33,7 @@
   --badge-call-for-ideas-p-font-size-mobile: var(--font-size-mobile);
   --badge-call-for-ideas-p-font-size: var(--font-size);
   --badge-call-for-ideas-text-transform: rotate(20deg);
-  --border-top: 1px solid var(--color);
+  --border-top: min(3px, 1vw) solid var(--color);
   --box-shadow-color: 0;
   --button-background-color-hover: #D2BB61;
   --button-background-color: #D9ADFF;
@@ -69,6 +69,9 @@
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;
+  --line-height: 1.4em;
+  --heading-any-letter-spacing: 0.05rem;
+  --letter-spacing: 0.02em;
   --content-spacing-mobile: var(--content-spacing);
   --content-spacing: 1.59rem;
   --content-width-mobile: 92%;
@@ -176,7 +179,7 @@
   --header-m-navigation-transition: none;
   --header-padding: 2%;
   --header-position: static;
-  --header-sticky-border-bottom: 1px solid var(--color);
+  --header-sticky-border-bottom: 0;
   --header-title-margin: 0;
   --header-z-index: 1000;
   --heading-any-color: var(--color);

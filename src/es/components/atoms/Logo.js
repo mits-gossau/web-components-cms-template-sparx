@@ -45,6 +45,7 @@ export default class Logo extends Shadow() {
       this.setAttribute('role', 'link')
     }
     this.animationendListener = event => this.section.classList.add('done')
+    this.animationendListenerDiv = event => this.section.classList.add('done-div')
   }
 
   connectedCallback () {
@@ -52,11 +53,13 @@ export default class Logo extends Shadow() {
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.addEventListener('click', this.clickListener)
     this.section.addEventListener('animationend', this.animationendListener)
+    this.div.addEventListener('animationend', this.animationendListenerDiv)
   }
 
   disconnectedCallback () {
     this.removeEventListener('click', this.clickListener)
     this.section.removeEventListener('animationend', this.animationendListener)
+    this.div.removeEventListener('animationend', this.animationendListenerDiv)
   }
 
   /**
@@ -102,6 +105,7 @@ export default class Logo extends Shadow() {
         width: var(--width, 100%) !important;
         height: 100%;
         white-space: nowrap;
+        line-height: normal;
       }
       :host > section > svg {
         max-width: min(98vh, 64.4vw);
@@ -132,7 +136,7 @@ export default class Logo extends Shadow() {
         animation-delay: var(--animation-delay-4, .75s);
       }
       :host > section > svg .x1, :host > section > svg .x2 {
-        animation: bounce 0.3s cubic-bezier(1, -1.46, 0, 2.49);
+        animation: bounce 0.25s cubic-bezier(1, -1.46, 0, 2.49);
         animation-delay: var(--animation-delay-x, .8s);
         clip-path: circle(0% at center);
         opacity: 0;
@@ -156,6 +160,19 @@ export default class Logo extends Shadow() {
       :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top-last, -0.3em);
         margin-left: var(--margin-left-last, 3.2em);
+      }
+      :host > section > div {
+        opacity: 0;
+      }
+      :host > section.done > div {
+        animation: migrosKulturprozent 1.5s ease-out;
+      }
+      :host > section.done > div:last-of-type {
+        animation: migrosKulturprozent 1.7s ease-out;
+        animation-delay: var(--animation-delay-div, .1s);
+      }
+      :host > section.done-div > div {
+        opacity: 1;
       }
       ${!document.querySelector('html[lang=de]')
         ? /* css */`
@@ -222,18 +239,22 @@ export default class Logo extends Shadow() {
       @keyframes bounce{
         0%{
           clip-path: circle(0% at center);
-          transform: scale(0.9) translate(9.7%, 3.9%);
+          transform: scale(0.9) translate(9.7%, 1.75%);
           opacity: 0;
-        }
-        50%{
-          scale(1.1) translate(-8%, -3%)
         }
         100%{
           clip-path: circle(100% at center);
           opacity: 1;
           transform: scale(1);
         }
-
+      }
+      @keyframes migrosKulturprozent{
+        from{
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
       }
     `
   }
@@ -271,6 +292,10 @@ export default class Logo extends Shadow() {
 
   get x2 () {
     return this.root.querySelector('.x2')
+  }
+
+  get div () {
+    return this.root.querySelector('div')
   }
 
   get section () {

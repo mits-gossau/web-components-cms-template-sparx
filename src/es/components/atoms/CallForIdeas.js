@@ -304,6 +304,7 @@ export default class CallForIdeas extends Intersection() {
 
   makeItSquare (force = false, recursive = 0) {
     if (force || !this.isSquare) {
+      const oldSize = Math.max(this.background.offsetWidth, this.background.offsetHeight)
       this.makeItSquareStyle.textContent = ''
       self.requestAnimationFrame(timeStamp => {
         const size = Math.max(this.text.offsetWidth, this.text.offsetHeight)
@@ -311,6 +312,17 @@ export default class CallForIdeas extends Intersection() {
           :host > div > section.background {
             width: ${size}px;
             height: ${size}px;
+            animation: size .2s cubic-bezier(0, 0, 0, 1.62);
+          }
+          @keyframes size{
+            0%{
+              width: ${oldSize}px;
+              height: ${oldSize}px;
+            }
+            100%{
+              width: ${size}px;
+              height: ${size}px;
+            }
           }
         `
         // incase it wouldn't have worked, re-trigger makeItSquare
