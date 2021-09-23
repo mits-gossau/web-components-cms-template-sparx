@@ -2,6 +2,7 @@
 import { Intersection } from '../web-components-cms-template/src/es/components/prototypes/Intersection.js'
 
 /* global self */
+/* global CustomEvent */
 
 /**
  * Display current status of a project
