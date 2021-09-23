@@ -78,7 +78,7 @@ Using web-components-cms-template Repository
 
 ## Questions for Anja:
 
-  - [ ] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?) / sticky nur mobile?
+  - [x] sticky navigation style (border or shadow?, dropdown with bg + border-radius?, background color switching with scroll to different color scheme?) / sticky nur mobile?
 ##### Lesbarkeit Laufschrift verbessern:
-  - [ ] Zeilenabstand vergrössern > Vergleich Sketch (Unklar. Genauer definieren)
-  - [ ] Ebenfalls etwas Letterspacing > Vergleich Sketch  (Unklar. Genauer definieren)
+  - [x] Zeilenabstand vergrössern > Vergleich Sketch (Unklar. Genauer definieren)
+  - [x] Ebenfalls etwas Letterspacing > Vergleich Sketch  (Unklar. Genauer definieren)
