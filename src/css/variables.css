@@ -64,6 +64,7 @@
   --carousel-picture-height-mobile: auto;
   --carousel-picture-height: 100%;
   --carousel-picture-img-max-height: var(--picture-img-max-height);
+  --carousel-picture-img-object-fit: var(--picture-img-object-fit);
   --carousel-transition-duration: 1.6s;
   --carousel-video-min-height: 100%;
   --carousel-video-min-width: 100%;
@@ -188,11 +189,14 @@
   --heading-any-font-size-mobile: var(--h1-font-size-mobile);
   --heading-any-font-size: var(--h1-font-size);
   --heading-any-letter-spacing: 0.05rem;
+  --heading-any-letter-spacing: 0.05rem;
   --heading-any-margin: var(--h1-margin);
   --heading-h3-font-size-mobile: var(--h3-font-size-mobile);
   --heading-h3-font-size: var(--h3-font-size);
   --html-background-color: var(--background-color);
   --letter-spacing: 0.02em;
+  --letter-spacing: 0.02em;
+  --line-height: 1.4em;
   --line-height: 1.4em;
   --logo-font-size-mobile: min(10vh, 1.9rem);
   --logo-font-size: min(10vh, 4rem);
@@ -237,6 +241,7 @@
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
   --picture-img-max-height: 75vh;
+  --picture-img-object-fit: contain;
   --picture-margin: var(--content-spacing) auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
   --picture-width-mobile: var(--content-width-mobile);
   --picture-width: var(--content-width);
