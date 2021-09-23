@@ -229,6 +229,7 @@
   --navigation-transition: none;
   --p-color: var(--color);
   --p-margin: 0 auto var(--content-spacing);
+  --picture-img-min-height: 75vh;
   --picture-margin: var(--content-spacing) auto;  /* Warning! Keep horizontal margin at auto, otherwise the content width + margin may overflow into the scroll bar */
   --picture-width-mobile: var(--content-width-mobile);
   --picture-width: var(--content-width);
