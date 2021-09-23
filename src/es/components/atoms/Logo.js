@@ -164,14 +164,14 @@ export default class Logo extends Shadow() {
       :host > section > div {
         opacity: 0;
       }
-      :host > section.done > div {
+      /*:host > section.done > div {
         animation: migrosKulturprozent 1.5s ease-out;
       }
       :host > section.done > div:last-of-type {
         animation: migrosKulturprozent 1.7s ease-out;
         animation-delay: var(--animation-delay-div, .1s);
-      }
-      :host > section.done-div > div {
+      }*/
+      :host > section.done > div {
         opacity: 1;
       }
       ${!document.querySelector('html[lang=de]')
