@@ -1,5 +1,5 @@
 // @ts-check
-import { Shadow } from '../web-components-cms-template/src/es/components/prototypes/Shadow.js'
+import { Intersection } from '../web-components-cms-template/src/es/components/prototypes/Intersection.js'
 
 /* global self */
 
@@ -22,9 +22,9 @@ import { Shadow } from '../web-components-cms-template/src/es/components/prototy
  *  var(--font-size, 1em);
  * }
  */
-export default class Status extends Shadow() {
+export default class Status extends Intersection() {
   constructor (...args) {
-    super(...args)
+    super({ intersectionObserverInit: { rootMargin: '-200px 0px -200px 0px' } }, ...args)
 
     this.clickListener = event => {
       if (this.getAttribute('href')) {
@@ -57,6 +57,7 @@ export default class Status extends Shadow() {
   }
 
   connectedCallback () {
+    super.connectedCallback()
     if (this.shouldComponentRenderCSS()) this.renderCSS()
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.makeItSquare()
@@ -70,6 +71,10 @@ export default class Status extends Shadow() {
     super.disconnectedCallback()
     this.removeEventListener('click', this.clickListener)
     self.removeEventListener('resize', this.resizeListener)
+  }
+
+  intersectionCallback (entries, observer) {
+    if (entries && entries[0]) this.classList[entries[0].isIntersecting ? 'add' : 'remove']('hover')
   }
 
   /**
@@ -120,6 +125,15 @@ export default class Status extends Shadow() {
         font-weight: var(--font-weight, var(--font-weight, normal));
         text-align: var(--text-align, center);
         transform: rotate(-51deg);
+        line-height: 1em;
+      }
+      @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
+        :host {
+          opacity: 0;
+        }
+        :host(.hover) {
+          opacity: 1;
+        }
       }
     `
   }
