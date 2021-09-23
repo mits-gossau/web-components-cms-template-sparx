@@ -156,6 +156,9 @@ export default class Wrapper extends Style {
       :host(.project) > section a {
         text-decoration: none;
       }
+      :host(.project) > section h5 {
+        text-align: center;
+      }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
           --carousel-content-width-mobile: 100%;
