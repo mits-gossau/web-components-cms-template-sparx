@@ -45,7 +45,7 @@ export default class Logo extends Shadow() {
       this.setAttribute('role', 'link')
     }
     this.animationendListener = event => this.section.classList.add('done')
-    this.animationendListenerDiv = event => this.section.classList.add('done-div')
+    this.animationendListenerDiv = event => setTimeout(() => this.section.classList.add('done-div'), 400)
   }
 
   connectedCallback () {
@@ -53,13 +53,13 @@ export default class Logo extends Shadow() {
     if (this.shouldComponentRenderHTML()) this.renderHTML()
     this.addEventListener('click', this.clickListener)
     this.section.addEventListener('animationend', this.animationendListener)
-    this.div.addEventListener('animationend', this.animationendListenerDiv)
+    this.section.addEventListener('animationstart', this.animationendListenerDiv)
   }
 
   disconnectedCallback () {
     this.removeEventListener('click', this.clickListener)
     this.section.removeEventListener('animationend', this.animationendListener)
-    this.div.removeEventListener('animationend', this.animationendListenerDiv)
+    this.section.removeEventListener('animationstart', this.animationendListenerDiv)
   }
 
   /**
@@ -163,15 +163,9 @@ export default class Logo extends Shadow() {
       }
       :host > section > div {
         opacity: 0;
+        transition: opacity .1s;
       }
-      /*:host > section.done > div {
-        animation: migrosKulturprozent 1.5s ease-out;
-      }
-      :host > section.done > div:last-of-type {
-        animation: migrosKulturprozent 1.7s ease-out;
-        animation-delay: var(--animation-delay-div, .1s);
-      }*/
-      :host > section.done > div {
+      :host > section.done-div > div {
         opacity: 1;
       }
       ${!document.querySelector('html[lang=de]')
