@@ -153,6 +153,9 @@ export default class Wrapper extends Style {
         grid-column: 1;
         grid-row: 1;
       }
+      :host(.project) > section .has-status > a-picture {
+        display: flex; /* css bug on iphone not displaying the image with its with according to the vw */
+      }
       :host(.project) > section a {
         text-decoration: none;
       }
