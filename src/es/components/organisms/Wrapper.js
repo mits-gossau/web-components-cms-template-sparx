@@ -217,6 +217,10 @@ export default class Wrapper extends Style {
           --picture-img-max-height: unset;
           --content-spacing-mobile: 2.25rem;
         }
+        :host(.project) > section h5 {
+          text-align: center;
+          padding: calc(var(--content-spacing) * 0.23) 0 0;
+        }
       }
     `
   }
