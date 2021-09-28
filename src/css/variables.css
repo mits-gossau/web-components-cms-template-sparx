@@ -71,9 +71,6 @@
   --color-hover: #ffffff;
   --color-secondary: #d9adff;
   --color: #D2BB61;
-  --line-height: 1.4em;
-  --heading-any-letter-spacing: 0.05rem;
-  --letter-spacing: 0.02em;
   --content-spacing-mobile: var(--content-spacing);
   --content-spacing: 1.59rem;
   --content-width-mobile: 92%;
@@ -119,7 +116,11 @@
   --footer-engagement-logo-text-font-family: "HelveticaNowTextRegular", Helvetica, sans-serif;
   --footer-engagement-logo-text-font-size-mobile: 0.89rem;
   --footer-engagement-logo-text-line-height: 1.4em;
-  --footer-engagement-logo-text-padding-mobile: min(5vw, 1em) 0 0 5.6em;
+  --footer-engagement-logo-text-padding-en: 1em 0 0 4em;
+  --footer-engagement-logo-text-padding-fr: 1em 0 0 4.15em;
+  --footer-engagement-logo-text-padding-mobile-en: 1em 0 0 26%;
+  --footer-engagement-logo-text-padding-mobile-fr: 1em 0 0 27%;
+  --footer-engagement-logo-text-padding-mobile: 1em 0 0 5.6em;
   --footer-engagement-logo-text-padding: 1em 0 0 4em;
   --footer-engagement-logo-text-width: auto;
   --footer-font-family-hover: var(--a-font-family-hover);
@@ -190,12 +191,15 @@
   --heading-any-font-size: var(--h1-font-size);
   --heading-any-letter-spacing: 0.05rem;
   --heading-any-letter-spacing: 0.05rem;
+  --heading-any-letter-spacing: 0.05rem;
   --heading-any-margin: var(--h1-margin);
   --heading-h3-font-size-mobile: var(--h3-font-size-mobile);
   --heading-h3-font-size: var(--h3-font-size);
   --html-background-color: var(--background-color);
   --letter-spacing: 0.02em;
   --letter-spacing: 0.02em;
+  --letter-spacing: 0.02em;
+  --line-height: 1.4em;
   --line-height: 1.4em;
   --line-height: 1.4em;
   --logo-font-size-mobile: min(10vh, 1.9rem);
