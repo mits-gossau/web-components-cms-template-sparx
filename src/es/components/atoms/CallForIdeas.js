@@ -312,7 +312,7 @@ export default class CallForIdeas extends Intersection() {
           :host > div > section.background {
             width: ${size}px;
             height: ${size}px;
-            animation: size .2s cubic-bezier(0, 0, 0, 1.62);
+            animation: size .15s cubic-bezier(0, 0, 0, 1.62);
           }
           @keyframes size{
             0%{

@@ -45,7 +45,7 @@ export default class Logo extends Shadow() {
       this.setAttribute('role', 'link')
     }
     this.animationendListener = event => this.section.classList.add('done')
-    this.animationendListenerDiv = event => setTimeout(() => this.section.classList.add('done-div'), 400)
+    this.animationendListenerDiv = event => setTimeout(() => this.section.classList.add('done-div'), 600)
   }
 
   connectedCallback () {
@@ -113,11 +113,15 @@ export default class Logo extends Shadow() {
       :host > section > svg path {
         fill: var(--color, pink);
       }
-      :host > section > svg > * {
+      :host > section > svg > *:not(.bg) {
         animation: var(--animation, sparx .6s ease);
-        animation-delay: var(--animation-delay, .78s);
+        animation-delay: var(--animation-delay, 1.05s);
         clip-path: circle(0% at center);
         opacity: 0;
+      }
+      :host > section > svg > .bg {
+        clip-path: none;
+        opacity: 0.7;
       }
       :host > section.done > svg > * {
         clip-path: circle(100% at center);
@@ -127,23 +131,13 @@ export default class Logo extends Shadow() {
         animation-delay: var(--animation-delay-1, .5s);
       }
       :host > section > svg .spar-clip2 {
-        animation-delay: var(--animation-delay-2, .65s);
+        animation-delay: var(--animation-delay-2, .675s);
       }
       :host > section > svg .spar-clip3 {
-        animation-delay: var(--animation-delay-3, .7s);
+        animation-delay: var(--animation-delay-3, .825s);
       }
       :host > section > svg .spar-clip4 {
-        animation-delay: var(--animation-delay-4, .75s);
-      }
-      :host > section > svg .x1, :host > section > svg .x2 {
-        animation: bounce 0.25s cubic-bezier(1, -1.46, 0, 2.49);
-        animation-delay: var(--animation-delay-x, .8s);
-        clip-path: circle(0% at center);
-        opacity: 0;
-      }
-      :host > section.done > svg .x1, :host > section.done > svg .x2 {
-        clip-path: circle(100% at center);
-        opacity: 1;
+        animation-delay: var(--animation-delay-4, .95s);
       }
       :host > section *:first-child {
         width: 100%;
@@ -163,7 +157,10 @@ export default class Logo extends Shadow() {
       }
       :host > section > div {
         opacity: 0;
-        transition: opacity .1s;
+        transition: opacity .1s ease-in;
+      }
+      :host > section > div:last-of-type {
+        transition: opacity .2s ease-in;
       }
       :host > section.done-div > div {
         opacity: 1;
@@ -230,26 +227,6 @@ export default class Logo extends Shadow() {
           opacity: 1;
         }
       }
-      @keyframes bounce{
-        0%{
-          clip-path: circle(0% at center);
-          transform: scale(0.9) translate(9.7%, 1.75%);
-          opacity: 0;
-        }
-        100%{
-          clip-path: circle(100% at center);
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      @keyframes migrosKulturprozent{
-        from{
-          opacity: 0;
-        }
-        to{
-          opacity: 1;
-        }
-      }
     `
   }
 
@@ -264,6 +241,20 @@ export default class Logo extends Shadow() {
       <!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 194 79.4" xml:space="preserve">
+        <!-- background -->
+        <path class="bg" d="M27.6,51.8C26.8,45,22.2,40.7,16.1,40c-6.4-0.8-12.4,2.4-13.3,9.8C1.2,62.9,19.3,61.1,18.3,68.9
+          c-0.3,2.7-2.7,4.1-6,3.7c-3.7-0.5-6.2-3-6.3-7.6l-6,2.3c0.6,7.6,6.2,11,11.6,11.6c6.2,0.8,12.2-1.9,13.1-9.6
+          C26.4,55.8,8.2,57.9,9.2,50.2c0.3-2.7,2.7-4.3,6.1-3.9c3.4,0.4,5.7,2.9,6.1,7.2L27.6,51.8z"/>
+        <path class="bg" d="M42.1,53.8l1.5-14.1l7.8,0.8c3.9,0.4,6.7,3.6,6.3,7.8c-0.4,4.1-3.9,6.8-7.8,6.3L42.1,53.8z M49.2,61
+          c7.7,0.8,14-4.3,14.8-12c0.8-7.7-4.3-14-12-14.8l-14.2-1.5l-4.1,39l6.4,0.7l1.3-12.2L49.2,61z"/>
+        <path class="bg" d="M91,28l6.3,18.5L81,44.7L91,28z M109.1,60.8L95,19.8l-6.1-0.6L66.6,56.3l7,0.7l3.7-6.3l22.4,2.3L102,60
+          L109.1,60.8z"/>
+        <path class="bg" d="M123,31.3l1.4,2.2l-4.3-0.5l1.5-14.1l8.9,0.9c3.9,0.4,6.8,3.6,6.3,7.8c-0.3,3-2.2,5.2-4.7,6l-3.7-5.9L123,31.3z
+          M119.5,39.4l9.4,1l8.6,13.3l8.2,0.9l-10-15.4c4-1.9,6.9-5.8,7.4-10.8c0.8-7.7-4.3-14-12-14.8l-15.2-1.6l-4.1,39l6.4,0.7L119.5,39.4
+          z"/>
+        <path class="bg" d="M144.8,39.8l4.6,5.7l17-13.7l-4.6-5.7L144.8,39.8z M172.5,17.4l4.6,5.7L194,9.4l-4.6-5.7L172.5,17.4z"/>
+        <path class="bg" d="M170.9,32.3l13.7,16.9l5.7-4.6l-13.7-16.9L170.9,32.3z M154.2,0l-5.7,4.6l13.7,17l5.7-4.6L154.2,0z"/>
+        <!-- animations -->
         <path class="spar-clip1" d="M27.6,51.8C26.8,45,22.2,40.7,16.1,40c-6.4-0.8-12.4,2.4-13.3,9.8C1.2,62.9,19.3,61.1,18.3,68.9
           c-0.3,2.7-2.7,4.1-6,3.7c-3.7-0.5-6.2-3-6.3-7.6l-6,2.3c0.6,7.6,6.2,11,11.6,11.6c6.2,0.8,12.2-1.9,13.1-9.6
           C26.4,55.8,8.2,57.9,9.2,50.2c0.3-2.7,2.7-4.3,6.1-3.9c3.4,0.4,5.7,2.9,6.1,7.2L27.6,51.8z"/>
@@ -282,14 +273,6 @@ export default class Logo extends Shadow() {
       if (node.tagName !== 'STYLE') this.section.appendChild(node)
     })
     this.html = this.section
-  }
-
-  get x2 () {
-    return this.root.querySelector('.x2')
-  }
-
-  get div () {
-    return this.root.querySelector('div')
   }
 
   get section () {
