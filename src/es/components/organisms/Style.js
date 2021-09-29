@@ -39,6 +39,7 @@ export default class Style extends Body {
     this._css.textContent = bodyCss
     this.css = /* css */`
       :host {
+        display: flex; /* flow-root not supported before IOS13 */
         display: flow-root;
         ${Array.from(this.attributes).reduce((acc, attribute) => `${acc}${attribute.name}: ${attribute.value};--${attribute.name}: ${attribute.value};`, '')}
         /* the below are taken care of within body's css */
