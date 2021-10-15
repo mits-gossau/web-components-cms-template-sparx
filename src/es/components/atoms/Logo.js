@@ -106,6 +106,7 @@ export default class Logo extends Shadow() {
       }
       :host > section > svg {
         max-width: min(98vh, 64.4vw);
+        overflow: visible;
       }
       :host > section > svg path {
         fill: var(--color, pink);
@@ -167,11 +168,6 @@ export default class Logo extends Shadow() {
         }
         :host > section *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
           margin-left: var(--margin-left-mobile, var(--margin-left, -0.4em));
-        }
-        :host > section > svg .x1, :host > section > svg .x2 {
-          animation: none;
-          clip-path: none;
-          opacity: 1;
         }
       }
       @media only screen and (max-width: 800px) {
