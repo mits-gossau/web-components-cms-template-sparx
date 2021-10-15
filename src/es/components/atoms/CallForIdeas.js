@@ -137,6 +137,8 @@ export default class CallForIdeas extends Intersection() {
       :host {
         ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
         ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
+        ${this.hasAttribute('color') ? `--h4-color: ${this.getAttribute('color')};` : ''}
+        ${this.hasAttribute('color') ? `--p-color: ${this.getAttribute('color')};` : ''}
         ${this.hasAttribute('position') ? `--position: ${this.getAttribute('position')};` : ''}
         position: var(--position, absolute);
         ${this.hasAttribute('margin') ? `--margin: ${this.getAttribute('margin')};` : ''}
@@ -192,6 +194,9 @@ export default class CallForIdeas extends Intersection() {
       }
       :host .text br {
         line-height: 0;
+      }
+      :host .text > *:empty {
+        display: none;
       }
       :host .text > p {
         color: var(--p-color, var(--color, white));
@@ -291,8 +296,8 @@ export default class CallForIdeas extends Intersection() {
           : ''}
         </section>
         <section class=text>
-          <h4>${this.getAttribute('title') || 'No title attribute set!'}</h4>
-          <p>${this.getAttribute('text') || 'No text attribute set!'}</p>
+          <h4>${this.getAttribute('title') || ''}</h4>
+          <p>${this.getAttribute('text') || ''}</p>
         </section>
       </div>
     `
