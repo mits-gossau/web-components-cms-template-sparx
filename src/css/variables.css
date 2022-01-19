@@ -162,6 +162,7 @@
   --header-align-items: center;
   --header-background-color-open: var(--header-background-color);
   --header-background-color: var(--background-color);
+  --header-box-sizing-open-mobile: border-box;
   --header-color: var(--navigation-color);
   --header-content-spacing: 0;
   --header-content-width-mobile: var(--header-content-width);
@@ -170,6 +171,7 @@
   --header-height-mobile: var(--header-height);
   --header-height: auto;
   --header-justify-content: space-between;
+  --header-left-open-mobile: 0;
   --header-logo-height-mobile: 2.4em;
   --header-logo-height: 3.2em;
   --header-logo-justify-content: flex-start;
@@ -181,9 +183,12 @@
   --header-m-navigation-top-mobile: 0;
   --header-m-navigation-transition: none;
   --header-padding: 2%;
+  --header-position-open-mobile: fixed;
   --header-position: static;
   --header-sticky-border-bottom: 0;
   --header-title-margin: 0;
+  --header-top-open-mobile: 0;
+  --header-width-open-mobile: 100%;
   --header-z-index: 1000;
   --heading-any-color: var(--color);
   --heading-any-font-family: var(--font-family-quinary);
