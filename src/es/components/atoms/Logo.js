@@ -114,11 +114,11 @@ export default class Logo extends Shadow() {
       :host > section > svg .x1, :host > section > svg .x2 {
         animation: bounce 0.25s cubic-bezier(1, -1.46, 0, 2.49);
         animation-delay: var(--animation-delay-x, .5s);
-        clip-path: circle(0% at center);
+        clip-path: circle(0 at center); /* Percentage do not work with new chrome versions */
         opacity: 0;
       }
       :host > section.done > svg .x1, :host > section.done > svg .x2 {
-        clip-path: circle(100% at center);
+        clip-path: circle(1000px at center); /* Percentage do not work with new chrome versions */
         opacity: 1;
       }
       :host > section *:first-child {
@@ -191,12 +191,12 @@ export default class Logo extends Shadow() {
       }
       @keyframes bounce{
         0%{
-          clip-path: circle(0% at center);
+          clip-path: circle(0 at center); /* Percentage do not work with new chrome versions */
           transform: scale(0.9) translate(9.7%, 1.75%);
           opacity: 0;
         }
         100%{
-          clip-path: circle(100% at center);
+          clip-path: circle(1000px at center); /* Percentage do not work with new chrome versions */
           opacity: 1;
           transform: scale(1);
         }
