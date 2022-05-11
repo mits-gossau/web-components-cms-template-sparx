@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=../../../css/variables.css rel=stylesheet>
+  <link href=../../../css/misc.css rel=stylesheet>
+  <link href=../../../css/fonts.css rel=stylesheet>
+  <script type="text/javascript" src="../../../../wc-config.js"></script>
+  <!-- NOTE: Remove line Debugging.js below for none localhost -->
+  <script rel=preload type=module>import('../../../es/helpers/Debugging.js')</script>
+  <title>Home</title>
+  <meta name="title" content="">
+  <meta name="description" content="">
+  <meta property="og:description" content="">
+  <meta name="keywords" content="">
+</head>
+
+<body>
+  <p-general>
+    <o-header sticky menu-icon="true" namespace="header-" role="header">
+      <a-logo style="visibility: hidden;" namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_neg.svg" href="/"></a-logo>
+      <m-navigation hover="false" namespace="navigation-" hit-area="false" focus-lost-close focus-lost-close-mobile set-active>
+        <ul>
+          <li>
+            <a href="#" target="">About</a>
+            <ul>
+              <li>
+                <a href="/pages/Home2.html" target="">Idee</a>
+              </li>
+              <li>
+                <a href="/about/team/" target="">Team</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/pages/Home2.html" target="">Förderung</a>
+          </li>
+          <li>
+            <a href="/kosmos/" target="">Kosmos</a>
+          </li>
+          <li>
+            <a href="#" target="">Studio</a>
+            <ul>
+              <li>
+                <a href="/studio/in-den-studios/" target="">In den Studios</a>
+              </li>
+              <li>
+                <a href="/studio/projekte/" target="">Projekte</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/netzwerk/" target="">Netzwerk</a>
+          </li>
+          <li>
+            <a href="/suche/" target="">
+              <img src="https://testadmin.sparx-space.ch/assets/img/search_black_24dp.svg">
+            </a>
+          </li>
+        </ul>
+      </m-navigation>
+    </o-header>
+    <sparx-o-body home>
+      <sparx-a-logo href="/" namespace="logo-" color="#D9ADFF">
+        <div>Percento culturale</div>
+        <div>Migros</div>
+        <sparx-a-call-for-ideas color=#282828 background-color=#FF675D star namespace="call-for-ideas-" href="xxx/forderung/#cta" position="static">
+          <sparx-a-heading mode=false title-rotation="-6">
+            <h4>Call<br>for ideas</h4>
+          </sparx-a-heading>
+          <p>Jetzt deine Idee<br>einreichen</p>
+        </sparx-a-call-for-ideas>
+      </sparx-a-logo>
+    </sparx-o-body>
+    <sparx-a-marquee namespace="marquee-">
+      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit eveniet adipisci aliquam, fuga nulla
+        distinctio iste consectetur, architecto blanditiis fugiat necessitatibus ipsam illum quam facere eligendi unde,
+        quo dolore dolorum!</div>
+    </sparx-a-marquee>
+  </p-general>
+  <!--<msrc-cookie-banner props="{'env': 'test', 'language': 'de', 'theme': 'mgb', 'webAPIKey': 'YZ2PxeiToHsMMnjPdpeEZU9Tp4N9adVVAwYLQKjJg89KQ6MCFcYKQL9Cdcq2HjgE'}" mobile-breakpoint="1000px"></msrc-cookie-banner>-->
+  <script rel=preload type=module>
+    self.Environment = {
+      mobileBreakpoint: '1250px'
+    }
+  </script>
+</body>
+</html>

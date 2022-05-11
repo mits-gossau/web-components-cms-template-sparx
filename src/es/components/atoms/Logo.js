@@ -133,6 +133,12 @@ export default class Logo extends Shadow() {
         margin-top: var(--margin-top, -0.9em);
         margin-left: var(--margin-left, -1em);
       }
+      /* TODO: :host-context(:root[lang=it]) not yet supported by firefox nor safari 2022.05.11 (https://developer.mozilla.org/en-US/docs/Web/CSS/:host-context), querySelector can be replaced in future */
+      ${document.querySelector(':root[lang=it]') ? /*css*/`
+        :host > section *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
+          margin-left: var(--margin-left, 4em);
+        }
+      ` : ''}
       :host > section *:last-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
         margin-top: var(--margin-top-last, -0.3em);
         margin-left: var(--margin-left-last, 3.2em);
@@ -169,6 +175,13 @@ export default class Logo extends Shadow() {
         :host > section *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
           margin-left: var(--margin-left-mobile, var(--margin-left, -0.4em));
         }
+        /* TODO: :host-context(:root[lang=it]) not yet supported by firefox nor safari 2022.05.11 (https://developer.mozilla.org/en-US/docs/Web/CSS/:host-context), querySelector can be replaced in future */
+        ${document.querySelector(':root[lang=it]') ? /*css*/`
+          :host > section *:first-of-type:not(:first-child):not(sparx-a-call-for-ideas)  {
+            margin-top: var(--margin-top-mobile, var(--margin-top, 0.1em));
+            margin-left: var(--margin-left-mobile, var(--margin-left, 0));
+          }
+        ` : ''}
       }
       @media only screen and (max-width: 800px) {
         :host > section *:not(:first-child):not(sparx-a-call-for-ideas) {
