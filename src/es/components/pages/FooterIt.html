@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=../../../css/variables.css rel=stylesheet>
+  <link href=../../../css/misc.css rel=stylesheet>
+  <link href=../../../css/fonts.css rel=stylesheet>
+  <script type="text/javascript" src="../../../../wc-config.js"></script>
+  <!-- NOTE: Remove line Debugging.js below for none localhost -->
+  <script rel=preload type=module>import('../../../es/helpers/Debugging.js')</script>
+  <title>Sparx</title>
+</head>
+
+<body>
+  <style>
+    html {
+      --color: #282828;
+      --background-color: #FEDF73;
+    }
+  </style>
+  <p-general>
+    <o-header menu-icon="true" namespace="header-" role="header">
+      <a-logo namespace="header-logo-" src="https://testadmin.sparx-space.ch/assets/img/MKP_Sparx_Logo_Sparx_pos.svg"
+        href="/"></a-logo>
+      <m-navigation hover="false" namespace="navigation-" hit-area="false" focus-lost-close focus-lost-close-mobile>
+        <ul>
+          <li>
+            <a href="#" target="">About</a>
+            <ul>
+              <li>
+                <a href="/about/idee/" target="">Idee</a>
+              </li>
+              <li>
+                <a href="/about/team/" target="">Team</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/forderung/" target="">Förderung</a>
+          </li>
+          <li>
+            <a href="/kosmos/" target="">Kosmos</a>
+          </li>
+          <li>
+            <a href="#" target="">Studio</a>
+            <ul>
+              <li>
+                <a href="/studio/in-den-studios/" target="">In den Studios</a>
+              </li>
+              <li>
+                <a href="/studio/projekte/" target="">Projekte</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/netzwerk/" target="">Netzwerk</a>
+          </li>
+          <li>
+            <a href="/suche/" target="">
+              <img src="https://testadmin.sparx-space.ch/assets/img/search_black_24dp.svg">
+            </a>
+          </li>
+        </ul>
+      </m-navigation>
+    </o-header>
+    <sparx-o-body>
+      <sparx-a-heading namespace="heading-" title-rotation="-6" sparkle>
+        <h1>Sparx Studios </h1>
+      </sparx-a-heading>
+
+      <sparx-a-button namespace="back-button-" icon-image="../../../img/BackArrow.svg" has-icon>alle Projekte</sparx-a-button>
+
+      <div>
+        <p>Sparx kreiert Frei- und Schaffensräume für junge Kultur- schaffende zwischen 18 und 25 Jahren. Das
+          Förderprojekt ist partizipativ aufgebaut und offen für alle Sparten, Ideen und Gruppen. Einmal jährlich suchen
+        </p> 
+      </div>
+
+      <sparx-o-badge background-color="#282828">
+        <div>
+          <sparx-a-heading namespace="heading-" color="#84E3C5" title-rotation="-6">
+            <h1>Das Programm wird<br>hier ab April 2022<br>freigeschalten!!!</h1>
+          </sparx-a-heading>
+          <sparx-a-call-for-ideas color=#282828 background-color=#84E3C5 namespace="badge-call-for-ideas-"
+            position="static" position-mobile="static" spacing=65>
+            <sparx-a-heading mode=false>
+              <h4>Sparx<br> Kosmos</h4>
+            </sparx-a-heading>
+            <p>im Oktober<br> 2022</p>
+          </sparx-a-call-for-ideas>
+        </div>
+      </sparx-o-badge>
+    </sparx-o-body>
+    <sparx-o-footer namespace="footer-">
+      <div class="wrapper-language">
+        <ul class="language-switcher">
+          <li>
+            <a href="http://testadmin.sparx-space.ch/suche/" class="active"> DE </a>
+          </li>
+          <li>
+            <a href="#"> EN </a>
+          </li>
+          <li>
+            <a href="#"> FR </a>
+          </li>
+        </ul>
+        <ul class="language-block-links">
+          <li>
+            <a href="/kontakt/">Kontakt</a>
+          </li>
+          <li>
+            <a href="#" target="_blank">Instagram</a>
+          </li>
+        </ul>
+      </div>
+      <div class="wrapper-logo">
+        <a-logo lang="it" namespace="footer-engagement-logo-"
+          src="https://sparx-space.ch/media/wxynk1rd/logo_fge_mk_rgb_neg_300dpi_it.png?mode=max&width=720&format=png&quality=80&rnd=133058981823030000"
+          href="https://www.migros-engagement.ch/engagement" target="_blank">
+          <p>«Migros-Kulturprozent Sparx» ist Teil des gesellschaftlichen Engagements der Migros-Gruppe: <a href="http://migros-engagement.ch/" target="_blank">migros-engagement.ch</a>
+          </p>
+        </a-logo>
+      </div>
+      <div class="wrapper-info-links">
+        <ul class="footer-links">
+          <li>
+            <a href="/impressum/">Impressum</a>
+          </li>
+          <li>
+            <a href="https://www.migros.ch/de/datenschutz.html" target="_blank">Datenschutz</a>
+          </li>
+          <li>
+            <a href="https://www.migros.ch/de/rechtliche-informationen.html" target="_blank">Rechtliche
+              Informationen</a>
+          </li>
+          <li>© 2021 Migros-Kulturprozent</li>
+        </ul>
+      </div>
+    </sparx-o-footer>
+  </p-general>
+  <script rel=preload type=module>
+    self.Environment = {
+      mobileBreakpoint: '1250px'
+    }
+  </script>
+</body>
+
+</html>

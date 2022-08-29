@@ -117,10 +117,12 @@
   --footer-engagement-logo-text-font-size-mobile: 0.89rem;
   --footer-engagement-logo-text-line-height: 1.4em;
   --footer-engagement-logo-text-padding-en: 1em 0 0 4em;
-  --footer-engagement-logo-text-padding-fr: 1em 0 0 4.15em;
+  --footer-engagement-logo-text-padding-fr: 1em 0 0 4em;
+  --footer-engagement-logo-text-padding-it: 1em 0 0 4.2em;
   --footer-engagement-logo-text-padding-mobile-en: 1em 0 0 26%;
   --footer-engagement-logo-text-padding-mobile-fr: 1em 0 0 27%;
-  --footer-engagement-logo-text-padding-mobile: 1em 0 0 5.6em;
+  --footer-engagement-logo-text-padding-mobile-it: 1em 0 0 27%;
+  --footer-engagement-logo-text-padding-mobile: 1em 0 0 27%;
   --footer-engagement-logo-text-padding: 1em 0 0 4em;
   --footer-engagement-logo-text-width: auto;
   --footer-font-family-hover: var(--a-font-family-hover);
