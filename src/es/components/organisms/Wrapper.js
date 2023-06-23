@@ -147,11 +147,14 @@ export default class Wrapper extends Style {
       :host(.project) > section .has-status {
         display: grid;
         align-items: center;
-        justify-items: center;
+        justify-items: left;
       }
       :host(.project) > section .has-status > * {
         grid-column: 1;
         grid-row: 1;
+      }
+      :host(.project) > section .has-status > sparx-a-status {
+        justify-self: center;
       }
       :host(.project) > section .has-status > a-picture {
         display: flex; /* css bug on iphone not displaying the image with its with according to the vw */
@@ -160,7 +163,7 @@ export default class Wrapper extends Style {
         text-decoration: none;
       }
       :host(.project) > section h5 {
-        text-align: center;
+        text-align: left;
       }
       @media only screen and (max-width: ${this.getAttribute('mobile-breakpoint') ? this.getAttribute('mobile-breakpoint') : self.Environment && !!self.Environment.mobileBreakpoint ? self.Environment.mobileBreakpoint : '1000px'}) {
         :host {
@@ -222,7 +225,7 @@ export default class Wrapper extends Style {
           --content-spacing: var(--content-spacing-mobile);
         }
         :host(.project) > section h5 {
-          text-align: center;
+          text-align: left;
           padding: calc(var(--content-spacing) * 0.23) 0 0;
         }
       }

@@ -107,6 +107,7 @@ export default class Status extends Intersection() {
         ${this.hasAttribute('background-color') ? `--background-color: ${this.getAttribute('background-color')};` : ''}
         ${this.hasAttribute('color') ? `--color: ${this.getAttribute('color')};` : ''}
         transition: opacity .5s ease;
+        z-index: 1;
       }
       :host(:hover), :host(:focus) {
         opacity: 0;
