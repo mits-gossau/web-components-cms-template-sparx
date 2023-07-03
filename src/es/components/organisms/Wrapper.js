@@ -82,6 +82,12 @@ export default class Wrapper extends Style {
         justify-content: var(--justify-content, space-between);
         margin: 0 auto;
       }
+      :host(.project) > section {
+        justify-content: var(--justify-content, space-around);
+      }
+      :host(.project) > section > * {
+        width: auto;
+      }
       ${this.nextElementSibling && this.nextElementSibling.tagName === this.tagName
         ? /* css */`
           :host > section {
@@ -147,7 +153,11 @@ export default class Wrapper extends Style {
       :host(.project) > section .has-status {
         display: grid;
         align-items: center;
+      }
+      :host(.project) > section * {
         justify-items: left;
+        --picture-text-align: left;
+        --picture-width: auto;
       }
       :host(.project) > section .has-status > * {
         grid-column: 1;
