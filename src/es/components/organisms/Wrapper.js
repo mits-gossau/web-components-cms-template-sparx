@@ -253,6 +253,25 @@ export default class Wrapper extends Style {
       if (node.tagName !== 'STYLE') section.appendChild(node)
     })
     this.html = section
+    // MUTOBOTEAM-2113, required the wrapper elements to have a fix width due to have all text aligned-left
+    if (this.classList.contains('project')) {
+      self.addEventListener('wc-config-load', event => Array.from(this.root.querySelectorAll('a-picture')).forEach(picture => picture.img.addEventListener('load', event => {
+        if (this.hasAttribute('pic-width')) {
+          const picWidth = Number(this.getAttribute('pic-width'))
+          if (picture.img.offsetWidth < picWidth) this.css = /* css */`
+            :host(.project) > section > * {
+              width: ${picture.img.offsetWidth}px;
+            }
+          `
+        } else {
+          this.css = /* css */`
+            :host(.project) > section > * {
+              width: ${picture.img.offsetWidth}px;
+            }
+          `
+        }
+      })))
+    }
   }
 
   get div () {
