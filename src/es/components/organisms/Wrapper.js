@@ -85,9 +85,6 @@ export default class Wrapper extends Style {
       :host(.project) > section {
         justify-content: var(--justify-content, space-around);
       }
-      :host(.project) > section > * {
-        width: auto;
-      }
       ${this.nextElementSibling && this.nextElementSibling.tagName === this.tagName
         ? /* css */`
           :host > section {
