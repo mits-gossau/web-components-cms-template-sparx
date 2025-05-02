@@ -102,5 +102,29 @@ export default class Body extends BaseBody {
         }
       }
     `
+    if (this.previousElementSibling?.hasAttribute('home')) {
+      this.parentElement.css = /* css */`
+        :host {
+          grid-template-areas: "header"
+                               "body"
+                               "body-two"
+                               "footer";
+        }
+      `
+      this.previousElementSibling.css = /* css */`
+        :host {
+          min-height: 100dvh;
+        }
+        :host > main {
+          height: var(--height, max(75vh, calc(100% - 9.1em)));
+        }
+      `
+      this.css = /* css */`
+        :host {
+          grid-area: body-two;
+          z-index: 101;
+        }
+      `
+    }
   }
 }
